@@ -2,6 +2,8 @@
 #ifndef STATE__BOARDS__H
 #define STATE__BOARDS__H
 
+#include <string>
+#include <vector>
 
 namespace state {
 
@@ -10,10 +12,10 @@ namespace state {
     // Attributes
   private:
     int id;
-    Monsters[] monsters;
-    Spells[] spells;
-    Traps[] traps;
-    Cards[] graveyard;
+    vector<Monsters>  monsters;
+    vector<Spells>  spells;
+    vector<Traps>  traps;
+    vector<Cards>  graveyard;
     // Operations
   public:
     void attackPosition ();
