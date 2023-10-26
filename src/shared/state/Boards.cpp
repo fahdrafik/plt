@@ -1,6 +1,7 @@
 #include "Boards.h"
 
 using namespace std;
+using namespace state;
 
 Boards::Boards(int id, Monsters monsters, Spells spells, Traps traps, Card graveyard){
     this->Monster = Monster[];
