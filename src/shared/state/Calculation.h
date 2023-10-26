@@ -9,7 +9,7 @@ namespace state {
   class Calculation {
     // Attributes
   private:
-    int  lifePointsPlayer1;
+    int lifePointsPlayer1;
     int lifePointsPlayer2;
     int attackPointsPlayer1;
     int attackPointsPlayer2;
