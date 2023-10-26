@@ -1,16 +1,14 @@
-#include "Boards.h"
+#include "state.h"
+#include <iostream>
 
 using namespace std;
 using namespace state;
 
-Boards::Boards(int id, Monsters monsters, Spells spells, Traps traps, Card graveyard){
-    this->Monster = Monster[];
-    this->Spells = Spells[];
-    this->Traps = Traps[];
-    this->graveyard = graveyard[];
+Boards::Boards(int id, Monsters monsters, Spells spells, Traps traps, Cards graveyard){
+
 }
 void Boards::attackPosition (){
-    cout<<"attackPosition\n";
+    std::cout<<"attackPosition\n";
 }
 void Boards::defensePosition (){
     cout<<"defensePosition\n";
