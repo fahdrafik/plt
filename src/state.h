@@ -10,7 +10,7 @@ namespace state {
     std::vector<Players> playerList;
     // Operations
   public:
-    void State ();
+    States ();
     void init ();
     void incrementTurn ();
     void displayScore ();
@@ -31,11 +31,11 @@ namespace state {
     int numberOfCards;
     // Operations
   public:
+    Decks (int id, std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands, int numberOfCards);
     void shuffle ();
     void drawCard ();
     void addCard ();
     void removeCard ();
-    Decks (int id, std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands, int numberOfCards);
   };
 
   enum TypePlayer {
@@ -61,6 +61,7 @@ namespace state {
     int lifepoints;
     // Operations
   public:
+    Players ();
     void drawCard ();
     void placeCard ();
     void setSpell ();
@@ -156,6 +157,7 @@ namespace state {
     // Operations
   public:
     bool isOn ();
+    Spells ();
   };
 
   /// class Monsters - 
@@ -190,6 +192,7 @@ namespace state {
   public:
     void activate ();
     bool isOn ();
+    Traps ();
   };
 
 };
