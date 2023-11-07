@@ -2,8 +2,6 @@
 
 class States {
   // Attributes
-private:
-  Playing playing;
 protected:
   int turn;
   std::vector<std::shared_ptr<Cards>> cardList;
