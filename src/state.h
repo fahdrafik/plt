@@ -32,6 +32,7 @@ namespace state {
     // Operations
   public:
     Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
+    Decks ();
     void shuffle ();
     void drawCard ();
     void addCard ();
@@ -49,6 +50,30 @@ namespace state {
     LOOSE
   };
 
+  /// class Boards - 
+  class Boards {
+    // Attributes
+  private:
+    int id;
+    std::vector<Monsters> monsters;
+    std::vector<Spells> spells;
+    std::vector<Traps> traps;
+    std::vector<Cards> graveyard;
+    // Operations
+  public:
+    Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
+    Boards ();
+    void attackPosition ();
+    void defensePosition ();
+    void addMonster ();
+    void removeMonster ();
+    void addSpell ();
+    void removeSpell ();
+    void addTrap ();
+    void removeTrap ();
+    void appel ();
+  };
+
   /// class Players - 
   class Players {
     // Attributes
@@ -56,11 +81,13 @@ namespace state {
     int id;
     TypePlayer type;
     GameStatus status;
-    std::vector<Decks> deck;
-    std::vector<Boards> board;
+    Decks deck;
+    Boards board;
     int lifepoints;
+    static int nbPlayers;
     // Operations
   public:
+    Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints);
     Players ();
     void drawCard ();
     void placeCard ();
@@ -85,15 +112,17 @@ namespace state {
   /// class Cards - 
   class Cards {
     // Attributes
+  public:
+    int nombreDeCartes;
   protected:
     int idCard;
     std::string name;
     std::string description;
     CardTypes typeCarte;
-    int nombreDeCartes;
     // Operations
   public:
-    Cards (std::string name, std::string description, CardTypes typeCarte);
+    Cards (int idCard, std::string name, std::string description, CardTypes typeCarte);
+    Cards ();
   };
 
   /// class Calculation - 
@@ -115,29 +144,6 @@ namespace state {
     int getLifePointsPlayer1 ();
     int getLifePointsPlayer2 ();
     Calculation (int lifePointsPlayer1, int lifePointsPlayer2, int attackPointsPlayer1, int attackPointsPlayer2, int defensePointsPlayer1, int defensePointsPlayer2);
-  };
-
-  /// class Boards - 
-  class Boards {
-    // Attributes
-  private:
-    int id;
-    std::vector<Monsters> monsters;
-    std::vector<Spells> spells;
-    std::vector<Traps> traps;
-    std::vector<Cards> graveyard;
-    // Operations
-  public:
-    Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
-    void attackPosition ();
-    void defensePosition ();
-    void addMonster ();
-    void removeMonster ();
-    void addSpell ();
-    void removeSpell ();
-    void addTrap ();
-    void removeTrap ();
-    void appel ();
   };
 
   enum spellEffect {
