@@ -17,8 +17,8 @@ BOOST_AUTO_TEST_CASE(TestExemple)
       CardTypes CarteMonstre ("Monstres");
       Cards DragonBlancAuxYeuxBleus (0,"Dragon Blanc Aux Yeux Bleus","Monstre de type dragon",CarteMonstre);
       BOOST_CHECK_EQUAL(DragonBlancAuxYeuxBleus.getIdCard(), 0);
-      //ex.setX(21);
-      //BOOST_CHECK_EQUAL(ex.x, 21);
+      DragonBlancAuxYeuxBleus.setIdCard(1);
+      BOOST_CHECK_EQUAL(DragonBlancAuxYeuxBleus.getIdCard(), 1);
   }
 
   {
