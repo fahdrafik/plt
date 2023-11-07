@@ -31,7 +31,7 @@ namespace state {
     int numberOfCards;
     // Operations
   public:
-    Decks (int id, std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands, int numberOfCards);
+    Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
     void shuffle ();
     void drawCard ();
     void addCard ();
@@ -93,7 +93,7 @@ namespace state {
     int nombreDeCartes;
     // Operations
   public:
-    Cards (int  idCard, std::string name, std::string description, CardTypes typeCarte, int nombreDeCartes);
+    Cards (std::string name, std::string description, CardTypes typeCarte);
   };
 
   /// class Calculation - 
@@ -128,7 +128,7 @@ namespace state {
     std::vector<Cards> graveyard;
     // Operations
   public:
-    Boards (int  id, std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
+    Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
     void attackPosition ();
     void defensePosition ();
     void addMonster ();

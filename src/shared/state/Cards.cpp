@@ -7,8 +7,6 @@
 using namespace std;
 using namespace state; 
 
-Cards::Cards(int idCard, std::string name, std::string description, CardTypes typeCarte, int nombresDeCartes):typeCarte(typeCarte) {
-    this->idCard = idCard;
+Cards::Cards(std::string name, std::string description, CardTypes typeCarte):typeCarte(typeCarte) {
     this->name = name;
-    this->nombreDeCartes = nombresDeCartes;
 }

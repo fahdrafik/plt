@@ -15,7 +15,7 @@ BOOST_AUTO_TEST_CASE(TestExemple)
 {
   {
       CardTypes CarteMonstre ("Monstres");
-      Cards DragonBlancAuxYeuxBleus (1,"Dragon Blanc Aux Yeux Bleus","Monstre de type dragon",CarteMonstre,1);
+      Cards DragonBlancAuxYeuxBleus ("Dragon Blanc Aux Yeux Bleus","Monstre de type dragon",CarteMonstre);
       // BOOST_CHECK_EQUAL(DragonBlancAuxYeuxBleus.idCard, 1);
       //ex.setX(21);
       //BOOST_CHECK_EQUAL(ex.x, 21);
