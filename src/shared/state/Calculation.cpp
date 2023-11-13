@@ -11,7 +11,6 @@ Calculation::Calculation(int  lifePointsPlayer1, int lifePointsPlayer2, int atta
     this->attackPointsPlayer2 = attackPointsPlayer2;
     this->defensePointsPlayer1 = defensePointsPlayer1;
     this->defensePointsPlayer2 = defensePointsPlayer2;
-
 }
 
 int Calculation::getDefensePointsPlayer1() {

@@ -3,6 +3,10 @@
 #include <cstring>
 #include <string>
 
+//#include <boost/test/included/unit_test.hpp>
+
+#define BOOST_TEST_DYN_LINK
+
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
 #include <SFML/Graphics.hpp>
 

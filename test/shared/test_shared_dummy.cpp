@@ -3,6 +3,7 @@
 
 #include "../../src/shared/state/Cards.h"
 #include "../../src/shared/state/CardTypes.h"
+#include "../../src/shared/state/Calculation.h"
 
 using namespace ::state;
 
@@ -11,7 +12,7 @@ BOOST_AUTO_TEST_CASE(TestStaticAssert)
   BOOST_CHECK(1);
 }
 
-BOOST_AUTO_TEST_CASE(TestExemple)
+BOOST_AUTO_TEST_CASE(TestCarte)
 {
   {
       CardTypes CarteMonstre ("Monstres");
@@ -22,15 +23,16 @@ BOOST_AUTO_TEST_CASE(TestExemple)
   }
 
   {
-    //Exemple ex {};
-    //ex.setX(21);
-    //BOOST_CHECK_LE(ex.x, 32); // Less than equal
-    //BOOST_CHECK_GT(ex.x, 11); // Greater than equl
+      // Exemple ex;
+      //ex.setX(21);
+      //BOOST_CHECK_LE(ex.x, 32); // Less than equal
+      //BOOST_CHECK_GT(ex.x, 11); // Greater than equl
   }
 }
 
-BOOST_AUTO_TEST_CASE(TestAutres)
+BOOST_AUTO_TEST_CASE(TestCalculation)
 {
+    Calculation Calcul(2000,1000,4000,5000,2000,4000);
 }
 
 /* vim: set sw=2 sts=2 et : */
