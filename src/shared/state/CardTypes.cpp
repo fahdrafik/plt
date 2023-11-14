@@ -3,9 +3,9 @@
 //
 
 #include "CardTypes.h"
-
-
-namespace state {
+#include "
+using namespace std;
+using namespace state;
 
     void CardTypes::isMonster(){
         return;
@@ -22,5 +22,3 @@ namespace state {
     CardTypes::CardTypes (std::string type){
     }
 
-
-}

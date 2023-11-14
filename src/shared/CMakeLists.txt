@@ -11,7 +11,7 @@ file(GLOB_RECURSE shared_sources *.cpp)
 
 # Build the "shared" library and add required includes
 add_library(${lib_shared_target} STATIC ${shared_sources}
-        state/Player.h
+        state/Players.h
         state/Boards.cpp
         state/CardTypes.cpp
         state/Players.cpp
