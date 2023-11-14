@@ -7,7 +7,10 @@ using namespace std;
 using namespace state;
 
 Boards::Boards(std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard) {
-
+    this->spells = spells;
+    this->traps = traps;
+    this->monsters = monsters;
+    this->graveyard = graveyard;
 }
 void Boards::attackPosition() {
     std::cout << "attackPosition\n";

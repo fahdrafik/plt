@@ -24,7 +24,7 @@ namespace state {
   /// class Decks - 
   class Decks {
     // Attributes
-  private:
+  protected:
     int id;
     std::vector<Cards> cardsInDeck;
     std::vector<Cards> cardsInHand;
@@ -53,7 +53,7 @@ namespace state {
   /// class Boards - 
   class Boards {
     // Attributes
-  private:
+  protected:
     int id;
     std::vector<Monsters> monsters;
     std::vector<Spells> spells;
@@ -78,13 +78,14 @@ namespace state {
   class Players {
     // Attributes
   private:
+    static int nbPlayers;
+  protected:
     int id;
     TypePlayer type;
     GameStatus status;
     Decks deck;
     Boards board;
     int lifepoints;
-    static int nbPlayers;
     // Operations
   public:
     Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints);
@@ -99,7 +100,7 @@ namespace state {
   /// class CardTypes - 
   class CardTypes {
     // Attributes
-  private:
+  protected:
     std::string type;
     // Operations
   public:
@@ -128,7 +129,7 @@ namespace state {
   /// class Calculation - 
   class Calculation {
     // Attributes
-  private:
+  protected:
     int  lifePointsPlayer1;
     int lifePointsPlayer2;
     int attackPointsPlayer1;
@@ -137,12 +138,6 @@ namespace state {
     int defensePointsPlayer2;
     // Operations
   public:
-    int getDefensePointsPlayer1 ();
-    int getDefensePointsPlayer2 ();
-    int getAttackPointsPlayer1 ();
-    int getAttackPointsPlayer2 ();
-    int getLifePointsPlayer1 ();
-    int getLifePointsPlayer2 ();
     Calculation (int lifePointsPlayer1, int lifePointsPlayer2, int attackPointsPlayer1, int attackPointsPlayer2, int defensePointsPlayer1, int defensePointsPlayer2);
   };
 
@@ -158,7 +153,7 @@ namespace state {
   /// class Spells - 
   class Spells {
     // Attributes
-  private:
+  protected:
     spellEffect effect;
     // Operations
   public:
@@ -169,7 +164,7 @@ namespace state {
   /// class Monsters - 
   class Monsters {
     // Attributes
-  private:
+  protected:
     int level;
     int attack;
     int defense;
@@ -192,7 +187,7 @@ namespace state {
   /// class Traps - 
   class Traps {
     // Attributes
-  private:
+  protected:
     trapEffect effect;
     // Operations
   public:
