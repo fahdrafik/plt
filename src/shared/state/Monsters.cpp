@@ -22,3 +22,44 @@ void Monsters::attackPlayer(Players player) {
 void Monsters::setSpell() {
     cout << "attack\n";
 }
+int Monsters::getLevel() const
+{
+    return level;
+}
+void Monsters::setLevel(int level)
+{
+    this->level = level;
+}
+
+int Monsters::getAttack() const
+{
+    return attack;
+}
+void Monsters::setAttack(int attack)
+{
+    this->attack = attack;
+}
+int Monsters::getDefense() const
+{
+    return defense;
+}
+void Monsters::setDefense(int defense)
+{
+    this->defense = defense;
+}
+bool Monsters::getPosition() const
+{
+    return position;
+}
+void Monsters::setPosition(bool position)
+{
+    this->position=position;
+}
+int Monsters::getEffet () const
+{
+    return effet;
+}
+void Monsters::setEffet (int effet)
+{
+    this->effet=effet;
+}

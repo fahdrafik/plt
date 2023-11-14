@@ -31,7 +31,20 @@ BOOST_AUTO_TEST_CASE(TestCalculation)
 
 BOOST_AUTO_TEST_CASE(TestBoards)
 {
-    Boards board
+
 }
 
+BOOST_AUTO_TEST_CASE(TestMonsters)
+{
+
+}
+
+BOOST_AUTO_TEST_CASE(TestSpells)
+{
+
+}
+BOOST_AUTO_TEST_CASE(TestTraps)
+{
+
+}
 /* vim: set sw=2 sts=2 et : */
