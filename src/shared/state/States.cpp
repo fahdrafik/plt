@@ -3,7 +3,12 @@
 //
 #include "States.h"
 
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
 
     States::States (){
     }
@@ -38,4 +43,3 @@ namespace state{
     //void States::setPlayerList(const std::vector<Players>& playerList){
     //}
 
-}

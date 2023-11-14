@@ -1,6 +1,11 @@
 #include "Cards.h"
 
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
 
     Cards (int idCard, std::string name, std::string description, CardTypes typeCarte){
 
@@ -23,4 +28,3 @@ namespace state{
     }
     void Cards::setTypeCarte(const CardTypes& typeCarte){
     }
-}

@@ -2,7 +2,12 @@
 
 
 
-namespace state {
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
     Decks::Decks (std::vector<Cards>
     cardsInDeck,
     std::vector <Cards> cardsInHands
@@ -17,4 +22,4 @@ namespace state {
 
     void Decks::removeCard(){}
 
-}
+

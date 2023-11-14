@@ -3,9 +3,12 @@
 //
 
 #include "CardTypes.h"
-#include "
+#include <iostream>
+#include <vector>
+
 using namespace std;
 using namespace state;
+
 
     void CardTypes::isMonster(){
         return;

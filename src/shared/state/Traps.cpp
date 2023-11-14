@@ -3,7 +3,12 @@
 //
 #include "Traps.h"
 
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
 
 
     void Traps::activate (){
@@ -15,4 +20,3 @@ namespace state{
     Traps::Traps (){
 
     }
-}

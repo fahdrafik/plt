@@ -5,11 +5,15 @@
 
 #include "Spells.h"
 
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
 
 
     bool Spells::isOn (){
         return true;
     }
     Spells::Spells (){}
-}

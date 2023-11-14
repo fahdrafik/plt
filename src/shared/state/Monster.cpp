@@ -1,7 +1,10 @@
 #include "Monsters.h"
 
+#include <iostream>
+#include <vector>
 
-namespace state{
+using namespace std;
+using namespace state;
 
     void Monsters::attackCard (Cards card){
 
@@ -15,4 +18,3 @@ namespace state{
     Monsters::Monsters (int effet, int level, int attack, int defense, bool position){
 
     }
-}

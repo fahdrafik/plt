@@ -3,7 +3,12 @@
 //
 
 #include "Players.h"
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
     Players::Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints){}
 
     void Players::drawCard (){}
@@ -11,4 +16,4 @@ namespace state{
     void Players::setSpell (){}
     void Players::endTurn (){}
     void Players::looseLifePoints (int degat ){}
-}
+

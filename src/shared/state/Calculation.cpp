@@ -1,7 +1,12 @@
 
 #include "Calculation.h"
 
-namespace state{
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
 
     int Calculation::getDefensePointsPlayer1 (){
         return 0;
@@ -23,4 +28,3 @@ namespace state{
     }
     void Calculation (int lifePointsPlayer1, int lifePointsPlayer2, int attackPointsPlayer1, int attackPointsPlayer2, int defensePointsPlayer1, int defensePointsPlayer2){}
 
-}

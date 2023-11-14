@@ -2,7 +2,12 @@
 // Created by cornic on 09/11/23.
 //
 #include "Boards.h"
-namespace state {
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
+
     void Boards::attackPosition() {
     }
 
@@ -29,4 +34,3 @@ namespace state {
 
     void Boards::appel() {
     }
-}

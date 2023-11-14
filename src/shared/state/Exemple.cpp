@@ -1,10 +1,14 @@
 #include "Exemple.h"
 
-namespace state {
+#include <iostream>
+#include <vector>
+
+using namespace std;
+using namespace state;
 
 void Exemple::setX (int x) {
     this->x = x;
 }
 
-}
+
 
