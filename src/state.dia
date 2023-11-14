@@ -146,7 +146,7 @@
         <dia:real val="12.199999999999999"/>
       </dia:attribute>
       <dia:attribute name="name">
-        <dia:string>#States#</dia:string>
+        <dia:string>#GameStates#</dia:string>
       </dia:attribute>
       <dia:attribute name="stereotype">
         <dia:string>##</dia:string>
@@ -309,7 +309,7 @@
       <dia:attribute name="operations">
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#States#</dia:string>
+            <dia:string>#GameStates#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -339,7 +339,7 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#~States#</dia:string>
+            <dia:string>#~GameStates#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>

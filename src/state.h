@@ -1,8 +1,8 @@
 
 namespace state {
 
-  /// class States - 
-  class States {
+  /// class GameStates - 
+  class GameStates {
     // Attributes
   protected:
     int turn;
@@ -10,7 +10,8 @@ namespace state {
     std::vector<Players> playerList;
     // Operations
   public:
-    States ();
+    GameStates ();
+    ~GameStates ();
     void init ();
     void incrementTurn ();
     void displayScore ();
@@ -33,6 +34,7 @@ namespace state {
   public:
     Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
     Decks ();
+    ~Decks ();
     void shuffle ();
     void drawCard ();
     void addCard ();
@@ -63,6 +65,7 @@ namespace state {
   public:
     Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
     Boards ();
+    ~Boards ();
     void attackPosition ();
     void defensePosition ();
     void addMonster ();
@@ -90,6 +93,7 @@ namespace state {
   public:
     Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints);
     Players ();
+    ~Players ();
     void drawCard ();
     void placeCard ();
     void setSpell ();
@@ -108,6 +112,7 @@ namespace state {
     void isSpell ();
     void isTrap ();
     CardTypes (std::string type);
+    ~CardTypes ();
   };
 
   /// class Cards - 
@@ -124,6 +129,7 @@ namespace state {
   public:
     Cards (int idCard, std::string name, std::string description, CardTypes typeCarte);
     Cards ();
+    ~Cards ();
   };
 
   /// class Calculation - 
@@ -139,6 +145,7 @@ namespace state {
     // Operations
   public:
     Calculation (int lifePointsPlayer1, int lifePointsPlayer2, int attackPointsPlayer1, int attackPointsPlayer2, int defensePointsPlayer1, int defensePointsPlayer2);
+    ~Calculation ();
   };
 
   enum spellEffect {
@@ -155,10 +162,11 @@ namespace state {
     // Attributes
   protected:
     spellEffect effect;
+    bool On;
     // Operations
   public:
-    bool isOn ();
     Spells ();
+    ~Spells ();
   };
 
   /// class Monsters - 
@@ -176,6 +184,7 @@ namespace state {
     void attackPlayer (Players player);
     void setSpell ();
     Monsters (int effet, int level, int attack, int defense, bool position);
+    ~Monsters ();
   };
 
   enum trapEffect {
@@ -194,6 +203,7 @@ namespace state {
     void activate ();
     bool isOn ();
     Traps ();
+    ~Traps ();
   };
 
 };
