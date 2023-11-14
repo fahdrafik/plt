@@ -12,6 +12,10 @@ using namespace state;
 CardTypes::CardTypes(std::string type) {
     this->type = type;
 }
+
+CardTypes::~CardTypes ()
+{
+}
 void CardTypes::isMonster() {
     cout << "isMonster\n";
 }

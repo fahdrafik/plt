@@ -12,6 +12,11 @@ Boards::Boards(std::vector<Spells> spells, std::vector<Traps> traps, std::vector
     this->monsters = monsters;
     this->graveyard = graveyard;
 }
+
+Boards::~Boards()
+{
+
+}
 void Boards::attackPosition() {
     std::cout << "attackPosition\n";
 }

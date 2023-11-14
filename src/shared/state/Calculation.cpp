@@ -13,6 +13,11 @@ Calculation::Calculation(int  lifePointsPlayer1, int lifePointsPlayer2, int atta
     this->defensePointsPlayer2 = defensePointsPlayer2;
 }
 
+Calculation::~Calculation ()
+{
+
+}
+
 int Calculation::getDefensePointsPlayer1() const{
     return defensePointsPlayer1;
 }

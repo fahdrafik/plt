@@ -16,3 +16,7 @@ Players::Players(Decks Deck, Boards Board, TypePlayer type, int lifepoints)
     this->lifepoints = lifepoints;
     this->type = type;
 }
+
+Players::~Players()
+{
+}

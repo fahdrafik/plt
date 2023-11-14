@@ -13,6 +13,10 @@ Cards::Cards(int idCard,std::string name, std::string description, CardTypes typ
     this->description = description;
 }
 
+Cards::~Cards()
+{
+}
+
 int Cards::getIdCard() const
 {
     return idCard;

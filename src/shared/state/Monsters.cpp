@@ -11,6 +11,12 @@ Monsters::Monsters(int effet, int level, int attack, int defense, bool position)
     this->defense = defense;
     this->position = position;
 }
+
+Monsters::~Monsters ()
+{
+
+}
+
 void Monsters::attackCard(Cards card) {
     cout << "attackCard\n";
 }
