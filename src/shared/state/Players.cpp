@@ -1,22 +1,40 @@
 //
 // Created by cornic on 07/11/23.
 //
-#include "state.h"
-
+#include "Players.h"
+#include "States.h"
 #include <iostream>
 #include <vector>
 
-using namespace std;
-using namespace state;
 
-Players::Players(Decks Deck, Boards Board, TypePlayer type, int lifepoints)
-{
+using namespace state;
+using namespace std;
+
+
+Players::Players(state::Decks Deck, state::Boards Board, state::TypePlayer type, int lifepoints) {
     this->deck = deck;
     this->board = board;
-    this->lifepoints = lifepoints;
     this->type = type;
+    this->lifepoints = lifepoints;
+
 }
 
-Players::~Players()
-{
+void Players::drawCard() {
+    cout << "You've drawn a Card\n";
+}
+
+void Players::placeCard() {
+    cout << "You've placed a Card\n";
+}
+
+void Players::setSpell() {
+    cout << "You've set a Spell\n";
+}
+
+void Players::endTurn() {
+    cout << "It's your turn\n";
+}
+
+void Players::looseLifePoints(int degat) {
+    cout << "LifePoints perdus\n";
 }
