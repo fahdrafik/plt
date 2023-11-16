@@ -1,8 +1,7 @@
 //
 // Created by elmoro on 14/11/23.
 //
-#include "Players.h"
-#include "States.h"
+#include "state.h"
 #include <iostream>
 #include <vector>
 

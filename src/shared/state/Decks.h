@@ -15,7 +15,7 @@ namespace state {
   /// class Decks - 
   class Decks {
     // Attributes
-  private:
+  protected:
     int id;
     std::vector<Cards> cardsInDeck;
     std::vector<Cards> cardsInHand;
@@ -24,11 +24,20 @@ namespace state {
   public:
     Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
     Decks ();
+    ~Decks ();
     void shuffle ();
     void drawCard ();
     void addCard ();
     void removeCard ();
     // Setters and Getters
+    int getId() const;
+    void setId(int id);
+    const std::vector<Cards>& getCardsInDeck() const;
+    void setCardsInDeck(const std::vector<Cards>& cardsInDeck);
+    const std::vector<Cards>& getCardsInHand() const;
+    void setCardsInHand(const std::vector<Cards>& cardsInHand);
+    int getNumberOfCards() const;
+    void setNumberOfCards(int numberOfCards);
   };
 
 };

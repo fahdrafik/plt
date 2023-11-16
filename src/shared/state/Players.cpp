@@ -1,8 +1,7 @@
 //
 // Created by cornic on 07/11/23.
 //
-#include "Players.h"
-#include "States.h"
+#include "state.h"
 #include <iostream>
 #include <vector>
 
