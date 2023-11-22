@@ -8,38 +8,6 @@ namespace render {
     PLAYER_INFO
   };
 
-  /// class Static_scene - 
-  class Static_scene {
-    // Attributes
-  public:
-    /// Here we put the name of the player, along with the lifepoints
-    sf::RectangleShape info_box;
-  private:
-    Window current_window;
-    /// It's the image displayed at the background
-    sf::Sprite background;
-    sf::Texture background_texture;
-    /// This is a list with two players, because its a 2 players game.
-    Player_Renderer player_renderer[2];
-    state::Game* game;
-    vector<sf::Sprite*> Monster_SP;
-    vector<sf::Texture*> Monster_Texture;
-    vector<sf::Sprite*> Cementery_SP;
-    vector<sf::Texture*> Cemementery_Texture;
-    vector<sf::Sprite*> Magic_SP;
-    vector<sf::Texture*> Magic_texture;
-    vector<sf::Sprite*> Deck_SP;
-    vector<sf::Texture*> Deck_Texture;
-    // Operations
-  public:
-    Scene ();
-    ~Scene ();
-    sf::Sprite getBackground ();
-    PlayerRenderer* getPlayerRenderer (int index);
-    void changeWindow (Window new_window);
-    Window getWindow ();
-  };
-
   /// class PlayerRenderer - 
   class PlayerRenderer {
     // Attributes
@@ -48,7 +16,7 @@ namespace render {
     sf::Font font;
     Window affected_window;
     sf::Sprite Monstercard_sp;
-    sp::Texture MonsterCard_texture;
+    sf::Texture MonsterCard_texture;
     sf::Sprite MagiCard_sp;
     sf::Texture MagiCard_Texture;
     sf::Sprite CementeryCards_Sp;
@@ -66,6 +34,38 @@ namespace render {
     sf::Text* getText (int index);
     sf::Transform getTextTransform (int index);
     int getNumberText ();
+  };
+
+  /// class Static_scene - 
+  class Static_scene {
+    // Attributes
+  public:
+    /// Here we put the name of the player, along with the lifepoints
+    sf::RectangleShape info_box;
+  private:
+    Window current_window;
+    /// It's the image displayed at the background
+    sf::Sprite background;
+    sf::Texture background_texture;
+    /// This is a list with two players, because its a 2 players game.
+    PlayerRenderer PlayerRenderers[2];
+    state::GameStates* Game;
+    std::vector<sf::Sprite*> Monster_SP;
+    std::vector<sf::Texture*> Monster_Texture;
+    std::vector<sf::Sprite*> Cementery_SP;
+    std::vector<sf::Texture*> Cemementery_Texture;
+    std::vector<sf::Sprite*> Magic_SP;
+    std::vector<sf::Texture*> Magic_texture;
+    std::vector<sf::Sprite*> Deck_SP;
+    std::vector<sf::Texture*> Deck_Texture;
+    // Operations
+  public:
+    Static_scene ();
+    ~Static_scene ();
+    sf::Sprite getBackground ();
+    PlayerRenderer* getPlayerRenderer (int index);
+    void changeWindow (Window new_window);
+    Window getWindow ();
   };
 
 };

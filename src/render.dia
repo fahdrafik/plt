@@ -178,13 +178,13 @@
         <dia:point val="5.8,3.15"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="5.75,3.1;24.06,21"/>
+        <dia:rectangle val="5.75,3.1;24.445,21"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
         <dia:point val="5.8,3.15"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="18.210000000000001"/>
+        <dia:real val="18.594999999999999"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
         <dia:real val="17.800000000000004"/>
@@ -351,10 +351,10 @@
         </dia:composite>
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#player_renderer[2]#</dia:string>
+            <dia:string>#PlayerRenderers[2]#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#Player_Renderer#</dia:string>
+            <dia:string>#PlayerRenderer#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -374,10 +374,10 @@
         </dia:composite>
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#game#</dia:string>
+            <dia:string>#Game#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#state::Game*#</dia:string>
+            <dia:string>#state::GameStates*#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -400,7 +400,7 @@
             <dia:string>#Monster_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Sprite*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -423,7 +423,7 @@
             <dia:string>#Monster_Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Texture*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -446,7 +446,7 @@
             <dia:string>#Cementery_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Sprite*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -469,7 +469,7 @@
             <dia:string>#Cemementery_Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Texture*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -492,7 +492,7 @@
             <dia:string>#Magic_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Sprite*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -515,7 +515,7 @@
             <dia:string>#Magic_texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Texture*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -538,7 +538,7 @@
             <dia:string>#Deck_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Sprite*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -561,7 +561,7 @@
             <dia:string>#Deck_Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#vector&lt;sf::Texture*&gt;#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture*&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -606,7 +606,7 @@
       <dia:attribute name="operations">
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#Scene#</dia:string>
+            <dia:string>#Static_scene#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -636,7 +636,7 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#~Scene#</dia:string>
+            <dia:string>#~Static_scene#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>
@@ -1145,7 +1145,7 @@
             <dia:string>#MonsterCard_texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#sp::Texture#</dia:string>
+            <dia:string>#sf::Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -1803,16 +1803,16 @@
     </dia:object>
     <dia:object type="UML - Dependency" version="1" id="O6">
       <dia:attribute name="obj_pos">
-        <dia:point val="24.01,3.85"/>
+        <dia:point val="24.395,3.85"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="23.96,3.105;68.435,7.85"/>
+        <dia:rectangle val="24.345,3.105;68.435,7.85"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="24.01,3.85"/>
+        <dia:point val="24.395,3.85"/>
         <dia:point val="67.985,3.85"/>
         <dia:point val="67.985,7.4"/>
       </dia:attribute>
@@ -1854,16 +1854,16 @@
     </dia:object>
     <dia:object type="UML - Dependency" version="1" id="O7">
       <dia:attribute name="obj_pos">
-        <dia:point val="24.0603,12.05"/>
+        <dia:point val="24.4453,12.05"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="24.0103,11.305;34.1325,14.7"/>
+        <dia:rectangle val="24.3953,11.305;34.1325,14.7"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="24.0603,12.05"/>
+        <dia:point val="24.4453,12.05"/>
         <dia:point val="33.6825,12.05"/>
         <dia:point val="33.6825,14.25"/>
       </dia:attribute>
@@ -2168,7 +2168,7 @@
     </dia:object>
     <dia:object type="UML - Dependency" version="1" id="O10">
       <dia:attribute name="obj_pos">
-        <dia:point val="14.905,21.0003"/>
+        <dia:point val="15.0975,21.0003"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
         <dia:rectangle val="14.4,20.9503;15.3,26.5496"/>
@@ -2177,8 +2177,8 @@
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="14.905,21.0003"/>
-        <dia:point val="14.905,23.35"/>
+        <dia:point val="15.0975,21.0003"/>
+        <dia:point val="15.0975,23.35"/>
         <dia:point val="14.85,23.35"/>
         <dia:point val="14.85,26.0996"/>
       </dia:attribute>
@@ -2449,16 +2449,16 @@
     </dia:object>
     <dia:object type="UML - Dependency" version="1" id="O13">
       <dia:attribute name="obj_pos">
-        <dia:point val="24.01,3.85"/>
+        <dia:point val="24.395,3.85"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="23.96,3.105;74.7965,7.805"/>
+        <dia:rectangle val="24.345,3.105;74.7965,7.805"/>
       </dia:attribute>
       <dia:attribute name="meta">
         <dia:composite type="dict"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
-        <dia:point val="24.01,3.85"/>
+        <dia:point val="24.395,3.85"/>
         <dia:point val="74.3465,3.85"/>
         <dia:point val="74.3465,7.355"/>
       </dia:attribute>
