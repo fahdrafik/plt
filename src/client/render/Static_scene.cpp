@@ -29,7 +29,7 @@ void Static_scene::changeWindow (Window new_window)
 {
     current_window = new_window;
 }
-Window Static_scene::getWindow ()
+render::Window Static_scene::getWindow ()
 {
     return current_window;
 }
