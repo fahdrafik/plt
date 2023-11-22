@@ -63,7 +63,7 @@ namespace render {
     Static_scene ();
     ~Static_scene ();
     sf::Sprite getBackground ();
-    PlayerRenderer* getPlayerRenderer (int index);
+    PlayerRenderer getPlayerRenderer (int index);
     void changeWindow (Window new_window);
     Window getWindow ();
   };
