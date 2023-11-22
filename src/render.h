@@ -12,7 +12,7 @@ namespace render {
   class PlayerRenderer {
     // Attributes
   private:
-    state::Player* player;
+    state::Players* player;
     sf::Font font;
     Window affected_window;
     sf::Sprite Monstercard_sp;

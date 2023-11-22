@@ -17,9 +17,11 @@ void testSFML() {
 // Fin test SFML
 
 #include <state.h>
+#include <render.h>
 
 using namespace std;
 using namespace state;
+using namespace render;
 
 int main(int argc,char* argv[])
 {
