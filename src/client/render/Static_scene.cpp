@@ -1,5 +1,5 @@
 #include "Static_scene.h"
-#include "../src/render.h"
+#include "render.h"
 
 #include <iostream>
 #include <vector>
@@ -11,5 +11,4 @@ using namespace std;
 using namespace state;
 
 Static_scene::Scene(){
-
 }
