@@ -21,9 +21,9 @@ sf::Sprite Static_scene::getBackground ()
     return background;
 }
 
-PlayerRenderer* getPlayerRenderer (int index)
+PlayerRenderer* Static_scene::getPlayerRenderer (int index)
 {
-
+    return PlayerRenderer[index];
 }
 void Static_scene::changeWindow (Window new_window)
 {
