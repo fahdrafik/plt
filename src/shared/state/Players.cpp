@@ -15,7 +15,6 @@ Players::Players(state::Decks Deck, state::Boards Board, state::TypePlayer type,
     this->board = board;
     this->type = type;
     this->lifepoints = lifepoints;
-
 }
 
 void Players::drawCard() {

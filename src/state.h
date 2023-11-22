@@ -6,16 +6,8 @@ namespace state {
   class GameStates {
   };
 
-  /// class Calculation - 
-  class Calculation {
-  };
-
-  /// class Classe - 
-  class Classe {
-  };
-
-  /// class Boards - 
-  class Boards {
+  /// class Players - 
+  class Players {
   };
 
 };
