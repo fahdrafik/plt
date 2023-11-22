@@ -9,14 +9,21 @@
 using namespace std;
 using namespace state;
 
-
-
-void Traps::activate (){
-
+Traps::Traps (){
+    this->effect =effect;
 }
-bool Traps::isOn (){
+Traps::~Traps () {}
+
+void Traps::setEffect(trapEffect effect){
+    this->effect = effect;
+}
+trapEffect Traps::getEffect() const {
+    return effect;
+}
+void Traps::activate () {
+    cout<< "keep is simple";
+}
+bool isOn () {
     return true;
 }
-Traps::Traps (){
 
-}
