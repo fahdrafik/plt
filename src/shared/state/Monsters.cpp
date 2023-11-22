@@ -12,60 +12,56 @@ Monsters::Monsters(int effet, int level, int attack, int defense, bool position)
     this->position = position;
 }
 
-Monsters::~Monsters ()
+Monsters::~Monsters () {}
+
+void Monsters::setLevel(int level)
 {
-
-}
-
-void Monsters::attackCard(Cards card) {
-    cout << "attackCard\n";
-}
-
-void Monsters::attackPlayer(Players player) {
-    cout << "attackPlayer\n";
-}
-
-void Monsters::setSpell() {
-    cout << "attack\n";
+    this->level = level;
 }
 int Monsters::getLevel() const
 {
     return level;
 }
-void Monsters::setLevel(int level)
-{
-    this->level = level;
-}
-
-int Monsters::getAttack() const
-{
-    return attack;
-}
 void Monsters::setAttack(int attack)
 {
     this->attack = attack;
 }
-int Monsters::getDefense() const
+int Monsters::getAttack() const
 {
-    return defense;
+    return attack;
 }
 void Monsters::setDefense(int defense)
 {
     this->defense = defense;
 }
-bool Monsters::getPosition() const
+int Monsters::getDefense() const
 {
-    return position;
+    return defense;
 }
 void Monsters::setPosition(bool position)
 {
     this->position=position;
 }
+bool Monsters::getPosition() const
+{
+    return position;
+}
+void Monsters::setEffet (int effet ) {
+    this->effet = effet;
+}
 int Monsters::getEffet () const
 {
     return effet;
 }
-void Monsters::setEffet (int effet)
-{
-    this->effet=effet;
+void Monsters::attackCard(Cards card) {
+    cout << "attackCard\n";
 }
+void Monsters::attackPlayer(Players player) {
+    cout << "attackPlayer\n";
+}
+void Monsters::setSpell() {
+    cout << "attack\n";
+}
+
+
+

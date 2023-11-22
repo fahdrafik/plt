@@ -4,7 +4,7 @@
 #include "../../src/shared/state/Cards.h"
 #include "../../src/shared/state/CardTypes.h"
 #include "../../src/shared/state/Calculation.h"
-//#include "../../src/shared/state/Boards.h"
+#include "../../src/shared/state/Boards.h"
 #include "../../src/shared/state/Spells.h"
 #include "../../src/shared/state/Traps.h"
 
@@ -47,6 +47,13 @@ BOOST_AUTO_TEST_CASE(testTraps) {
 
 BOOST_AUTO_TEST_CASE(TestMonsters)
 {
+    Monsters elmoro(1,2,13,3,true);
+    BOOST_CHECK_EQUAL(elmoro.getEffet(), 11);
+    BOOST_CHECK_EQUAL(elmoro.getLevel(), 2);
+    BOOST_CHECK_EQUAL(elmoro.getAttack(), 13);
+    BOOST_CHECK_EQUAL(elmoro.getDefense(), 3);
+    BOOST_CHECK_EQUAL(elmoro.getPosition(), true);
+
 
 }
 BOOST_AUTO_TEST_CASE(TestBoards)
