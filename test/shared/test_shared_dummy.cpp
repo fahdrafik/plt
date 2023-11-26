@@ -4,9 +4,10 @@
 #include "../../src/shared/state/Cards.h"
 #include "../../src/shared/state/CardTypes.h"
 #include "../../src/shared/state/Calculation.h"
-#include "../../src/shared/state/Boards.h"
+//#include "../../src/shared/state/Boards.h"
 #include "../../src/shared/state/Spells.h"
 #include "../../src/shared/state/Traps.h"
+#include "../../src/shared/state/Monsters.h"
 
 
 using namespace ::state;
