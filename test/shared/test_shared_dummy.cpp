@@ -53,8 +53,6 @@ BOOST_AUTO_TEST_CASE(TestMonsters)
     BOOST_CHECK_EQUAL(elmoro.getAttack(), 13);
     BOOST_CHECK_EQUAL(elmoro.getDefense(), 3);
     BOOST_CHECK_EQUAL(elmoro.getPosition(), true);
-
-
 }
 BOOST_AUTO_TEST_CASE(TestBoards)
 {
