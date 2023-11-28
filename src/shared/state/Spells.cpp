@@ -13,10 +13,7 @@ using namespace state;
 Spells::Spells (){
     this ->effect = effect;
 }
-Spells::~Spells (){
-
-}
-
+Spells::~Spells (){ }
 
 // Setters and Getters
 void Spells::setEffect(spellEffect effect){

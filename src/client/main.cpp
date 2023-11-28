@@ -51,7 +51,7 @@ int main(int argc,char* argv[])
 
         /*Création de la fenètre*/
 
-        sf::RenderWindow window(sf::VideoMode(1000, 800), "Yu-Gi-Oh!");
+        sf::RenderWindow window(sf::VideoMode(1200, 800), "Yu-Gi-Oh!");
 
         /*Première page du jeu*/
         /*Titre*/
@@ -59,16 +59,36 @@ int main(int argc,char* argv[])
         sf::Texture titleTexture;
         titleTexture.loadFromFile("./Images/yugioh.png");
         titleSprite.setTexture(titleTexture);
-
         //sf::Vector2u windowSize = window.getSize();
         //sf::Vector2u titleTextureSize = titleTexture.getSize();
         //titleSprite.setPosition((windowSize.x - titleTextureSize.x) / 1.0f, (windowSize.y - titleTextureSize.y) / 1.0f);
+
         titleSprite.setScale(0.4f,0.4f);
-        titleSprite.setPosition(300,400);
+        titleSprite.setPosition(400,200);
 
         /*Boutons pour le menu principal et l'écran titre*/
-        sf::RectangleShape Button_TitleScreen(sf::Vector2f(200, 100));
-        Button_TitleScreen.setPosition(400,550);
+        sf::Sprite Button_TitleScreenSp;
+        sf::Texture Button_TitleScreenTx;
+        Button_TitleScreenTx.loadFromFile("./Images/Bouton_TitleScreen.png");
+        Button_TitleScreenSp.setTexture(Button_TitleScreenTx);
+
+        Button_TitleScreenSp.setScale(1.0f,1.0f);
+        Button_TitleScreenSp.setPosition(475,500);
+
+        sf::Sprite Button_J1VSJ2Sp;
+        sf::Texture Button_J1VSJ2Tx;
+        Button_J1VSJ2Tx.loadFromFile("./Images/Bouton_J1VSJ2.png");
+        Button_J1VSJ2Sp.setTexture(Button_J1VSJ2Tx);
+
+        sf::Sprite Button_J1VSAISp;
+        sf::Texture Button_J1VSAITx;
+        Button_J1VSAITx.loadFromFile("./Images/Bouton_J1VSAI.png");
+        Button_J1VSAISp.setTexture(Button_J1VSAITx);
+
+        sf::Sprite Button_ConsultCardsSp;
+        sf::Texture Button_ConsultCardsTx;
+        Button_ConsultCardsTx.loadFromFile("./Images/Bouton_ConsultCards.png");
+        Button_ConsultCardsSp.setTexture(Button_ConsultCardsTx);
 
         /*Menu du jeu*/
 
@@ -78,6 +98,8 @@ int main(int argc,char* argv[])
 
         /*Menu : Consultation des cartes*/
 
+        /*Menu Pause du jeu */
+
         while (window.isOpen())
         {
             // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
@@ -86,6 +108,7 @@ int main(int argc,char* argv[])
             window.clear();
             window.draw(scene.getBackground());
             window.draw(titleSprite);
+            window.draw(Button_TitleScreenSp);
             window.display();
 
             while (window.pollEvent(event))
@@ -99,15 +122,22 @@ int main(int argc,char* argv[])
                 {
                         if (event.key.code == sf::Keyboard::A) {
                             std::cout << "Menu principal" << std::endl;
+                            scene.changeWindow(MAIN_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::B) {
                             std::cout << "Phase de jeu : J1" << std::endl;
+                            scene.changeWindow(MENU_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::C) {
                             std::cout << "Phase de jeu : J2" << std::endl;
+                            scene.changeWindow(IN_PLAY_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::D) {
                             std::cout << "Consultation des cartes" << std::endl;
+                            scene.changeWindow(PARAMETERS_WINDOW);
+                        }
+                        else if (event.key.code == sf::Keyboard::E){
+                            std::cout << "Retour à l'écran titre"  << std::endl;
                         }
                 }
             }

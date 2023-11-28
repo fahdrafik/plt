@@ -4,8 +4,9 @@ namespace render {
   enum Window {
     NONE,
     MAIN_WINDOW,
-    DRAFTING_WINDOW,
-    PLAYER_INFO
+    MENU_WINDOW,
+    IN_PLAY_WINDOW,
+    PARAMETERS_WINDOW
   };
 
   /// class PlayerRenderer - 

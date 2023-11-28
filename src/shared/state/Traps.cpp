@@ -9,7 +9,8 @@
 using namespace std;
 using namespace state;
 
-Traps::Traps () {//: Cards(int idCard,std::string name, std::string description, CardTypes typeCarte) :typeCarte(typeCarte){
+Traps::Traps (){
+    this->effect =effect;
 }
 Traps::~Traps () {}
 
