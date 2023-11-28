@@ -15,9 +15,9 @@ Static_scene::Static_scene() {
     //Creation and initialisation of the background sprite
     this->background=sf::Sprite();
     (this->background).setTexture(this->background_texture);
+    this->changeWindow(TITLE_SCREEN_WINDOW);
 }
 Static_scene::~Static_scene() {
-
 }
 
 sf::Sprite Static_scene::getBackground ()

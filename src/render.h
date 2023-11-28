@@ -6,7 +6,8 @@ namespace render {
     MAIN_WINDOW,
     MENU_WINDOW,
     IN_PLAY_WINDOW,
-    PARAMETERS_WINDOW
+    VIEW_CARDS_WINDOW,
+    TITLE_SCREEN_WINDOW
   };
 
   /// class PlayerRenderer - 
