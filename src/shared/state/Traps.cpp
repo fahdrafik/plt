@@ -10,9 +10,8 @@ using namespace std;
 using namespace state;
 
 Traps::Traps (){
-    this->effect =effect;
 }
-Traps::~Traps () {}
+Traps::~Traps () {
 
 void Traps::setEffect(trapEffect effect){
     this->effect = effect;
