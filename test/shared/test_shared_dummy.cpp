@@ -47,11 +47,22 @@ BOOST_AUTO_TEST_CASE(testTraps) {
 
 BOOST_AUTO_TEST_CASE(TestMonsters)
 {
-    Monsters elmoro(1,2,13,3,true);
-    BOOST_CHECK_EQUAL(elmoro.getEffet(), 1);
-    BOOST_CHECK_EQUAL(elmoro.getLevel(), 2);
-    BOOST_CHECK_EQUAL(elmoro.getAttack(), 13);
-    BOOST_CHECK_EQUAL(elmoro.getDefense(), 3);
+    std::string animal="Animal";
+    std::string description="Electric";
+    std::string name="Pikachu";
+    CardTypes Type(animal);
+    //Monsters elmoro(1,2,13,3,true);//int idCard, std::string name, std::string description, CardTypes typeCarte, int level, int attack, int defense, bool position,int effet
+    //Monsters elmoro(315, name, description,Type, 5, 777, 589,true, 6);
+    Monsters elmoro(315, name, description,Type, 5, 777, 589,true, 6);
+    //elmoro.setLevel(7);elmoro.setAttack(444);elmoro.setDefense(777);elmoro.setPosition(true);elmoro.setEffet(6);
+
+    BOOST_CHECK_EQUAL(elmoro.getIdCard(),315);
+    BOOST_CHECK_EQUAL(elmoro.getName(),name);
+    BOOST_CHECK_EQUAL(elmoro.getDescription(),description);
+    BOOST_CHECK_EQUAL(elmoro.getEffet(), 6);
+    BOOST_CHECK_EQUAL(elmoro.getLevel(), 7);
+    BOOST_CHECK_EQUAL(elmoro.getAttack(), 777);
+    BOOST_CHECK_EQUAL(elmoro.getDefense(), 589);
     BOOST_CHECK_EQUAL(elmoro.getPosition(), true);
 }
 BOOST_AUTO_TEST_CASE(TestBoards)
