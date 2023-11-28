@@ -11,7 +11,7 @@ using namespace state;
 
 Traps::Traps (){
 }
-Traps::~Traps () {
+Traps::~Traps () {}
 
 void Traps::setEffect(trapEffect effect){
     this->effect = effect;

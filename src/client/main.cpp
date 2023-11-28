@@ -126,15 +126,15 @@ int main(int argc,char* argv[])
                         }
                         else if (event.key.code == sf::Keyboard::B) {
                             std::cout << "Phase de jeu : J1" << std::endl;
-                            scene.changeWindow(MAIN_WINDOW);
+                            scene.changeWindow(MENU_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::C) {
                             std::cout << "Phase de jeu : J2" << std::endl;
-                            scene.changeWindow(MAIN_WINDOW);
+                            scene.changeWindow(IN_PLAY_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::D) {
                             std::cout << "Consultation des cartes" << std::endl;
-                            scene.changeWindow(MAIN_WINDOW);
+                            scene.changeWindow(PARAMETERS_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::E){
                             std::cout << "Retour à l'écran titre"  << std::endl;
