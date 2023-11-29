@@ -4,7 +4,8 @@
 using namespace std;
 using namespace state;
 
-Monsters::Monsters(int idCard, std::string name, std::string description, CardTypes typeCarte, int level, int attack, int defense, bool position,int effet): Cards( idCard, name, description, typeCarte) {
+Monsters::Monsters(int idCard,std::string name, std::string description, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position):
+Cards(idCard,name,description,typeCarte){
     this->effet = effet;
     this->level = level;
     this->attack = attack;

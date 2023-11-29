@@ -1,5 +1,4 @@
 #include "Cards.h"
-#include "state.h"
 
 #include <iostream>
 #include <vector>
@@ -11,6 +10,10 @@ Cards::Cards(int idCard,std::string name, std::string description, CardTypes typ
     this->idCard = idCard;
     this->name = name;
     this->description = description;
+}
+
+Cards::Cards() : typeCarte("test"){
+
 }
 
 Cards::~Cards()

@@ -11,8 +11,11 @@ using namespace std;
 using namespace state;
 
 Spells::Spells (){
-    this ->effect = effect;
 }
+
+Spells::Spells (int idCard, std::string name, std::string description, CardTypes typeCarte, spellEffect effect) :
+Cards(idCard,name,description,typeCarte),effect(effect){}
+
 Spells::~Spells (){ }
 
 // Setters and Getters
