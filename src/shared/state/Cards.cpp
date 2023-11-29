@@ -48,3 +48,11 @@ void Cards::setDescription(const std::string& description)
 {
     this->description = description;
 }
+
+const CardTypes& Cards::getTypeCarte() const{
+    return typeCarte;
+}
+void Cards::setTypeCarte(const CardTypes& typeCarte)
+{
+    this->typeCarte=typeCarte;
+}
