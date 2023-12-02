@@ -27,6 +27,7 @@ namespace state {
     }
 
     void Boards::addMonster() {
+
         cout << "addMonster\n";
     }
 
