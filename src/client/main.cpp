@@ -51,7 +51,13 @@ int main(int argc,char* argv[])
 
         /*Création de la fenètre*/
 
-        sf::RenderWindow window(sf::VideoMode(1200, 800), "Yu-Gi-Oh!");
+        sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
+        sf::Vector2i windowPosition(
+                sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
+                sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
+        );
+        window.setPosition(windowPosition);
+
 
         /*Ecran titre*/
         /*Titre*/
@@ -68,7 +74,6 @@ int main(int argc,char* argv[])
         Button_TitleScreenSp.setTexture(Button_TitleScreenTx);
         Button_TitleScreenSp.setScale(1.0f,1.0f);
         Button_TitleScreenSp.setPosition(475,500);
-
 
         /*Menu du jeu*/
         /*Titre du jeu*/
@@ -107,11 +112,86 @@ int main(int argc,char* argv[])
 
         /*En cours de jeu : vue du premier joueur*/
 
+        sf::Sprite DeckSp1;
+        sf::Sprite DeckSp2;
+        sf::Texture DeckTx;
+        DeckTx.loadFromFile("./Images/Deck.png");
+        DeckSp1.setTexture(DeckTx);
+        DeckSp2.setTexture(DeckTx);
+
+        DeckSp1.setScale(1.0f,1.0f);
+        DeckSp1.setPosition(475,675);
+        DeckSp2.setScale(1.0f,1.0f);
+        DeckSp2.setPosition(475,675);
+
+        sf::Sprite GraveyardSp1;
+        sf::Sprite GraveyardSp2;
+        sf::Texture GraveyardTx;
+        GraveyardTx.loadFromFile("./Images/Graveyard.png");
+        GraveyardSp1.setTexture(GraveyardTx);
+        GraveyardSp2.setTexture(GraveyardTx);
+
+        GraveyardSp1.setScale(0.2f,0.2f);
+        GraveyardSp1.setPosition(475,675);
+        GraveyardSp2.setScale(0.2f,0.2f);
+        GraveyardSp2.setPosition(475,675);
+
+        sf::Sprite MonstersSp1;
+        sf::Sprite MonstersSp2;
+        sf::Texture MonstersTx;
+        Button_JeuQuitterTx.loadFromFile("./Images/Monsters.png");
+        MonstersSp1.setTexture(MonstersTx);
+        MonstersSp2.setTexture(MonstersTx);
+
+        MonstersSp1.setScale(1.0f,1.0f);
+        MonstersSp1.setPosition(475,675);
+        MonstersSp2.setScale(1.0f,1.0f);
+        MonstersSp2.setPosition(475,675);
+
         /*En cours de jeu : vue du deuxième joueur*/
 
         /*Menu Pause du jeu */
 
         /*Menu : Consultation des cartes*/
+        sf::Sprite Right_Arrow;
+        sf::Texture Right_Arrow_Tx;
+        Right_Arrow_Tx.loadFromFile("./Images/Right_Arrow.png");
+        Right_Arrow.setTexture(Right_Arrow_Tx);
+        Right_Arrow.setScale(0.6f,0.6f);
+        Right_Arrow.setPosition(1100,300);
+
+        sf::Sprite Left_Arrow;
+        sf::Texture Left_Arrow_Tx;
+        Left_Arrow_Tx.loadFromFile("./Images/Left_Arrow.png");
+        Left_Arrow.setTexture(Left_Arrow_Tx);
+        Left_Arrow.setScale(0.6f,0.6f);
+        Left_Arrow.setPosition(0,300);
+
+        sf::Sprite Card1;
+        sf::Sprite Card2;
+        sf::Sprite Card3;
+        sf::Texture Card1Tx;
+        Card1Tx.loadFromFile("./Images/Red Eyes Black Dragon.jpg");
+        Card1.setTexture(Card1Tx);
+        Card1.setScale(0.5f,0.5f);
+        Card1.setPosition(270,210);
+        sf::Texture Card2Tx;
+        Card2Tx.loadFromFile("./Images/Mirror Force.jpg");
+        Card2.setTexture(Card2Tx);
+        Card2.setScale(0.7f,0.7f);
+        Card2.setPosition(500,160);
+        sf::Texture Card3Tx;
+        Card3Tx.loadFromFile("./Images/Monster Reborn.jpg");
+        Card3.setTexture(Card3Tx);
+        Card3.setScale(0.5f,0.5f);
+        Card3.setPosition(830,210);
+
+        sf::Sprite Button_JeuRetourSp;
+        sf::Texture Button_JeuRetourTx;
+        Button_JeuRetourTx.loadFromFile("./Images/Bouton_JeuRetour.png");
+        Button_JeuRetourSp.setTexture(Button_JeuRetourTx);
+        Button_JeuRetourSp.setScale(1.0f,1.0f);
+        Button_JeuRetourSp.setPosition(490,600);
 
         while (window.isOpen())
         {
@@ -181,6 +261,12 @@ int main(int argc,char* argv[])
                     case VIEW_CARDS_WINDOW:
                         window.clear();
                         window.draw(scene.getBackground());
+                        window.draw(Right_Arrow);
+                        window.draw(Left_Arrow);
+                        window.draw(Card1);
+                        window.draw(Card2);
+                        window.draw(Card3);
+                        window.draw(Button_JeuRetourSp);
                         window.display();
                     default:
                         break;
