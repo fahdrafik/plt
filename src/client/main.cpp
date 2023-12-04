@@ -61,44 +61,7 @@ int main(int argc,char* argv[])
         /*Menu du jeu*/
         scene.setMenuScene();
         /*En cours de jeu : vue du premier joueur*/
-        sf::Sprite DeckSp1;
-        sf::Sprite DeckSp2;
-        sf::Texture DeckTx;
-        DeckTx.loadFromFile("./Images/Deck.png");
-        DeckSp1.setTexture(DeckTx);
-        DeckSp2.setTexture(DeckTx);
-
-        DeckSp1.setScale(0.5f,0.5f);
-        DeckSp1.setPosition(500,500);
-
-        DeckSp2.setScale(0.5f,0.5f);
-        DeckSp2.setPosition(500,500);
-
-        sf::Sprite GraveyardSp1;
-        sf::Sprite GraveyardSp2;
-        sf::Texture GraveyardTx;
-        GraveyardTx.loadFromFile("./Images/Graveyard.png");
-        GraveyardSp1.setTexture(GraveyardTx);
-        GraveyardSp2.setTexture(GraveyardTx);
-
-        GraveyardSp1.setScale(0.5f,0.5f);
-        GraveyardSp1.setPosition(700,700);
-
-        GraveyardSp2.setScale(0.5f,0.5f);
-        GraveyardSp2.setPosition(700,700);
-
-        sf::Sprite ZoneSp1;
-        sf::Sprite ZoneSp2;
-        sf::Texture ZoneTx;
-        ZoneTx.loadFromFile("./Images/Zone.png");
-        ZoneSp1.setTexture(ZoneTx);
-        ZoneSp2.setTexture(ZoneTx);
-
-        ZoneSp1.setScale(0.5f,0.5f);
-        ZoneSp1.setPosition(500,500);
-
-        ZoneSp2.setScale(0.5f,0.5f);
-        ZoneSp2.setPosition(500,700);
+        scene.setInGameScene();
         /*En cours de jeu : vue du deuxième joueur*/
         /*Menu Pause du jeu */
         /*Menu : Consultation des cartes*/
