@@ -100,12 +100,10 @@ int main(int argc,char* argv[])
         ZoneSp2.setScale(0.5f,0.5f);
         ZoneSp2.setPosition(500,700);
         /*En cours de jeu : vue du deuxième joueur*/
-
         /*Menu Pause du jeu */
-
         /*Menu : Consultation des cartes*/
-        scene.setConsultScene();
 
+        scene.setConsultScene();
         while (window.isOpen())
         {
             // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
@@ -143,52 +141,6 @@ int main(int argc,char* argv[])
                 }
 
                 scene.drawSprite(scene.getWindow(),window);
-
-                /*switch(scene.getWindow())
-                {
-                    case MAIN_WINDOW:
-                        window.clear();
-                        window.draw(scene.getBackground());
-                        window.draw(MenuSprite);
-                        window.draw(Button_ConsultCardsSp);
-                        window.draw(Button_J1VSAISp);
-                        window.draw(Button_J1VSJ2Sp);
-                        window.draw(Button_JeuQuitterSp);
-                        window.display();
-                        break;
-                    case MENU_WINDOW:
-                        window.clear();
-                        window.draw(scene.getBackground());
-                        window.display();
-                        break;
-                    case IN_PLAY_WINDOW:
-                        window.clear();
-                        window.draw(scene.getBackground());
-                        window.draw(GraveyardSp1);
-                        window.draw(GraveyardSp2);
-                        window.draw(DeckSp1);
-                        window.draw(DeckSp2);
-                        window.draw(ZoneSp1);
-                        window.draw(ZoneSp2);
-                        window.display();
-                        break;
-                    case TITLE_SCREEN_WINDOW:
-                        window.clear();
-                        window.display();
-                        break;
-                    case VIEW_CARDS_WINDOW:
-                        window.clear();
-                        window.draw(scene.getBackground());
-                        window.draw(Right_Arrow);
-                        window.draw(Left_Arrow);
-                        window.draw(Card1);
-                        window.draw(Card2);
-                        window.draw(Card3);
-                        window.draw(Button_JeuRetourSp);
-                        window.display();
-                    default:
-                        break;
-                }*/
             }
         }
     }

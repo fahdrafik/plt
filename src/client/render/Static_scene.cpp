@@ -56,6 +56,50 @@ void Static_scene::setTitleScene()
 }
 void Static_scene::setInGameScene()
 {
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Deck.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Graveyard.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Zone.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Spells.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Monsters.png");
+
+    /*Dessiner le plateau*/
+    /*Placer le Deck des deux joueurs*/
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[0]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(500,500);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[0]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(800,500);
+
+    /*Placer les cimetières des deux joueurs*/
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[1]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(500,800);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[1]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(800,800);
+
+    /*Placer les cartes de zone des deux joueurs*/
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[2]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(500,1100);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[2]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(800,1100);
+
+    /*Placer les cinq cartes monstres */
+
+    /*Placer les cinq cartes spells*/
 
 }
 void Static_scene::setMenuScene()
