@@ -208,5 +208,53 @@ namespace state {
     Traps (int idCard, std::string name, std::string description, CardTypes typeCarte, trapEffect effect);
   };
 
+  /// class Observable - 
+  class Observable : public GameStates {
+    // Attributes
+  protected:
+    std::vector<IObserver*> observers;
+    // Operations
+  public:
+    void registerObserver (IObserver* observer);
+    void notifyObservers (const StateEvent& e, GameStates& state);
+  };
+
+  // interface
+  /// class IObserver - 
+  class IObserver {
+    // Associations
+    state::Observable* unnamed;
+    // Operations
+  public:
+    virtual void stateChanged (const StateEvent& e, GameStates& state) = 0;
+  };
+
+  enum StateEventID {
+    ALLCHANGED,
+    TURNCHANGED,
+    CHARACTERCHANGED,
+    TEXTCHANGED,
+    CURSOR_CHANGED,
+    ALERT,
+    WINNER
+  };
+
+  /// class StateEvent - 
+  class StateEvent {
+    // Associations
+    state::StateEventID* unnamed;
+    // Attributes
+  public:
+    StateEventID stateEventID;
+    std::string text;
+    std::string infoText;
+    std::string statsText;
+    bool isInBase;
+    // Operations
+  public:
+    StateEvent (StateEventID se);
+    void setStateEventID (StateEventID newID);
+  };
+
 };
 
