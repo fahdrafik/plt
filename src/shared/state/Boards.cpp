@@ -14,6 +14,7 @@ namespace state {
         this->graveyard = graveyard;
     }
 
+
     Boards::Boards(){}
 
     Boards::~Boards() {}
@@ -38,7 +39,7 @@ namespace state {
     }
 
     void Boards::removeMonster(int index) {
-        cout << "removeMonster\n";
+            monsters.erase(monsters.begin() + index);
     }
 
     void Boards::addSpell(state::Spells spell) {

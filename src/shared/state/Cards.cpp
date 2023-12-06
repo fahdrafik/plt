@@ -13,7 +13,7 @@ Cards::Cards(int idCard,std::string name, std::string description, CardTypes typ
     this->description = description;
 }
 
-Cards::Cards() : typeCarte("test"){
+Cards::Cards() : typeCarte(NoType){
 
 }
 
@@ -40,10 +40,10 @@ void Cards::setDescription(const std::string& description)
     this->description = description;
 }
 
-const CardTypes& Cards::getTypeCarte() const{
+CardTypes Cards::getTypeCarte() const{
     return typeCarte;
 }
-void Cards::setTypeCarte(const CardTypes& typeCarte)
+void Cards::setTypeCarte(CardTypes typeCarte)
 {
     this->typeCarte=typeCarte;
 }

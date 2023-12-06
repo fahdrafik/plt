@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_CASE(TestStaticAssert)
 
 BOOST_AUTO_TEST_CASE(TestCarte)
 {
-    CardTypes CarteMonstre ("Monstres");
+    CardTypes CarteMonstre (TypeMonster);
     Cards DragonBlancAuxYeuxBleus (0,"Dragon Blanc Aux Yeux Bleus","Monstre de type dragon",CarteMonstre);
     BOOST_CHECK_EQUAL(DragonBlancAuxYeuxBleus.getIdCard(), 0);
     DragonBlancAuxYeuxBleus.setIdCard(1);
@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(testTraps) {
 
 BOOST_AUTO_TEST_CASE(TestMonsters)
 {
-    CardTypes CarteMonstre ("Monstres");
+    CardTypes CarteMonstre (TypeMonster);
     Monsters elmoro(0,"elmoro","monstre",CarteMonstre,1,2,13,3,true);
     BOOST_CHECK_EQUAL(elmoro.getEffet(), 1);
     BOOST_CHECK_EQUAL(elmoro.getLevel(), 2);
