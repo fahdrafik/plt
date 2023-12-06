@@ -71,35 +71,119 @@ void Static_scene::setInGameScene()
     /*Placer le Deck des deux joueurs*/
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[0]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(500,500);
+    In_Game_SP.back().setPosition(500,300);
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[0]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(800,500);
+    In_Game_SP.back().setPosition(500,400);
 
     /*Placer les cimetières des deux joueurs*/
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[1]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(500,800);
+    In_Game_SP.back().setPosition(650,300);
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[1]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(800,800);
+    In_Game_SP.back().setPosition(650,400);
 
     /*Placer les cartes de zone des deux joueurs*/
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[2]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(500,1100);
+    In_Game_SP.back().setPosition(800,300);
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[2]));
     In_Game_SP.back().setScale(0.5f,0.5f);
-    In_Game_SP.back().setPosition(800,1100);
+    In_Game_SP.back().setPosition(800,400);
 
-    /*Placer les cinq cartes monstres */
+    /*Placer les cinq cartes monstres Joueur 1 */
 
-    /*Placer les cinq cartes spells*/
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(450,500);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(550,500);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(650,500);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(750,500);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(850,500);
+
+    /*Placer les cinq cartes monstres Joueur 2 */
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(450,150);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(550,150);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(650,150);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(750,150);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[4]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(850,150);
+
+    /*Placer les cinq cartes magie Joueur 1 */
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(450,650);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(550,650);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(650,650);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(750,650);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(850,650);
+
+    /*Placer les cinq cartes monstres Joueur 2 */
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(450,0);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(550,0);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(650,0);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(750,0);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
+    In_Game_SP.back().setScale(0.5f,0.5f);
+    In_Game_SP.back().setPosition(850,0);
 
 }
 void Static_scene::setMenuScene()

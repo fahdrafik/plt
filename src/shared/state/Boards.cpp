@@ -14,46 +14,65 @@ namespace state {
         this->graveyard = graveyard;
     }
 
-    Boards::~Boards() {
+    Boards::Boards(){}
 
+    Boards::~Boards() {}
+
+    void Boards::attackPosition(int index) {
+        monsters[index].setPosition(0);
     }
 
-    void Boards::attackPosition() {
-        std::cout << "attackPosition\n";
+    void Boards::defensePosition(int index) {
+        monsters[index].setPosition(1);
     }
 
-    void Boards::defensePosition() {
-        cout << "defensePosition\n";
+    void Boards::addMonster(state::Monsters monster) {
+        if (monsters.size()>5)
+        {
+            std::cout << "Pas possible d'ajouter plus de monstres !";
+        }
+        else
+        {
+            monsters.push_back(monster);
+        }
     }
 
-    void Boards::addMonster() {
-
-        cout << "addMonster\n";
-    }
-
-    void Boards::removeMonster() {
+    void Boards::removeMonster(int index) {
         cout << "removeMonster\n";
     }
 
-    void Boards::addSpell() {
-        cout << "addSpell\n";
+    void Boards::addSpell(state::Spells spell) {
+        int test = spells.size() + traps.size();
+        if (test>5)
+        {
+            std::cout << "Pas possible d'ajouter plus de cartes pièges !";
+        }
+        else
+        {
+            spells.push_back(spell);
+        }
     }
 
-    void Boards::removeSpell() {
+    void Boards::removeSpell(int index) {
         cout << "removeSpell\n";
     }
 
-    void Boards::addTrap() {
-        cout << "addTrap\n";
+    void Boards::addTrap(state::Traps trap) {
+        int test = spells.size() + traps.size();
+        if (test>5)
+        {
+            std::cout << "Pas possible d'ajouter plus de cartes pièges !";
+        }
+        else
+        {
+            traps.push_back(trap);
+        }
     }
 
-    void Boards::removeTrap() {
+    void Boards::removeTrap(int index) {
         cout << "removeTrap\n";
     }
 
-    void Boards::appel() {
-        cout << "appel\n";
-    }
     int Boards::getId() const{
         return id;
     }

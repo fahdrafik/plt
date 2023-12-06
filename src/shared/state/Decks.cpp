@@ -2,8 +2,11 @@
 // Created by elmoro on 14/11/23.
 //
 #include "state.h"
+
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <ctime>
 
 using namespace state;
 using namespace std ;
@@ -13,15 +16,15 @@ Decks::Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHand) {
     this->cardsInHand = cardsInHand;
 }
 
-void shuffle () {
-    cout << "shuffle is done";
+void Decks::shuffle () {
+    std::random_shuffle(cardsInDeck.begin(), cardsInDeck.end());
 }
-void drawCard (){
+void Decks::drawCard (){
     cout <<"Cards Drawn";
 }
-void addCard () {
+void Decks::addCard (state::Cards card) {
     cout << "Card added ";
 }
-void removeCard () {
+void Decks::removeCard (int index) {
     cout << " Card removed to Player";
 }

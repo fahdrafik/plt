@@ -8,6 +8,7 @@ namespace state {
     int turn;
     std::vector<Cards> cardList;
     std::vector<Players> playerList;
+    bool end;
     // Operations
   public:
     GameStates ();
@@ -20,85 +21,6 @@ namespace state {
     void deletePlayer ();
     void createPlayer ();
     void deleteBot ();
-  };
-
-  /// class Decks - 
-  class Decks {
-    // Attributes
-  protected:
-    int id;
-    std::vector<Cards> cardsInDeck;
-    std::vector<Cards> cardsInHand;
-    int numberOfCards;
-    // Operations
-  public:
-    Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
-    Decks ();
-    ~Decks ();
-    void shuffle ();
-    void drawCard ();
-    void addCard ();
-    void removeCard ();
-  };
-
-  enum TypePlayer {
-    HUMAN,
-    BOT
-  };
-
-  enum GameStatus {
-    PLAYING,
-    WON,
-    LOOSE
-  };
-
-  /// class Boards - 
-  class Boards {
-    // Attributes
-  protected:
-    int id;
-    std::vector<Monsters> monsters;
-    std::vector<Spells> spells;
-    std::vector<Traps> traps;
-    std::vector<Cards> graveyard;
-    // Operations
-  public:
-    Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
-    Boards ();
-    ~Boards ();
-    void attackPosition ();
-    void defensePosition ();
-    void addMonster ();
-    void removeMonster ();
-    void addSpell ();
-    void removeSpell ();
-    void addTrap ();
-    void removeTrap ();
-    void appel ();
-  };
-
-  /// class Players - 
-  class Players {
-    // Attributes
-  private:
-    static int nbPlayers;
-  protected:
-    int id;
-    TypePlayer type;
-    GameStatus status;
-    Decks deck;
-    Boards board;
-    int lifepoints;
-    // Operations
-  public:
-    Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints);
-    Players ();
-    ~Players ();
-    void drawCard ();
-    void placeCard ();
-    void setSpell ();
-    void endTurn ();
-    void looseLifePoints (int degat );
   };
 
   /// class CardTypes - 
@@ -130,6 +52,84 @@ namespace state {
     Cards (int idCard, std::string name, std::string description, CardTypes typeCarte);
     Cards ();
     ~Cards ();
+  };
+
+  /// class Decks - 
+  class Decks {
+    // Attributes
+  protected:
+    int id;
+    std::vector<Cards> cardsInDeck;
+    std::vector<Cards> cardsInHand;
+    int numberOfCards;
+    // Operations
+  public:
+    Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
+    Decks ();
+    ~Decks ();
+    void shuffle ();
+    void drawCard ();
+    void addCard (Cards card);
+    void removeCard (int index);
+  };
+
+  enum TypePlayer {
+    HUMAN,
+    BOT
+  };
+
+  enum GameStatus {
+    PLAYING,
+    WON,
+    LOOSE
+  };
+
+  /// class Boards - 
+  class Boards {
+    // Attributes
+  protected:
+    int id;
+    std::vector<Monsters> monsters;
+    std::vector<Spells> spells;
+    std::vector<Traps> traps;
+    std::vector<Cards> graveyard;
+    // Operations
+  public:
+    Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
+    Boards ();
+    ~Boards ();
+    void attackPosition (int index);
+    void defensePosition (int index);
+    void addMonster (state::Monsters monster);
+    void removeMonster (int index);
+    void addSpell (state::Spells spell);
+    void removeSpell (int index);
+    void addTrap (state::Traps trap);
+    void removeTrap (int index);
+  };
+
+  /// class Players - 
+  class Players {
+    // Attributes
+  private:
+    static int nbPlayers;
+  protected:
+    int id;
+    TypePlayer type;
+    GameStatus status;
+    Decks deck;
+    Boards board;
+    int lifepoints;
+    // Operations
+  public:
+    Players (Decks Deck, Boards Board, TypePlayer type, int lifepoints);
+    Players ();
+    ~Players ();
+    void drawCard ();
+    void placeCard ();
+    void setSpell ();
+    void endTurn ();
+    void looseLifePoints (int degat );
   };
 
   /// class Calculation - 
@@ -216,7 +216,7 @@ namespace state {
     // Operations
   public:
     void registerObserver (IObserver* observer);
-    void notifyObservers (const StateEvent& e, GameStates& state);
+    void notifyObservers (const StateEvent& event, GameStates& state);
   };
 
   // interface
@@ -226,15 +226,14 @@ namespace state {
     state::Observable* unnamed;
     // Operations
   public:
-    virtual void stateChanged (const StateEvent& e, GameStates& state) = 0;
+    virtual void stateChanged (const StateEvent& event, GameStates& state) = 0;
   };
 
   enum StateEventID {
     ALLCHANGED,
     TURNCHANGED,
-    CHARACTERCHANGED,
+    CARDCHANGED,
     TEXTCHANGED,
-    CURSOR_CHANGED,
     ALERT,
     WINNER
   };
@@ -252,7 +251,7 @@ namespace state {
     bool isInBase;
     // Operations
   public:
-    StateEvent (StateEventID se);
+    StateEvent (StateEventID Sevent);
     void setStateEventID (StateEventID newID);
   };
 

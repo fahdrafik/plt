@@ -27,8 +27,8 @@ namespace state {
     ~Decks ();
     void shuffle ();
     void drawCard ();
-    void addCard ();
-    void removeCard ();
+    void addCard (Cards card);
+    void removeCard (int index);
     // Setters and Getters
     int getId() const;
     void setId(int id);
