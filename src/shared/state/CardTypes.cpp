@@ -23,5 +23,10 @@ void CardTypes::isSpell() {
     cout << "isSpell\n";
 }
 void CardTypes::isTrap() {
+
+    if (type == "Trap") {
+
+    }
     cout << "isTrap\n";
+
 }
