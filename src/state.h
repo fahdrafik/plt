@@ -23,18 +23,11 @@ namespace state {
     void deleteBot ();
   };
 
-  /// class CardTypes - 
-  class CardTypes {
-    // Attributes
-  protected:
-    std::string type;
-    // Operations
-  public:
-    void isMonster ();
-    void isSpell ();
-    void isTrap ();
-    CardTypes (std::string type);
-    ~CardTypes ();
+  enum CardTypes {
+    NoType,
+    TypeMonster,
+    TypeTrap,
+    TypeSpell
   };
 
   /// class Cards - 
@@ -52,6 +45,9 @@ namespace state {
     Cards (int idCard, std::string name, std::string description, CardTypes typeCarte);
     Cards ();
     ~Cards ();
+    bool isMonster ();
+    bool isSpell ();
+    bool isTrap ();
   };
 
   /// class Decks - 
@@ -87,6 +83,8 @@ namespace state {
   /// class Boards - 
   class Boards {
     // Attributes
+  public:
+    static int nb_boards;
   protected:
     int id;
     std::vector<Monsters> monsters;
