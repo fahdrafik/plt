@@ -13,11 +13,11 @@ using namespace state;
 Spells::Spells (){
 }
 
-Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect) :
-Cards(idCard,name,path,typeCarte),effect(effect){}
+Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect,int spellParameter) :
+Cards(idCard,name,path,typeCarte),effect(effect),spellParameter(spellParameter){}
 
-Spells::Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect) :
-        Cards(name,path,typeCarte),effect(effect){}
+Spells::Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect,int spellParameter) :
+Cards(name,path,typeCarte),effect(effect),spellParameter(spellParameter){}
 
 Spells::~Spells (){ }
 
@@ -34,4 +34,13 @@ void Spells::setOn(bool On){
 }
 bool Spells::getOn() const{
     return true;
+}
+
+int Spells::getSpellParameter() const
+{
+    return spellParameter;
+}
+void Spells::setSpellParameter(int spellParameter)
+{
+    this->spellParameter = spellParameter;
 }

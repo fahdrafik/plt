@@ -161,7 +161,11 @@ namespace state {
     ContinuousSpell,
     Field ,
     Equiped ,
-    Quickplay
+    Quickplay,
+    Equipement,
+    Revival,
+    Retrieve,
+    Control
   };
 
   /// class Spells - 
@@ -170,12 +174,15 @@ namespace state {
   protected:
     spellEffect effect;
     bool On;
+    int spellParameter;
     // Operations
   public:
     Spells ();
     ~Spells ();
-    Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect);
-    Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect);
+    Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
+    Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
+    void activate ();
+    void desactivate ();
   };
 
   /// class Monsters - 
@@ -200,7 +207,11 @@ namespace state {
   enum trapEffect {
     NormalTrap,
     ContinuousTrap,
-    Counter
+    Counter,
+    DeleteCard,
+    DeleteCardWithTreshold,
+    DeleteCardLoosingLP,
+    ReturnAttackToSender
   };
 
   /// class Traps - 
@@ -208,14 +219,16 @@ namespace state {
     // Attributes
   protected:
     trapEffect effect;
+    int trapParameter;
     // Operations
   public:
     void activate ();
+    void desactivate ();
     bool isOn ();
     Traps ();
     ~Traps ();
-    Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect);
-    Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect);
+    Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
+    Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
   };
 
   /// class Observable - 
