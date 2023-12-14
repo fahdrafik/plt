@@ -13,8 +13,8 @@ using namespace state;
 Spells::Spells (){
 }
 
-Spells::Spells (int idCard, std::string name, std::string description, CardTypes typeCarte, spellEffect effect) :
-Cards(idCard,name,description,typeCarte),effect(effect){}
+Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect) :
+Cards(idCard,name,path,typeCarte),effect(effect){}
 
 Spells::~Spells (){ }
 

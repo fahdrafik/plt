@@ -15,8 +15,8 @@ using namespace state;
 Traps::Traps ():Cards(){
 }
 Traps::~Traps () {}
-Traps::Traps (int idCard, std::string name, std::string description, CardTypes typeCarte, trapEffect effect)
-: Cards(idCard,name,description,typeCarte),effect(effect){
+Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect)
+: Cards(idCard,name,path,typeCarte),effect(effect){
 
 }
 

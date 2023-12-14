@@ -23,6 +23,13 @@ namespace state {
     void deleteBot ();
   };
 
+  enum DeckChoice {
+    NoChoice,
+    DeckDragon,
+    DeckSynchro,
+    DeckSoldier
+  };
+
   enum CardTypes {
     NoType,
     TypeMonster,
@@ -38,11 +45,11 @@ namespace state {
   protected:
     int idCard;
     std::string name;
-    std::string description;
+    std::string path;
     CardTypes typeCarte;
     // Operations
   public:
-    Cards (int idCard, std::string name, std::string description, CardTypes typeCarte);
+    Cards (int idCard, std::string name, std::string path, CardTypes typeCarte);
     Cards ();
     ~Cards ();
     bool isMonster ();
@@ -60,7 +67,8 @@ namespace state {
     int numberOfCards;
     // Operations
   public:
-    Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHands);
+    Decks (std::vector<Cards> cardsInDeck);
+    Decks (DeckChoice DeckChoice);
     Decks ();
     ~Decks ();
     void shuffle ();
@@ -165,7 +173,7 @@ namespace state {
   public:
     Spells ();
     ~Spells ();
-    Spells (int idCard, std::string name, std::string description, CardTypes typeCarte, spellEffect effect);
+    Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect);
   };
 
   /// class Monsters - 
@@ -182,7 +190,7 @@ namespace state {
     void attackCard (Cards card);
     void attackPlayer (Players player);
     void setSpell ();
-    Monsters (int idCard, std::string name, std::string description, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
+    Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
     ~Monsters ();
   };
 
@@ -203,7 +211,7 @@ namespace state {
     bool isOn ();
     Traps ();
     ~Traps ();
-    Traps (int idCard, std::string name, std::string description, CardTypes typeCarte, trapEffect effect);
+    Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect);
   };
 
   /// class Observable - 
