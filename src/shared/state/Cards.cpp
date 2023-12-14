@@ -6,7 +6,7 @@
 using namespace std;
 using namespace state; 
 
-Cards::Cards(int idCard,std::string name, std::string description, CardTypes typeCarte)
+Cards::Cards(int idCard,std::string name, std::string path, CardTypes typeCarte)
 :typeCarte(typeCarte) {
     this->idCard = idCard;
     this->name = name;

@@ -1,0 +1,76 @@
+Deck Dragon : 
+Monstres : 
+5x4 :
+- Griffon Delta 
+- Golem Dragon 
+- Dragon Appât 
+- Dragon Etoile Brillante 
+
++4 : Kaiser Hippocampe 
++1 : Dragon Blanc aux Yeux Blancs  
+
+Pièges :
+3x2 : 
+- Force de miroir
+- Cylindre magique
+- Appel de l'être hanté 
+
+Magies : 
+3x3 :
+- Hurlement d'argent (implémenté comme Monster Reborn)
+- Epée des Profondeurs 
+- Sacrifice inutile  
+
+Total : 40
+
+Deck Soldat : 
+Monstres : 
+5x4 :
+- Chevalier du commencement 
+- Floraison de Cendres 
+- Emissaire du Chaos 
+- Chevalier du Crépuscule 
+
++4 : Chevalier du Roi 
++1 : Soldat du Lustre Noir 
+
+Pièges :
+3x2 : 
+- Force de miroir
+- Pot-De-Vin du Temple Maudit 
+- Sept outil du bandit
+
+Magies : 
+3x3 :
+- Monster Reborn 
+- Renfort de l'armée 
+- Boulet des ténèbres 
+
+Total : 40
+
+Decks crées :
+
+Deck Synchro : 
+Monstres : 
+5x4 :
+- Avion à Réaction 
+- Serviteur robot 
+- Robot Briseur 
+- Route Synchronique 
+
++4 : Accel Synchronique 
++1 : Guerrier de la route 
+
+Pièges :
+3x2 : 
+- Force de miroir
+- Avertissement divin 
+- Trappe sans fond 
+
+Magies : 
+3x3 :
+- Monster Reborn 
+- Hache de Fer Porte-Bohneur
+- Changement De Coeur 
+
+Total : 40
