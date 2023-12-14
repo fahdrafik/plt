@@ -16,6 +16,9 @@ Spells::Spells (){
 Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect) :
 Cards(idCard,name,path,typeCarte),effect(effect){}
 
+Spells::Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect) :
+        Cards(name,path,typeCarte),effect(effect){}
+
 Spells::~Spells (){ }
 
 // Setters and Getters
@@ -28,7 +31,6 @@ spellEffect Spells::getEffect() const{
 
 void Spells::setOn(bool On){
     this->On = On;
-
 }
 bool Spells::getOn() const{
     return true;

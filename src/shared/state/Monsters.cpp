@@ -13,6 +13,16 @@ Cards(idCard,name,path,typeCarte){
     this->position = position;
 }
 
+Monsters::Monsters(std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position):
+        Cards(name,path,typeCarte){
+    this->effet = effet;
+    this->level = level;
+    this->attack = attack;
+    this->defense = defense;
+    this->position = position;
+}
+
+
 Monsters::~Monsters () {}
 
 void Monsters::setLevel(int level)

@@ -17,11 +17,10 @@ Traps::Traps ():Cards(){
 Traps::~Traps () {}
 Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect)
 : Cards(idCard,name,path,typeCarte),effect(effect){
-
 }
-
-
-
+Traps::Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect)
+        : Cards(name,path,typeCarte),effect(effect){
+}
 
 void Traps::setEffect(trapEffect effect){
     this->effect = effect;

@@ -40,8 +40,8 @@ namespace state {
   /// class Cards - 
   class Cards {
     // Attributes
-  public:
-    int nombreDeCartes;
+  private:
+    static int nombreDeCartes;
   protected:
     int idCard;
     std::string name;
@@ -50,6 +50,7 @@ namespace state {
     // Operations
   public:
     Cards (int idCard, std::string name, std::string path, CardTypes typeCarte);
+    Cards (std::string name, std::string path, CardTypes typeCarte);
     Cards ();
     ~Cards ();
     bool isMonster ();
@@ -174,6 +175,7 @@ namespace state {
     Spells ();
     ~Spells ();
     Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect);
+    Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect);
   };
 
   /// class Monsters - 
@@ -191,6 +193,7 @@ namespace state {
     void attackPlayer (Players player);
     void setSpell ();
     Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
+    Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
     ~Monsters ();
   };
 
@@ -212,6 +215,7 @@ namespace state {
     Traps ();
     ~Traps ();
     Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect);
+    Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect);
   };
 
   /// class Observable - 

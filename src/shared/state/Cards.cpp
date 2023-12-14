@@ -4,11 +4,21 @@
 #include <vector>
 
 using namespace std;
-using namespace state; 
+using namespace state;
+
+int Cards::nombreDeCartes = 0;
 
 Cards::Cards(int idCard,std::string name, std::string path, CardTypes typeCarte)
 :typeCarte(typeCarte) {
     this->idCard = idCard;
+    this->name = name;
+    this->path = path;
+}
+
+Cards::Cards(std::string name, std::string path, CardTypes typeCarte)
+        :typeCarte(typeCarte) {
+    this->idCard = Cards::nombreDeCartes;
+    nombreDeCartes++;
     this->name = name;
     this->path = path;
 }
