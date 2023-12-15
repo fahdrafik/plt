@@ -107,5 +107,15 @@ int main(int argc,char* argv[])
             }
         }
     }
+    else if (strcmp(argv[1], "engine") == 0){
+        /*Decks DeckPlayer1(DeckSynchro);
+        DeckPlayer1.display();
+        DeckPlayer1.shuffle();
+        cout << "Cards after shuffle : " << endl;
+        DeckPlayer1.display();
+        DeckPlayer1.initCardsInHands();
+        cout << "Cards after initialisation : " << endl;
+        DeckPlayer1.display();*/
+    }
     return 0;
 }

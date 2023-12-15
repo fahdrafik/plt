@@ -13,20 +13,28 @@ using namespace state;
 Traps::Traps ():Cards(){
 }
 Traps::~Traps () {}
-Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect,int trapParameter)
+Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, int effect,int trapParameter)
 : Cards(idCard,name,path,typeCarte),effect(effect),trapParameter(trapParameter){
 }
-Traps::Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect,int trapParameter)
+Traps::Traps (std::string name, std::string path, CardTypes typeCarte, int effect,int trapParameter)
 : Cards(name,path,typeCarte),effect(effect),trapParameter(trapParameter){
 }
 
-void Traps::setEffect(trapEffect effect){
-    this->effect = effect;
+int Traps::getTrapParameter() const
+{
+    return trapParameter;
 }
-trapEffect Traps::getEffect() const {
-    return effect;
+void Traps::setTrapParameter(int trapParameter)
+{
+    this->trapParameter = trapParameter;
 }
 
+void Traps::setEffect(int effect){
+    this->effect = effect;
+}
+int Traps::getEffect() const {
+    return effect;
+}
 
 void Traps::activate () {
 

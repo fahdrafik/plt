@@ -15,8 +15,6 @@ namespace state {
     }
 
 
-    Boards::Boards(){}
-
     Boards::~Boards() {}
 
     void Boards::attackPosition(int index) {

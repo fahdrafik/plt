@@ -1,0 +1,16 @@
+monster
+dragon1
+50
+50
+src/extern
+
+spell
+spell1
+0
+0
+
+trap
+trap1
+0
+0
+

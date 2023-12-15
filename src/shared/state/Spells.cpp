@@ -13,19 +13,19 @@ using namespace state;
 Spells::Spells (){
 }
 
-Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect,int spellParameter) :
+Spells::Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, int effect,int spellParameter) :
 Cards(idCard,name,path,typeCarte),effect(effect),spellParameter(spellParameter){}
 
-Spells::Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect,int spellParameter) :
+Spells::Spells (std::string name, std::string path, CardTypes typeCarte, int effect,int spellParameter) :
 Cards(name,path,typeCarte),effect(effect),spellParameter(spellParameter){}
 
 Spells::~Spells (){ }
 
 // Setters and Getters
-void Spells::setEffect(spellEffect effect){
+void Spells::setEffect(int effect){
     this ->effect = effect;
 }
-spellEffect Spells::getEffect() const{
+int Spells::getEffect() const{
     return effect;
 }
 
