@@ -15,33 +15,17 @@ Decks::Decks (std::vector<Cards> cardsInDeck) {
     this->cardsInDeck = cardsInDeck;
 }
 
-Decks::Decks (DeckChoice DeckChoice) {
-    switch(DeckChoice)
-    {
-        case DeckDragon:
-            //Création Monstres
-
-            //Création Pièges
-
-            //Création Magies
-            break;
-        case DeckSynchro:
-            //Création Monstres
-
-            //Création Pièges
-
-            //Création Magies
-            break;
-        case DeckSoldier:
-            //Création Monstres
-
-            //Création Pièges
-
-            //Création Magies
-            break;
-        default:
-            break;
+Decks::Decks (int id) {
+    if (id==1){
+       //deck dragon
     }
+    if (id==2){
+        //deck soldier
+    }
+    if (id==3){
+        //deck synchro
+    }
+
 }
 
 void Decks::shuffle () {
