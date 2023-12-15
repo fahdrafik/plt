@@ -48,23 +48,26 @@ Decks::Decks (int id) {
                     getline(input, line); //ligne 4 defense
                     temp = stoi(line);
                     m.setDefense(temp);
-                    // Ajouter le monstre au vecteur cardsInDeck
+                    getline(input, line);
+
+                    m.setPath(line);
+
                     cardsInDeck.push_back(m);
                 }
                 else if (line == "spell")
                 {
-                    // Lire les informations nécessaires du fichier ou d'où vous les obtenez
-                    // ...
 
                     Spells s;
-                    getline(input, line);
+                    getline(input, line); //nom
                     s.setName(line);
                     getline(input, line);
                     temp = stoi(line);
-                    s.setEffect(temp);
+                    s.setEffect(temp);          //effet
                     getline(input, line);
                     temp = stoi(line);
-                    s.setSpellParameter(temp);
+                    s.setSpellParameter(temp); //spellparameter
+                    getline(input, line);//path
+                    s.setPath(line);
                     cardsInDeck.push_back(s);
                 }
                 else if (line == "trap")
@@ -79,8 +82,8 @@ Decks::Decks (int id) {
                     getline(input, line);
                     temp = stoi(line);
                     t.setTrapParameter(temp);
-                    // ... Initialisez les autres attributs selon vos besoins
-
+                    getline(input, line);
+                    t.setPath(line);
                     cardsInDeck.push_back(t);
                 }
             }
