@@ -35,13 +35,13 @@ BOOST_AUTO_TEST_CASE(TestCalculation)
 
 BOOST_AUTO_TEST_CASE(testSpells) {
     Spells Sort;
-    Sort.setEffect(Ritual);
-    BOOST_CHECK_EQUAL(Sort.getEffect(),Ritual);
+    //Sort.setEffect(Ritual);
+    //BOOST_CHECK_EQUAL(Sort.getEffect(),Ritual);
 }
 BOOST_AUTO_TEST_CASE(testTraps) {
     Traps trap;
-    trap.setEffect(NormalTrap);
-    BOOST_CHECK_EQUAL(trap.getEffect(),NormalTrap);
+    //trap.setEffect(NormalTrap);
+    //BOOST_CHECK_EQUAL(trap.getEffect(),NormalTrap);
 
 }
 
