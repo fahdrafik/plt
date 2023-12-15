@@ -4,13 +4,23 @@
 #include <vector>
 
 using namespace std;
-using namespace state; 
+using namespace state;
 
-Cards::Cards(int idCard,std::string name, std::string description, CardTypes typeCarte)
+int Cards::nombreDeCartes = 0;
+
+Cards::Cards(int idCard,std::string name, std::string path, CardTypes typeCarte)
 :typeCarte(typeCarte) {
     this->idCard = idCard;
     this->name = name;
-    this->description = description;
+    this->path = path;
+}
+
+Cards::Cards(std::string name, std::string path, CardTypes typeCarte)
+        :typeCarte(typeCarte) {
+    this->idCard = Cards::nombreDeCartes;
+    nombreDeCartes++;
+    this->name = name;
+    this->path = path;
 }
 
 Cards::Cards() : typeCarte(NoType){
@@ -31,13 +41,13 @@ void Cards::setName(const std::string& name)
     this->name = name;
 }
 
-const std::string& Cards::getDescription() const
+const std::string& Cards::getPath() const
 {
-    return description;
+    return path;
 }
-void Cards::setDescription(const std::string& description)
+void Cards::setPath(const std::string& path)
 {
-    this->description = description;
+    this->path = path;
 }
 
 CardTypes Cards::getTypeCarte() const{

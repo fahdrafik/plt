@@ -11,20 +11,50 @@
 using namespace state;
 using namespace std ;
 
-Decks::Decks (std::vector<Cards> cardsInDeck, std::vector<Cards> cardsInHand) {
+Decks::Decks (std::vector<Cards> cardsInDeck) {
     this->cardsInDeck = cardsInDeck;
-    this->cardsInHand = cardsInHand;
+}
+
+Decks::Decks (DeckChoice DeckChoice) {
+    switch(DeckChoice)
+    {
+        case DeckDragon:
+            //Création Monstres
+
+            //Création Pièges
+
+            //Création Magies
+            break;
+        case DeckSynchro:
+            //Création Monstres
+
+            //Création Pièges
+
+            //Création Magies
+            break;
+        case DeckSoldier:
+            //Création Monstres
+
+            //Création Pièges
+
+            //Création Magies
+            break;
+        default:
+            break;
+    }
 }
 
 void Decks::shuffle () {
-    std::random_shuffle(cardsInDeck.begin(), cardsInDeck.end());
+    random_shuffle(cardsInDeck.begin(), cardsInDeck.end());
 }
 void Decks::drawCard (){
-    cout <<"Cards Drawn";
+    cardsInHand.push_back(cardsInDeck.back());
+    cardsInDeck.pop_back();
 }
 void Decks::addCard (state::Cards card) {
-    cout << "Card added ";
+    cardsInDeck.push_back(card);
+    random_shuffle(cardsInDeck.begin(), cardsInDeck.end());
 }
 void Decks::removeCard (int index) {
-    cout << " Card removed to Player";
+    cardsInDeck.erase(cardsInDeck.begin() + index);
 }
