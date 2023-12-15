@@ -19,6 +19,11 @@ void GameStates::init (){
     this->turn=0;
     Players* player = new Players(*deckChosen,50);
     this->createPlayer(*player);
+    this->deckChosen= new Decks(1);
+    Players* player2 = new Players(*deckChosen,50);
+    this->createPlayer(*player2);
+
+
 }
 void GameStates::incrementTurn (){
     turn++;
