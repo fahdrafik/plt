@@ -20,13 +20,21 @@ Traps::Traps (std::string name, std::string path, CardTypes typeCarte, int effec
 : Cards(name,path,typeCarte),effect(effect),trapParameter(trapParameter){
 }
 
+int Traps::getTrapParameter() const
+{
+    return trapParameter;
+}
+void Traps::setTrapParameter(int trapParameter)
+{
+    this->trapParameter = trapParameter;
+}
+
 void Traps::setEffect(int effect){
     this->effect = effect;
 }
 int Traps::getEffect() const {
     return effect;
 }
-
 
 void Traps::activate () {
 
