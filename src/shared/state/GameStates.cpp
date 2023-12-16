@@ -17,7 +17,7 @@ GameStates::GameStates() {
 }
 
 void GameStates::init() {
-    this->turn = 0;
+/*    this->turn = 0;
     this->end = false;
     playerList.clear();
     cardList.clear();
@@ -44,7 +44,7 @@ void GameStates::init() {
     gameBoard.setMonsters();
     gameBoard.setSpells();
     gameBoard.setTraps();
-    gameBoard.setGraveyard();
+    gameBoard.setGraveyard();*/
 
 
 
@@ -65,9 +65,6 @@ void GameStates::addBot() {
 void GameStates::deletePlayer() {
 }
 
-void GameStates::createPlayer() {
-}
-
 void GameStates::deleteBot() {
 }
 
@@ -79,19 +76,19 @@ int GameStates::getTurn() const {
 void GameStates::setTurn(int turn) {
 }
 
-const std::vector<Cards> &GameStates::getCardList() const {
+const std::vector<Cards*> &GameStates::getCardList() const {
     return cardList;
 }
 
-void GameStates::setCardList(const std::vector<Cards> &cardList) {
+void GameStates::setCardList(const std::vector<Cards*> &cardList) {
     this->cardList = cardList;
 }
 
-const std::vector<Players> &GameStates::getPlayerList() const {
+const std::vector<Players*> &GameStates::getPlayerList() const {
     return playerList;
 }
 
-void GameStates::setPlayerList(const std::vector<Players> &playerList) {
+void GameStates::setPlayerList(const std::vector<Players*> &playerList) {
     this->playerList = playerList;
 }
 

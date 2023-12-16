@@ -210,7 +210,7 @@ Decks::Decks (int id) {
                     s.setName(line);
                     getline(input, line);
                     temp = stoi(line);
-                    s.setEffect(temp);          //effet
+                    //s.setEffect(temp);          //effet
                     getline(input, line);
                     temp = stoi(line);
                     s.setSpellParameter(temp); //spellparameter
@@ -226,7 +226,7 @@ Decks::Decks (int id) {
                     t.setName(line);
                     getline(input, line);
                     temp = stoi(line);
-                    t.setEffect(temp);
+                    //t.setEffect(temp);
                     getline(input, line);
                     temp = stoi(line);
                     t.setTrapParameter(temp);
