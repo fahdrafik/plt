@@ -15,6 +15,15 @@ GameStates::GameStates(){
 
 void GameStates::init (){
     this->turn=0;
+
+    Boards gameBoard;
+    Players player1;
+    Decks CardsPLayer1;
+
+
+
+
+
 }
 void GameStates::incrementTurn (){
 }
