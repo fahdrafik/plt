@@ -20,7 +20,7 @@ namespace state {
     }
 
     void Players::drawCard() {
-        cout << "You've drawn a Card\n";
+        deck.drawCard();
     }
 
     void Players::placeCard(int index) {
@@ -38,6 +38,7 @@ namespace state {
             default:
                 break;
         }
+        deck.removeCard(index);
         cout << "You've placed a card : " << endl;
     }
 
