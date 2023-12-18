@@ -67,9 +67,9 @@ int Monsters::getEffet () const
 void Monsters::attackCard(Cards card) {
     cout << "attackCard\n";
 }
-void Monsters::attackPlayer(Players player) {
+/*void Monsters::attackPlayer(Players player) {
     cout << "attackPlayer\n";
-}
+}*/
 void Monsters::setSpell() {
     cout << "attack\n";
 }

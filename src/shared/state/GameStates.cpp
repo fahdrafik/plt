@@ -2,10 +2,12 @@
 // Created by cornic on 14/11/23.
 //
 
-#include "GameStates.h"
+#include "state.h"
+
+/*#include "GameStates.h"
 #include "Players.h"
 #include "Decks.h"
-#include "Boards.h"
+#include "Boards.h"*/
 
 #include <iostream>
 #include <vector>
@@ -45,9 +47,6 @@ void GameStates::init() {
     gameBoard.setSpells();
     gameBoard.setTraps();
     gameBoard.setGraveyard();*/
-
-
-
 }
 
 void GameStates::incrementTurn() {

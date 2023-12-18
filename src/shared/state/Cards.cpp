@@ -1,4 +1,4 @@
-#include "Cards.h"
+#include "state.h"
 
 #include <iostream>
 #include <vector>
@@ -24,9 +24,7 @@ Cards::Cards(std::string name, std::string path, CardTypes typeCarte)
 }
 
 Cards::Cards() : typeCarte(NoType){
-
     // Pour chacun des type
-
 }
 
 Cards::~Cards()

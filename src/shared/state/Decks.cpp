@@ -2,13 +2,15 @@
 // Created by elmoro on 14/11/23.
 //
 #include "state.h"
+
 #include <iostream>
+#include <string>
 #include <vector>
 #include <algorithm>
 #include <ctime>
 #include <fstream>
 using namespace state;
-using namespace std ;
+using namespace std;
 
 Decks::Decks (std::vector<Cards> cardsInDeck) {
     this->cardsInDeck = cardsInDeck;
@@ -262,6 +264,25 @@ void Decks::removeCard (int index) {
     cardsInDeck.erase(cardsInDeck.begin() + index);
 }
 
+Cards Decks::getCardInHand (int index) {
+    return cardsInHand[index];
+}
+
+string Decks::getCardInHandName (int index) {
+    return cardsInHand[index].getName();
+}
+
+CardTypes Decks::getCardInHandType (int index) {
+    return cardsInHand[index].getTypeCarte();
+}
+
+Cards Decks::getCardInDeck (int index) {
+    return cardsInDeck[index];
+}
+
+void Decks::removeCardInHand (int index) {
+    cardsInHand.erase(cardsInHand.begin() + index);
+}
 
 void Decks::display(){
     std::cout << "Cards in the deck:\n";

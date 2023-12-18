@@ -14,7 +14,7 @@ namespace state {
         this->graveyard = graveyard;
     }
 
-
+    Boards::Boards() {}
     Boards::~Boards() {}
 
     void Boards::attackPosition(int index) {
