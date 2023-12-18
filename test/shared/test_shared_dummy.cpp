@@ -6,6 +6,8 @@
 #include "../../src/shared/state/Calculation.h"
 #include "../../src/shared/state/Spells.h"
 #include "../../src/shared/state/Traps.h"
+#include "../../src/shared/state/trapEffect.h"
+#include "../../src/shared/state/spellEffect.h"
 #include "../../src/shared/state/Monsters.h"
 
 
@@ -35,14 +37,13 @@ BOOST_AUTO_TEST_CASE(TestCalculation)
 
 BOOST_AUTO_TEST_CASE(testSpells) {
     Spells Sort;
-    Sort.setEffect(Ritual);
-    BOOST_CHECK_EQUAL(Sort.getEffect(),Ritual);
+    Sort.setEffect(Control); //Ritual
+    BOOST_CHECK_EQUAL(Sort.getEffect(),Control);
 }
 BOOST_AUTO_TEST_CASE(testTraps) {
     Traps trap;
-    trap.setEffect(NormalTrap);
-    BOOST_CHECK_EQUAL(trap.getEffect(),NormalTrap);
-
+    trap.setEffect(RevivalBeforeAttack); //NormalTrap
+    BOOST_CHECK_EQUAL(trap.getEffect(),RevivalBeforeAttack);
 }
 
 BOOST_AUTO_TEST_CASE(TestMonsters)

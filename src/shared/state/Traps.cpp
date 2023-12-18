@@ -33,6 +33,8 @@ void Traps::activate () {
     // Coder une fonction qui determine le cardType en utilisant la methode CardTypes::CardTypes
     // On a un retour de cardType
     cout<< "keep is simple";
+
+    //swtitch case en fonction de l'enum !!
 }
 bool isOn () {
     return true;

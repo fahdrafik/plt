@@ -14,7 +14,7 @@ Cards::Cards(int idCard,std::string name, std::string path, CardTypes typeCarte)
     this->name = name;
     this->path = path;
 }
-
+// This one is used in Gamestate
 Cards::Cards(std::string name, std::string path, CardTypes typeCarte)
         :typeCarte(typeCarte) {
     this->idCard = Cards::nombreDeCartes;
@@ -24,6 +24,8 @@ Cards::Cards(std::string name, std::string path, CardTypes typeCarte)
 }
 
 Cards::Cards() : typeCarte(NoType){
+
+    // Pour chacun des type
 
 }
 

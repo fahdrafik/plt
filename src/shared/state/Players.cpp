@@ -10,10 +10,8 @@ using namespace state;
 using namespace std;
 
 
-Players::Players(state::Decks Deck, state::Boards Board, state::TypePlayer type, int lifepoints) {
+Players::Players(state::Decks Deck, int lifepoints) {
     this->deck = deck;
-    this->board = board;
-    this->type = type;
     this->lifepoints = lifepoints;
 }
 
