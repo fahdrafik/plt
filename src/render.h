@@ -4,7 +4,7 @@ namespace render {
   enum Window {
     NONE,
     MAIN_WINDOW,
-    MENU_WINDOW,
+    MENU_WINDOW,sd
     IN_PLAY_WINDOW,
     VIEW_CARDS_WINDOW,
     TITLE_SCREEN_WINDOW
