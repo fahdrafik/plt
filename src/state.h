@@ -1,34 +1,6 @@
 
 namespace state {
 
-  /// class GameStates - 
-  class GameStates {
-    // Attributes
-  public:
-    int nbPlayers;
-    int nbBots;
-    Decks* deckChosen;
-  protected:
-    int turn;
-    std::vector<Cards*> cardList;
-    std::vector<Players*> playerList;
-    std::vector<Boards*> boardList;
-    bool end;
-    // Operations
-  public:
-    GameStates ();
-    ~GameStates ();
-    void init ();
-    void incrementTurn ();
-    void displayScore ();
-    void addPlayer ();
-    void addBot ();
-    void deletePlayer ();
-    void createPlayer (Players& obj);
-    void deleteBot ();
-    void chooseDeck (Decks& obj);
-  };
-
   enum DeckChoice {
     NoChoice,
     DeckDragon,
@@ -58,7 +30,7 @@ namespace state {
     Cards (int idCard, std::string name, std::string path, CardTypes typeCarte);
     Cards (std::string name, std::string path, CardTypes typeCarte);
     Cards ();
-    ~Cards ();
+    virtual ~Cards ();
     bool isMonster ();
     bool isSpell ();
     bool isTrap ();
@@ -88,41 +60,13 @@ namespace state {
     void addCardToHand (Cards card);
     void addCard (Cards card);
     void removeCard (int index);
+    void removeCardInHand (int index);
+    Cards getCardInHand (int index);
+    Cards getCardInDeck (int index);
+    CardTypes getCardInHandType (int index);
+    std::string getCardInHandName (int index);
     void display ();
     void initCardsInHands ();
-  };
-
-  enum TypePlayer {
-    HUMAN,
-    BOT
-  };
-
-  enum GameStatus {
-    PLAYING,
-    WON,
-    LOOSE
-  };
-
-  /// class Players - 
-  class Players {
-    // Attributes
-  private:
-    static int nbPlayers;
-  protected:
-    int id;
-    TypePlayer type;
-    GameStatus status;
-    Decks deck;
-    int lifepoints;
-    // Operations
-  public:
-    Players (Decks Deck, int lifepoints);
-    ~Players ();
-    void drawCard ();
-    void placeCard ();
-    void setSpell ();
-    void endTurn ();
-    void looseLifePoints (int degat );
   };
 
   /// class Calculation - 
@@ -155,6 +99,7 @@ namespace state {
     // Operations
   public:
     Boards (std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters, std::vector<Cards> graveyard);
+    Boards ();
     ~Boards ();
     void attackPosition (int index);
     void defensePosition (int index);
@@ -164,6 +109,72 @@ namespace state {
     void removeSpell (int index);
     void addTrap (state::Traps trap);
     void removeTrap (int index);
+  };
+
+  enum TypePlayer {
+    HUMAN,
+    BOT
+  };
+
+  enum GameStatus {
+    PLAYING,
+    WON,
+    LOOSE
+  };
+
+  /// class Players - 
+  class Players {
+    // Attributes
+  private:
+    static int nbPlayers;
+  protected:
+    int id;
+    TypePlayer type;
+    GameStatus status;
+    Decks deck;
+    Boards board;
+    int lifepoints;
+    // Operations
+  public:
+    Players (Decks deck, int lifepoints, Boards board, TypePlayer type);
+    Players ();
+    ~Players ();
+    void drawCard ();
+    void placeCard (int index);
+    void looseLifePoints (int degat );
+  };
+
+  /// class GameStates - 
+  class GameStates {
+    // Associations
+    state::Decks* unnamed;
+    state::Calculation* unnamed;
+    state::Boards* unnamed;
+    state::Players* unnamed;
+    // Attributes
+  public:
+    int nbPlayers;
+    int nbBots;
+    Decks* deckChosen;
+  protected:
+    int turn;
+    std::vector<Cards*> cardList;
+    std::vector<Players*> playerList;
+    std::vector<Boards*> boardList;
+    bool end;
+    // Operations
+  public:
+    GameStates ();
+    ~GameStates ();
+    void init ();
+    void incrementTurn ();
+    void displayScore ();
+    void addPlayer ();
+    void addBot ();
+    void deletePlayer ();
+    void createPlayer (Players& obj);
+    void deleteBot ();
+    void chooseDeck (Decks& obj);
   };
 
   enum spellEffect {
@@ -184,15 +195,15 @@ namespace state {
   class Spells : public Cards {
     // Attributes
   protected:
-    int effect;
+    spellEffect effect;
     bool On;
     int spellParameter;
     // Operations
   public:
     Spells ();
     ~Spells ();
-    Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, int effect, int spellParameter);
-    Spells (std::string name, std::string path, CardTypes typeCarte, int effect, int spellParameter);
+    Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
+    Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
     void activate ();
     void desactivate ();
   };
@@ -209,7 +220,6 @@ namespace state {
     // Operations
   public:
     void attackCard (Cards card);
-    void attackPlayer (Players player);
     void setSpell ();
     Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
     Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
@@ -232,7 +242,7 @@ namespace state {
   class Traps : public Cards {
     // Attributes
   protected:
-    int effect;
+    trapEffect effect;
     int trapParameter;
     // Operations
   public:
@@ -241,8 +251,8 @@ namespace state {
     bool isOn ();
     Traps ();
     ~Traps ();
-    Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, int effect, int trapParameter);
-    Traps (std::string name, std::string path, CardTypes typeCarte, int effect, int trapParameter);
+    Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
+    Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
   };
 
   /// class Observable - 

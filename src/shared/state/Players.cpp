@@ -9,28 +9,49 @@
 using namespace state;
 using namespace std;
 
+namespace state {
 
-Players::Players(state::Decks Deck, int lifepoints) {
-    this->deck = deck;
-    this->lifepoints = lifepoints;
-}
+    Players::Players(Decks deck, int lifepoints,Boards board,TypePlayer type) {
+        this->deck = deck;
+        this->lifepoints = lifepoints;
+        this->type = type;
+        this->board = board;
+        status = PLAYING;
+    }
 
-void Players::drawCard() {
-    cout << "You've drawn a Card\n";
-}
+    void Players::drawCard() {
+        deck.drawCard();
+    }
 
-void Players::placeCard() {
-    cout << "You've placed a Card\n";
-}
+    void Players::placeCard(int index) {
+        switch(deck.getCardInHandType(index))
+        {
+            case TypeMonster:
+                board.addMonster(dynamic_cast<state::Monsters&>(deck.getCardInHand(index)));
+                break;
+            case TypeSpell:
+                board.addSpell(dynamic_cast<state::Spells&>(deck.getCardInHand(index)));
+                break;
+            case TypeTrap:
+                board.addTrap(dynamic_cast<state::Traps&>(deck.getCardInHand(index)));
+                break;
+            default:
+                break;
+        }
+        deck.removeCard(index);
+        cout << "You've placed a card : " << endl;
+    }
 
-void Players::setSpell() {
-    cout << "You've set a Spell\n";
-}
-
-void Players::endTurn() {
-    cout << "It's your turn\n";
-}
-
-void Players::looseLifePoints(int degat) {
-    cout << "LifePoints perdus\n";
+    void Players::looseLifePoints(int degat) {
+        if(lifepoints < degat)
+        {
+            lifepoints = 0;
+            status = LOOSE;
+        }
+        else
+        {
+            lifepoints = lifepoints - degat;
+        }
+        cout << "You lost " << degat  << " lifepoints !" << endl;
+    }
 }
