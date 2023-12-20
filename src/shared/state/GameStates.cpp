@@ -48,14 +48,14 @@ void GameStates::init() {
     gameBoard.setTraps();
     gameBoard.setGraveyard();*/
     this->turn=0;
+    this->deckChosen= new Decks(1);
 
     Boards gameBoard;
     gameBoard.setId(1);
 
-    Players* player = new Players(*deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    Players* player = new Players(*new Decks(1),50,gameBoard,TypePlayer::HUMAN);
     this->createPlayer(*player);
-    this->deckChosen= new Decks(1);
-    Players* player2 = new Players(*deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    Players* player2 = new Players(*new Decks(1),50,gameBoard,TypePlayer::HUMAN);
     this->createPlayer(*player2);
 
 
