@@ -47,25 +47,53 @@ void GameStates::init() {
     gameBoard.setSpells();
     gameBoard.setTraps();
     gameBoard.setGraveyard();*/
+    this->turn=0;
+
+    Boards gameBoard;
+    gameBoard.setId(1);
+
+    Players* player = new Players(*deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    this->createPlayer(*player);
+    this->deckChosen= new Decks(1);
+    Players* player2 = new Players(*deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    this->createPlayer(*player2);
+
+
 }
 
-void GameStates::incrementTurn() {
-}
+    void GameStates::incrementTurn (){
+        turn++;
+    }
+    void GameStates::displayScore (){
+    }
+    void GameStates::addPlayer (){
+        if (nbPlayers+nbBots<2){
+            nbPlayers+=1;
+        }
+    }
+    void GameStates::addBot (){
+        if (nbPlayers+nbBots<2){
+            nbBots+=1;
+        }
+    }
+    void GameStates::deletePlayer (){
+        if (nbPlayers>0){
+            nbPlayers-=1;
+        }
+    }
+    void GameStates::createPlayer (Players& obj){
+        this->playerList.push_back(&obj);
+    }
+    void GameStates::chooseDeck (Decks& obj){
+        this->deckChosen= &obj;
+    }
+    void GameStates::deleteBot (){
+        if (nbBots>0){
+            nbPlayers-=1;
+        }
+    }
 
-void GameStates::displayScore() {
-}
 
-void GameStates::addPlayer() {
-}
-
-void GameStates::addBot() {
-}
-
-void GameStates::deletePlayer() {
-}
-
-void GameStates::deleteBot() {
-}
 
 // Setters and Getters
 int GameStates::getTurn() const {
