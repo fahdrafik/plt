@@ -8,6 +8,7 @@
 #include "Players.h"
 #include "Decks.h"
 #include "Boards.h"
+#include "Phases.h"
 
 #include <iostream>
 #include <vector>
@@ -21,46 +22,28 @@ GameStates::~GameStates () {}
 
 void GameStates::init (Players& first, Players& second) {
 
-    playerList.push_back(&first); //à revoir
-    playerList.push_back(&second);
-    this->turn = 0;
-
+    playerList.push_back(first); //à revoir
+    playerList.push_back(second);
     nbPlayers = sizeof(playerList);
 
-
-
-
-/*
-    playerList.push_back(player1);
-    //player1.setId();
-    player1.setType(HUMAN);
-    player1.setStatus(PLAYING);
-    player1.setDeck(CardsPLayer1);
-    player1.setBoard(gameBoard);
-    player1.setLifepoints(1000);
-
-    CardsPLayer1.setId();
-    CardsPLayer1.setCardsInDeck();
-    CardsPLayer1.setCardsInHand();
-    CardsPLayer1.setNumberOfCards();
-
-    gameBoard.setId();
-    gameBoard.setMonsters();
-    gameBoard.setSpells();
-    gameBoard.setTraps();
-    gameBoard.setGraveyard();*/
-
-/*
-    Players* player = new Players(deckChosen,50,gameBoard,TypePlayer::HUMAN);
-    this->createPlayer(player);
-    Players* player2 = new Players(deckChosen,50,gameBoard,TypePlayer::HUMAN);
-    this->createPlayer(player2);
-*/
-
+    this->turn = 0;
+    currentPlayer = &playerList[0];
+    currentPhase = DrawPhase;
 }
 
+    void GameStates::changeTurn (){
+        if (turn==0) {
+            turn = 1;
+            currentPlayer = &playerList[1];
+        }
+        else
+        {
+            turn =0;
+            currentPlayer = &playerList[0];
+        }
+    }
     void GameStates::incrementTurn (){
-        turn++;
+        nbTurns++;
     }
     void GameStates::displayScore (){
     }
@@ -80,7 +63,7 @@ void GameStates::init (Players& first, Players& second) {
         }
     }
     void GameStates::createPlayer (Players& obj){
-        this->playerList.push_back(&obj);
+        this->playerList.push_back(obj);
     }
     void GameStates::chooseDeck (Decks& obj){
         this->deckChosen= &obj;
@@ -91,14 +74,34 @@ void GameStates::init (Players& first, Players& second) {
         }
     }
 
-
-
 // Setters and Getters
-int GameStates::getTurn() const {
+bool GameStates::getTurn() const {
     return turn;
 }
 
-void GameStates::setTurn(int turn) {
+void GameStates::changePhase() {
+    switch(currentPhase)
+    {
+        case(DrawPhase):
+            currentPhase = FirstMainPhase;
+            break;
+        case(FirstMainPhase):
+            currentPhase = BattlePhase;
+            break;
+        case(BattlePhase):
+            currentPhase = SecondMainPhase;
+            break;
+        case(SecondMainPhase):
+            currentPhase = BattlePhase;
+            break;
+        case(EndPhase):
+            currentPhase = DrawPhase;
+            break;
+    }
+}
+
+
+void GameStates::setTurn(bool turn) {
 }
 
 const std::vector<Cards*> &GameStates::getCardList() const {
@@ -109,11 +112,11 @@ void GameStates::setCardList(const std::vector<Cards*> &cardList) {
     this->cardList = cardList;
 }
 
-const std::vector<Players*> &GameStates::getPlayerList() const {
+const std::vector<Players>& GameStates::getPlayerList() const {
     return playerList;
 }
 
-void GameStates::setPlayerList(const std::vector<Players*> &playerList) {
+void GameStates::setPlayerList(const std::vector<Players>& playerList) {
     this->playerList = playerList;
 }
 

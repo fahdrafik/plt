@@ -2,6 +2,8 @@
 // Created by cornic on 07/11/23.
 //
 #include "state.h"
+#include "Boards.h"
+#include "Decks.h"
 #include <iostream>
 #include <vector>
 
@@ -11,7 +13,7 @@ using namespace std;
 
 namespace state {
 
-    Players::Players (Boards& board, Decks& deck, int lifepoints, TypePlayer type){
+    Players::Players (Boards* board, Decks* deck, int lifepoints, TypePlayer type){
 
         this->board = board;
         this->deck = deck;
@@ -19,27 +21,27 @@ namespace state {
         this->type = type;
         status = PLAYING;
     }
-
+    Players::~Players () {}
     void Players::drawCard() {
-        deck.drawCard();
+        deck->drawCard();
     }
 
     void Players::placeCard(int index) {
-        switch(deck.getCardInHandType(index))
+        switch(deck->getCardInHandType(index))
         {
             case TypeMonster:
-                board.addMonster(dynamic_cast<state::Monsters&>(deck.getCardInHand(index)));
+                board->addMonster(dynamic_cast<state::Monsters&>(deck->getCardInHand(index)));
                 break;
             case TypeSpell:
-                board.addSpell(dynamic_cast<state::Spells&>(deck.getCardInHand(index)));
+                board->addSpell(dynamic_cast<state::Spells&>(deck->getCardInHand(index)));
                 break;
             case TypeTrap:
-                board.addTrap(dynamic_cast<state::Traps&>(deck.getCardInHand(index)));
+                board->addTrap(dynamic_cast<state::Traps&>(deck->getCardInHand(index)));
                 break;
             default:
                 break;
         }
-        deck.removeCard(index);
+        deck->removeCard(index);
         cout << "You've placed a card : " << endl;
     }
 

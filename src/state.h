@@ -1,6 +1,14 @@
 
 namespace state {
 
+  enum Phases {
+    DrawPhase,
+    FirstMainPhase,
+    BattlePhase,
+    SecondMainPhase,
+    EndPhase
+  };
+
   enum DeckChoice {
     NoChoice,
     DeckDragon,
@@ -131,12 +139,12 @@ namespace state {
     int id;
     TypePlayer type;
     GameStatus status;
-    Decks deck;
-    Boards board;
+    Decks* deck;
+    Boards* board;
     int lifepoints;
     // Operations
   public:
-    Players (Boards& board, Decks& deck, int lifepoints, TypePlayer type);
+    Players (Boards* board, Decks* deck, int lifepoints, TypePlayer type);
     Players ();
     ~Players ();
     void drawCard ();
@@ -153,15 +161,18 @@ namespace state {
     state::Boards* unnamed;
     state::Players* unnamed;
     // Attributes
-  public:
+  private:
     int nbPlayers;
     int nbBots;
     Decks* deckChosen;
+    int nbTurns;
   protected:
-    int turn;
+    bool turn;
     std::vector<Cards*> cardList;
-    std::vector<Players*> playerList;
+    std::vector<Players> playerList;
     std::vector<Boards*> boardList;
+    Players* currentPlayer;
+    Phases currentPhase;
     bool end;
     // Operations
   public:
@@ -169,6 +180,7 @@ namespace state {
     ~GameStates ();
     void init (Players& first, Players& second);
     void incrementTurn ();
+    void changeTurn ();
     void displayScore ();
     void addPlayer ();
     void addBot ();
@@ -176,6 +188,7 @@ namespace state {
     void createPlayer (Players& obj);
     void deleteBot ();
     void chooseDeck (Decks& obj);
+    void changePhase ();
   };
 
   enum spellEffect {
