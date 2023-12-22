@@ -31,11 +31,15 @@ int main(int argc,char* argv[])
 
     if (argc == 1)
     {
-        cout << "Hello World from Cergy !" << endl;
+        cout << "Bienvenue sur notre jeu !" << endl;
+        cout << "Pour afficher un Hello World : ./bin/client hello" << endl;
+        cout << "Pour réaliser des tests : ./bin/client test" << endl;
+        cout << "Pour afficher les images du jeu : ./bin/client render" << endl;
+        cout << "Pour lancer une partie : ./bin/client engine" << endl;
     }
     else if (strcmp(argv[1], "hello") == 0)
     {
-        cout << "Ca fonctionne ENFIN !!!!" << endl;
+        cout << "Hello World from Cergy!" << endl;
     }
     else if (strcmp(argv[1], "state") == 0)
     {
@@ -46,7 +50,6 @@ int main(int argc,char* argv[])
     {
         cout << "Render" << endl;
 
-        /*Création de la scène*/
         Static_scene scene;
 
         /*Création de la fenètre*/
@@ -56,17 +59,12 @@ int main(int argc,char* argv[])
                 sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
         );
         window.setPosition(windowPosition);
-        /*Ecran titre*/
+        /*Mise en place des différentes scènes titre*/
         scene.setTitleScene();
-        /*Menu du jeu*/
         scene.setMenuScene();
-        /*En cours de jeu : vue du premier joueur*/
         scene.setInGameScene();
-        /*En cours de jeu : vue du deuxième joueur*/
-        /*Menu Pause du jeu */
-        /*Menu : Consultation des cartes*/
-
         scene.setConsultScene();
+
         while (window.isOpen())
         {
             // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
@@ -75,7 +73,6 @@ int main(int argc,char* argv[])
             while (window.pollEvent(event))
             {
                 // évènement "fermeture demandée" : on ferme la fenêtre
-
                 /*I think this should be in the game engine */
                 if (event.type == sf::Event::Closed) {
                     window.close();
@@ -104,25 +101,21 @@ int main(int argc,char* argv[])
                             scene.changeWindow(TITLE_SCREEN_WINDOW);
                         }
                 }
-
                 scene.drawSprite(scene.getWindow(),window);
             }
         }
     }
     else if (strcmp(argv[1], "engine") == 0){
-        GameStates game ;
+        GameStates game;
         Decks deckPlayer1(DeckSynchro);
         Boards boardplayer1;
         Decks deckPlayer2(DeckSoldier);
         Boards boardplayer2;
 
-        Players player1(&boardplayer1,&deckPlayer1,4000,HUMAN);
-        Players player2(&boardplayer2,&deckPlayer2,4000,HUMAN);
+        Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
+        Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
 
-        //getturn qui commence //
         game.init(player1,player2);
-
-
     }
     return 0;
 }

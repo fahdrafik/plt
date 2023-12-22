@@ -31,27 +31,20 @@ void GameStates::init (Players& first, Players& second) {
     currentPhase = DrawPhase;
 }
 
-    void GameStates::changeTurn (){
-        if (turn==0) {
-            turn = 1;
-            currentPlayer = &playerList[1];
-        }
-        else
-        {
-            turn =0;
-            currentPlayer = &playerList[0];
-        }
+void GameStates::changeTurn (){
+    turn = !turn;
+    currentPlayer = &playerList[turn];
+    nbTurns++;
+}
+
+void GameStates::displayScore (){
+}
+
+void GameStates::addPlayer (){
+    if (nbPlayers+nbBots<2){
+        nbPlayers+=1;
     }
-    void GameStates::incrementTurn (){
-        nbTurns++;
-    }
-    void GameStates::displayScore (){
-    }
-    void GameStates::addPlayer (){
-        if (nbPlayers+nbBots<2){
-            nbPlayers+=1;
-        }
-    }
+}
     void GameStates::addBot (){
         if (nbPlayers+nbBots<2){
             nbBots+=1;

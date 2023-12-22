@@ -14,7 +14,6 @@ using namespace std;
 namespace state {
 
     Players::Players (Boards* board, Decks* deck, int lifepoints, TypePlayer type){
-
         this->board = board;
         this->deck = deck;
         this->lifepoints = lifepoints;
