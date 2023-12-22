@@ -11,11 +11,12 @@ using namespace std;
 
 namespace state {
 
-    Players::Players(Decks deck, int lifepoints,Boards board,TypePlayer type) {
+    Players::Players (Boards& board, Decks& deck, int lifepoints, TypePlayer type){
+
+        this->board = board;
         this->deck = deck;
         this->lifepoints = lifepoints;
         this->type = type;
-        this->board = board;
         status = PLAYING;
     }
 

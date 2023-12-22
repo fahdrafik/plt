@@ -6,8 +6,8 @@
 using namespace std;
 namespace state {
 
-    Boards::Boards(std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters,
-                   std::vector<Cards> graveyard) {
+    Boards::Boards(std::vector<Spells> spells, std::vector<Traps> traps, std::vector<Monsters> monsters,std::vector<Cards> graveyard)
+     {
         this->spells = spells;
         this->traps = traps;
         this->monsters = monsters;

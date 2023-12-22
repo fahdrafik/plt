@@ -110,6 +110,20 @@ int main(int argc,char* argv[])
         }
     }
     else if (strcmp(argv[1], "engine") == 0){
+        GameStates game ;
+        Decks deckPlayer1(DeckSynchro);
+        Boards boardplayer1();
+        Decks deckPlayer2(DeckSoldier);
+        Boards boardplayer2();
+
+        /*
+        Players player1(boardplayer1,deckPlayer1,4000,HUMAN);
+        Players player2(boardplayer2,deckPlayer2,4000,HUMAN);
+
+        //getturn qui commence //
+        game.init(player1,player2);*/
+
+
         /*Decks DeckPlayer1(DeckSynchro);
         DeckPlayer1.display();
         DeckPlayer1.shuffle();

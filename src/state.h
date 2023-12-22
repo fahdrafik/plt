@@ -136,7 +136,7 @@ namespace state {
     int lifepoints;
     // Operations
   public:
-    Players (Decks deck, int lifepoints, Boards board, TypePlayer type);
+    Players (Boards& board, Decks& deck, int lifepoints, TypePlayer type);
     Players ();
     ~Players ();
     void drawCard ();
@@ -147,6 +147,7 @@ namespace state {
   /// class GameStates - 
   class GameStates {
     // Associations
+    state::Decks* unnamed;
     state::Decks* unnamed;
     state::Calculation* unnamed;
     state::Boards* unnamed;
@@ -166,7 +167,7 @@ namespace state {
   public:
     GameStates ();
     ~GameStates ();
-    void init ();
+    void init (Players& first, Players& second);
     void incrementTurn ();
     void displayScore ();
     void addPlayer ();

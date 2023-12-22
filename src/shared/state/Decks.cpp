@@ -29,6 +29,7 @@ Decks::Decks (DeckChoice DeckChoice) {
     Monsters DragonEtoileBrillante("Dragon Etoile Brillante","Images/Deck/Dragon/DragonEtoileBrillante.jpg",TypeMonster,0,4,1900,1000,0);
     Monsters KaiserHippocampe("Kaiser Hippocampe","Images/Deck/Dragon/KaiserHippocampe.jpg",TypeMonster,0,4,1700,1650,0);
 
+
     Traps ForceDeMiroir("Force de Miroir","Images/Deck/Dragon/ForceDeMiroir.jpg",TypeTrap,DeleteCard,1);
     Traps AppelDeLEtreHante("Appel De L'Être Hanté","Images/Deck/Dragon/AppelDeLEtreHante.jpg",TypeTrap,RevivalBeforeAttack,1);
     Traps CylindreMagique("Cylindre Magique","Images/Deck/Dragon/CylindreMagique.jpg",TypeTrap,ReturnAttackToSender,0);
@@ -68,10 +69,12 @@ Decks::Decks (DeckChoice DeckChoice) {
 
     switch(DeckChoice)
     {
+        // Ajout à cardsM, cardsT, cards pour la board
         case DeckDragon:
             //Initialisation Monstres
             for(int i=0 ; i<5 ; i++){
-                cardsInDeck.emplace_back(GriffonDelta);}
+                cardsInDeck.emplace_back(GriffonDelta);
+                cardsM.push_back(GriffonDelta);}
             for(int i=0 ; i<5 ; i++){
                 cardsInDeck.emplace_back(GolemDragon);}
             for(int i=0 ; i<5 ; i++){
@@ -84,7 +87,8 @@ Decks::Decks (DeckChoice DeckChoice) {
 
             //Initialisation Pièges
             for(int i=0 ; i<2 ; i++){
-                cardsInDeck.emplace_back(ForceDeMiroir);}
+                cardsInDeck.emplace_back(ForceDeMiroir);
+                cardsT.push_back(ForceDeMiroir);}
             for(int i=0 ; i<2 ; i++){
                 cardsInDeck.emplace_back(AppelDeLEtreHante);}
             for(int i=0 ; i<2 ; i++){
@@ -92,7 +96,8 @@ Decks::Decks (DeckChoice DeckChoice) {
 
             //Initialisation Magies
             for(int i=0 ; i<3 ; i++){
-                cardsInDeck.emplace_back(HurlementDargent);}
+                cardsInDeck.emplace_back(HurlementDargent);
+                cardsS.push_back(HurlementDargent);}
             for(int i=0 ; i<3 ; i++){
                 cardsInDeck.emplace_back(EpeeDesProfondeurs);}
             for(int i=0 ; i<3 ; i++){

@@ -18,16 +18,15 @@ namespace state {
 GameStates::GameStates() {
 }
 
-void GameStates::init() {
-/*    this->turn = 0;
-    this->end = false;
-    playerList.clear();
-    cardList.clear();
+void GameStates::init (Players& first, Players& second) {
 
-    Boards gameBoard;
-    Players player1;
-    Decks CardsPLayer1;
+    playerList.push_back(&first); //à revoir
+    playerList.push_back(&second);
+    this->turn=0;
 
+
+
+/*
     playerList.push_back(player1);
     //player1.setId();
     player1.setType(HUMAN);
@@ -47,17 +46,16 @@ void GameStates::init() {
     gameBoard.setSpells();
     gameBoard.setTraps();
     gameBoard.setGraveyard();*/
-    this->turn=0;
-    this->deckChosen= new Decks(1);
 
-    Boards gameBoard;
-    gameBoard.setId(1);
 
-    Players* player = new Players(*new Decks(1),50,gameBoard,TypePlayer::HUMAN);
-    this->createPlayer(*player);
-    Players* player2 = new Players(*new Decks(1),50,gameBoard,TypePlayer::HUMAN);
-    this->createPlayer(*player2);
 
+
+/*
+    Players* player = new Players(deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    this->createPlayer(player);
+    Players* player2 = new Players(deckChosen,50,gameBoard,TypePlayer::HUMAN);
+    this->createPlayer(player2);
+*/
 
 }
 
