@@ -56,4 +56,33 @@ namespace state {
         }
         cout << "You lost " << degat  << " lifepoints !" << endl;
     }
+    void Players::attackPlayer(int attackingCardIndex, state::Players *defendingPlayer) {
+        auto attackingMonsters = board->getMonsters();
+        defendingPlayer->looseLifePoints(attackingMonsters[attackingCardIndex].getAttack());
+    }
+
+    void Players::attackCard(state::Players *defendingPlayer,int attackingCardIndex,int defendingCardIndex) {
+        int calculDegat;
+        int defendingPoints;
+        int attackingPoints;
+
+        auto attackingMonsters = board->getMonsters();
+        attackingPoints = attackingMonsters[attackingCardIndex].getAttack();
+
+        if(defendingPlayer->board->getMonsterPosition(defendingCardIndex)) { // Carte en mode defense
+            defendingPoints = defendingPlayer->board->getMonsterDefense(defendingCardIndex);
+            if(defendingPoints>attackingPoints){
+                calculDegat = defendingPoints - attackingPoints;
+                this->looseLifePoints(calculDegat);
+            }
+            else{
+                defendingPlayer->board->removeMonster(defendingCardIndex);
+            }
+        }
+        else{
+
+        }
+        defendingPlayer->board->getMonsterAttack(defendingCardIndex);
+        defendingPlayer->looseLifePoints(attackingMonsters[attackingCardIndex].getAttack());
+    }
 }

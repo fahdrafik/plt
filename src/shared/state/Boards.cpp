@@ -25,6 +25,16 @@ namespace state {
         monsters[index].setPosition(1);
     }
 
+    bool Boards::getMonsterPosition(int index){
+        return monsters[index].getPosition();
+    }
+    int Boards::getMonsterAttack(int index){
+        return monsters[index].getDefense();
+    }
+    int Boards::getMonsterDefense(int index){
+        return monsters[index].getAttack();
+    }
+
     void Boards::addMonster(state::Monsters monster) {
         if (monsters.size()>5)
         {
@@ -53,7 +63,7 @@ namespace state {
     }
 
     void Boards::removeSpell(int index) {
-        cout << "removeSpell\n";
+        spells.erase(spells.begin() + index);
     }
 
     void Boards::addTrap(state::Traps trap) {
@@ -69,7 +79,7 @@ namespace state {
     }
 
     void Boards::removeTrap(int index) {
-        cout << "removeTrap\n";
+        traps.erase(traps.begin() + index);
     }
 
     int Boards::getId() const{

@@ -21,8 +21,6 @@ Monsters::Monsters(std::string name, std::string path, CardTypes typeCarte, int 
     this->defense = defense;
     this->position = position;
 }
-
-
 Monsters::~Monsters () {}
 
 void Monsters::setLevel(int level)
@@ -64,14 +62,11 @@ int Monsters::getEffet () const
 {
     return effet;
 }
-void Monsters::attackCard(Cards card) {
-    cout << "attackCard\n";
-}
-/*void Monsters::attackPlayer(Players player) {
-    cout << "attackPlayer\n";
-}*/
-void Monsters::setSpell() {
-    cout << "attack\n";
+
+void Monsters::setSpell(int effet) {
+    attack=attack+effet;
+    defense=defense+effet;
+    cout << "Nouveaux points d'ATK " << attack << " et de DEF : " << defense << endl;
 }
 
 

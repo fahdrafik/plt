@@ -117,6 +117,9 @@ namespace state {
     void removeSpell (int index);
     void addTrap (state::Traps trap);
     void removeTrap (int index);
+    int getMonsterAttack (int index);
+    int getMonsterDefense (int index);
+    bool getMonsterPosition (int index);
   };
 
   enum TypePlayer {
@@ -150,6 +153,8 @@ namespace state {
     void drawCard ();
     void placeCard (int index);
     void looseLifePoints (int degat );
+    void attackCard (Players* defendingPlayer, int attackingCardIndex, int defendingCardIndex);
+    void attackPlayer (int attackingCardIndex, Players* defendingPlayer);
   };
 
   /// class GameStates - 
@@ -233,12 +238,11 @@ namespace state {
     int effet ;
     // Operations
   public:
-    void attackCard (Cards card);
-    void setSpell ();
     Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
     Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
     ~Monsters ();
     Monsters ();
+    void setSpell (int effect);
   };
 
   enum trapEffect {
