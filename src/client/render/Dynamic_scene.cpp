@@ -9,14 +9,14 @@ using namespace state;
 using namespace render;
 using namespace sf;
 
-PlayerRenderer::PlayerRenderer() {
+Dynamic_scene::Dynamic_scene() {
 
 }
 
-PlayerRenderer::PlayerRenderer(sf::Transform transform, render::Window affected_window) {
+Dynamic_scene::Dynamic_scene(sf::Transform transform, render::Window affected_window) {
     this->affected_window = affected_window;
 }
-PlayerRenderer::~PlayerRenderer()
+Dynamic_scene::~Dynamic_scene()
 {
 
 }

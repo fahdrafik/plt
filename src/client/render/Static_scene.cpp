@@ -25,9 +25,9 @@ sf::Sprite Static_scene::getBackground ()
     return background;
 }
 
-PlayerRenderer Static_scene::getPlayerRenderer (int index)
+Dynamic_scene Static_scene::getDynamic_scene(int index)
 {
-    return PlayerRenderers[index];
+    return playerDynamic_scene[index];
 }
 void Static_scene::changeWindow (Window new_window)
 {
