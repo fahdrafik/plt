@@ -79,8 +79,18 @@ namespace state {
                 defendingPlayer->board->removeMonster(defendingCardIndex);
             }
         }
-        else{
-
+        else{ //Carte en mode attaque
+            defendingPoints = defendingPlayer->board->getMonsterAttack(defendingCardIndex);
+            if(defendingPoints>attackingPoints){
+                calculDegat = defendingPoints - attackingPoints;
+                this->looseLifePoints(calculDegat);
+                board->removeMonster(attackingCardIndex);
+            }
+            else{
+                calculDegat = attackingPoints - defendingPoints;
+                defendingPlayer->looseLifePoints(calculDegat);
+                defendingPlayer->board->removeMonster(defendingCardIndex);
+            }
         }
         defendingPlayer->board->getMonsterAttack(defendingCardIndex);
         defendingPlayer->looseLifePoints(attackingMonsters[attackingCardIndex].getAttack());
