@@ -4,10 +4,10 @@
 
 #include "state.h"
 
-/*#include "GameStates.h"
+#include "GameStates.h"
 #include "Players.h"
 #include "Decks.h"
-#include "Boards.h"*/
+#include "Boards.h"
 
 #include <iostream>
 #include <vector>
@@ -17,12 +17,16 @@ namespace state {
 
 GameStates::GameStates() {
 }
+GameStates::~GameStates () {}
 
 void GameStates::init (Players& first, Players& second) {
 
     playerList.push_back(&first); //à revoir
     playerList.push_back(&second);
-    this->turn=0;
+    this->turn = 0;
+
+    nbPlayers = sizeof(playerList);
+
 
 
 
@@ -40,15 +44,11 @@ void GameStates::init (Players& first, Players& second) {
     CardsPLayer1.setCardsInHand();
     CardsPLayer1.setNumberOfCards();
 
-
     gameBoard.setId();
     gameBoard.setMonsters();
     gameBoard.setSpells();
     gameBoard.setTraps();
     gameBoard.setGraveyard();*/
-
-
-
 
 /*
     Players* player = new Players(deckChosen,50,gameBoard,TypePlayer::HUMAN);

@@ -170,8 +170,7 @@ Decks::Decks (DeckChoice DeckChoice) {
 }
 
 Decks::Decks (int id) {
-
-
+/*
     if (id==1){
        //deck dragon
         // Open file with read only access
@@ -251,7 +250,7 @@ Decks::Decks (int id) {
     if (id==3){
         //deck synchro
     }
-
+*/
 }
 
 void Decks::shuffle () {
