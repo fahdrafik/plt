@@ -34,6 +34,9 @@ namespace state {
     int Boards::getMonsterDefense(int index){
         return monsters[index].getAttack();
     }
+    Monsters Boards::getMonster(int index){
+        return monsters[index];
+    }
 
     void Boards::addMonster(state::Monsters monster) {
         if (monsters.size()>5)
@@ -80,6 +83,30 @@ namespace state {
 
     void Boards::removeTrap(int index) {
         traps.erase(traps.begin() + index);
+    }
+
+    void Boards::getAndRemoveMonsterFromGraveyard (int index){
+        int flag=0;
+        int size = (int) graveyard.size();
+
+        for (int i = 0 ; i < size ; i++) {
+            if(graveyard[i].getTypeCarte()==TypeMonster)
+            {
+                flag=1;
+            }
+        }
+
+        if(flag == 1 && monsters.size() < 5){
+        this->addMonster(dynamic_cast<state::Monsters&>(graveyard[index]));
+        graveyard.erase(graveyard.begin() + index);
+        }
+        else{
+            cout << "Impossible ! No cards in graveyard and/or no room for another monster on the board !" << endl;
+        }
+    }
+
+    void Boards::addGraveyard(state::Cards card) {
+        graveyard.push_back(card);
     }
 
     int Boards::getId() const{

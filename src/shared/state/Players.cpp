@@ -76,6 +76,7 @@ namespace state {
                 this->looseLifePoints(calculDegat);
             }
             else{
+                defendingPlayer->board->addGraveyard(defendingPlayer->board->getMonster(defendingCardIndex));
                 defendingPlayer->board->removeMonster(defendingCardIndex);
             }
         }
@@ -84,15 +85,15 @@ namespace state {
             if(defendingPoints>attackingPoints){
                 calculDegat = defendingPoints - attackingPoints;
                 this->looseLifePoints(calculDegat);
+                board->addGraveyard(board->getMonster(attackingCardIndex));
                 board->removeMonster(attackingCardIndex);
             }
             else{
                 calculDegat = attackingPoints - defendingPoints;
                 defendingPlayer->looseLifePoints(calculDegat);
+                defendingPlayer->board->addGraveyard(defendingPlayer->board->getMonster(defendingCardIndex));
                 defendingPlayer->board->removeMonster(defendingCardIndex);
             }
         }
-        defendingPlayer->board->getMonsterAttack(defendingCardIndex);
-        defendingPlayer->looseLifePoints(attackingMonsters[attackingCardIndex].getAttack());
     }
 }

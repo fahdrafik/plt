@@ -93,6 +93,24 @@ namespace state {
     ~Calculation ();
   };
 
+  /// class Monsters - 
+  class Monsters {
+    // Attributes
+  protected:
+    int level;
+    int attack;
+    int defense;
+    bool position;
+    int effet ;
+    // Operations
+  public:
+    Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
+    Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
+    ~Monsters ();
+    Monsters ();
+    void setSpell (int effect);
+  };
+
   /// class Boards - 
   class Boards {
     // Attributes
@@ -117,8 +135,13 @@ namespace state {
     void removeSpell (int index);
     void addTrap (state::Traps trap);
     void removeTrap (int index);
+    void getAndRemoveMonsterFromGraveyard (int index);
+    void addGraveyard (Cards card);
     int getMonsterAttack (int index);
+    void setMonsterAttack (int attack);
     int getMonsterDefense (int index);
+    void setMonsterDefense (int attack);
+    Monsters getMonster (int index);
     bool getMonsterPosition (int index);
   };
 
@@ -179,6 +202,7 @@ namespace state {
     Players* currentPlayer;
     Phases currentPhase;
     bool end;
+    char summoning;
     // Operations
   public:
     GameStates ();
@@ -205,7 +229,6 @@ namespace state {
     Quickplay,
     Equipement,
     Revival,
-    Retrieve,
     Control,
     Sacrifice
   };
@@ -223,26 +246,8 @@ namespace state {
     ~Spells ();
     Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
     Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
-    void activate ();
-    void desactivate ();
-  };
-
-  /// class Monsters - 
-  class Monsters : public Cards {
-    // Attributes
-  protected:
-    int level;
-    int attack;
-    int defense;
-    bool position;
-    int effet ;
-    // Operations
-  public:
-    Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
-    Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
-    ~Monsters ();
-    Monsters ();
-    void setSpell (int effect);
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
   };
 
   enum trapEffect {
@@ -318,6 +323,38 @@ namespace state {
   public:
     StateEvent (StateEventID Sevent);
     void setStateEventID (StateEventID newID);
+  };
+
+  /// class SpellEquipement - 
+  class SpellEquipement : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellRevival - 
+  class SpellRevival : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellControl - 
+  class SpellControl : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellSacrifice - 
+  class SpellSacrifice : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
   };
 
 };
