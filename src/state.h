@@ -143,6 +143,7 @@ namespace state {
     void setMonsterDefense (int attack);
     Monsters getMonster (int index);
     bool getMonsterPosition (int index);
+    int getMonsterSize ();
   };
 
   enum TypePlayer {

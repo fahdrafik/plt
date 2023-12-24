@@ -109,6 +109,10 @@ namespace state {
         graveyard.push_back(card);
     }
 
+    int Boards::getMonsterSize() {
+        return (int) monsters.size();
+    }
+
     int Boards::getId() const{
         return id;
     }
