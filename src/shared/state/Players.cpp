@@ -13,7 +13,11 @@ using namespace std;
 
 namespace state {
 
+    int Players::nbPlayers = 0;
+
     Players::Players (Boards* board, Decks* deck, int lifepoints, TypePlayer type){
+        this->id = nbPlayers;
+        nbPlayers++;
         this->board = board;
         this->deck = deck;
         this->lifepoints = lifepoints;
@@ -21,8 +25,16 @@ namespace state {
         status = PLAYING;
     }
     Players::~Players () {}
+
     void Players::drawCard() {
         deck->drawCard();
+    }
+    void Players::initCardInHands() {
+        deck->initCardsInHands();
+    }
+
+    void Players::shuffle() {
+        deck->shuffle();
     }
 
     void Players::placeCard(int index) {
@@ -59,6 +71,19 @@ namespace state {
     void Players::attackPlayer(int attackingCardIndex, state::Players *defendingPlayer) {
         auto attackingMonsters = board->getMonsters();
         defendingPlayer->looseLifePoints(attackingMonsters[attackingCardIndex].getAttack());
+        if(defendingPlayer->status==LOOSE)
+        {
+            this->status=WON;
+        }
+    }
+
+    void Players::display() {
+        cout << "Player ID : " << getId() << endl;
+        cout << "Lifepoints : " << getLifepoints() << endl;
+        cout << "Deck state : " << endl;
+        deck->display();
+        cout << "Board state : " << endl;
+        board->display();
     }
 
     void Players::attackCard(state::Players *defendingPlayer,int attackingCardIndex,int defendingCardIndex) {
@@ -74,6 +99,10 @@ namespace state {
             if(defendingPoints>attackingPoints){
                 calculDegat = defendingPoints - attackingPoints;
                 this->looseLifePoints(calculDegat);
+                if(this->status==LOOSE)
+                {
+                    defendingPlayer->status=WON;
+                }
             }
             else{
                 defendingPlayer->board->addGraveyard(defendingPlayer->board->getMonster(defendingCardIndex));
@@ -87,13 +116,40 @@ namespace state {
                 this->looseLifePoints(calculDegat);
                 board->addGraveyard(board->getMonster(attackingCardIndex));
                 board->removeMonster(attackingCardIndex);
+                if(this->status==LOOSE)
+                {
+                    defendingPlayer->status=WON;
+                }
             }
             else{
                 calculDegat = attackingPoints - defendingPoints;
                 defendingPlayer->looseLifePoints(calculDegat);
                 defendingPlayer->board->addGraveyard(defendingPlayer->board->getMonster(defendingCardIndex));
                 defendingPlayer->board->removeMonster(defendingCardIndex);
+                if(defendingPlayer->status==LOOSE)
+                {
+                    this->status=WON;
+                }
             }
         }
+    }
+
+    int Players::getId() const{
+        return id;
+    }
+    void Players::setId(int id){
+        this->id = id;
+    }
+    int Players::getLifepoints() const{
+        return lifepoints;
+    }
+    void Players::setLifepoints(int lifepoints){
+        this->lifepoints=lifepoints;
+    }
+    GameStatus Players::getStatus() const{
+        return status;
+    }
+    void Players::setStatus(GameStatus status){
+        this->status=status;
     }
 }

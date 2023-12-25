@@ -116,6 +116,15 @@ int main(int argc,char* argv[])
         Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
 
         game.init(player1,player2);
+        player1.display();
+        player2.display();
+
+        while(game.getCurrentPlayerStatus()==PLAYING){
+            cout << "Phase actuelle : " << game.getPhaseName(game.getCurrentPhase()) << endl;
+            cout << "Current Player is : Player " << game.getCurrentPlayerID() << endl;
+            game.playPhase();
+            game.changePhase();
+        }
     }
     return 0;
 }

@@ -9,6 +9,12 @@ namespace state {
     EndPhase
   };
 
+  enum GameStatus {
+    PLAYING,
+    WON,
+    LOOSE
+  };
+
   enum DeckChoice {
     NoChoice,
     DeckDragon,
@@ -73,8 +79,8 @@ namespace state {
     Cards getCardInDeck (int index);
     CardTypes getCardInHandType (int index);
     std::string getCardInHandName (int index);
-    void display ();
     void initCardsInHands ();
+    void display ();
   };
 
   /// class Calculation - 
@@ -144,17 +150,12 @@ namespace state {
     Monsters getMonster (int index);
     bool getMonsterPosition (int index);
     int getMonsterSize ();
+    void display ();
   };
 
   enum TypePlayer {
     HUMAN,
     BOT
-  };
-
-  enum GameStatus {
-    PLAYING,
-    WON,
-    LOOSE
   };
 
   /// class Players - 
@@ -179,6 +180,9 @@ namespace state {
     void looseLifePoints (int degat );
     void attackCard (Players* defendingPlayer, int attackingCardIndex, int defendingCardIndex);
     void attackPlayer (int attackingCardIndex, Players* defendingPlayer);
+    void display ();
+    void initCardInHands ();
+    void shuffle ();
   };
 
   /// class GameStates - 
@@ -219,6 +223,10 @@ namespace state {
     void deleteBot ();
     void chooseDeck (Decks& obj);
     void changePhase ();
+    void playPhase ();
+    GameStatus getCurrentPlayerStatus ();
+    int getCurrentPlayerID ();
+    std::string getPhaseName (Phases phase);
   };
 
   enum spellEffect {

@@ -113,6 +113,33 @@ namespace state {
         return (int) monsters.size();
     }
 
+    void Boards::display(){
+        std::cout << "Monsters in Board : " << endl;
+        for(const auto& monster : monsters){
+            std::cout<< monster.getName() << endl;
+        }
+        if (this->monsters.size()==0)
+        {
+            cout << "None" << endl;
+        }
+        std::cout << "Traps in Board : " << endl;
+        for(const auto& trap : traps){
+            std::cout<< trap.getName() << endl;
+        }
+        if (this->traps.size()==0)
+        {
+            cout << "None" << endl;
+        }
+        std::cout << "Spells in Board : " << endl;
+        for(const auto& spell : spells){
+            std::cout<< spell.getName() << endl;
+        }
+        if (this->spells.size()==0)
+        {
+            cout << "None" << endl;
+        }
+    }
+
     int Boards::getId() const{
         return id;
     }

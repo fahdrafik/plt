@@ -304,7 +304,7 @@ void Decks::display(){
     }
 }
 void Decks::initCardsInHands(){
-    std::cout << "Initialise cards in Deck\n";
+    std::cout << "Initialise cards in Hands :\n";
     for (int i=0 ; i<5 ; i++) {
         cardsInHand.push_back(cardsInDeck.back());
         cardsInDeck.pop_back();
