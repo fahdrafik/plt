@@ -12,7 +12,6 @@ using namespace sf;
 Static_scene::Static_scene() {
     this->background_texture =sf::Texture();
     (this->background_texture).loadFromFile("./Images/background.jpg");
-    //Creation and initialisation of the background sprite
     this->background=sf::Sprite();
     (this->background).setTexture(this->background_texture);
     this->changeWindow(TITLE_SCREEN_WINDOW);

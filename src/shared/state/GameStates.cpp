@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <vector>
+#include <SFML/Graphics.hpp>
 
 using namespace std;
 namespace state {
@@ -104,25 +105,89 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::playPhase() {
-        switch(currentPhase)
+
+    cout << "Appuyer A : Poser une carte" << endl;
+    cout << "Appuyer B : Activer une carte Magie" << endl;
+    cout << "Appuyer C : Changer position d'une carte" << endl;
+    cout << "Appuyer R : Passer à la phase suivante" << endl;
+    cout << "Appuyer P : Passer son tour" << endl;
+
+    switch(currentPhase)
         {
             case(DrawPhase):
+                cout << "Beginning of Turn " << nbTurns << endl;
                 currentPlayer->drawCard();
                 cout << "Player " << this->getCurrentPlayerID() << " has drawn a card !" << endl;
                 break;
             case(FirstMainPhase):
+                this->mainPhase();
                 break;
             case(BattlePhase):
+                this->battlePhase();
                 break;
             case(SecondMainPhase):
+                this->mainPhase();
                 break;
             case(EndPhase):
-                nbTurns++;
                 this->changeTurn();
                 cout << "Player " << this->getCurrentPlayerID() << " has ended his tour !"<< endl;
                 break;
         }
     }
+
+void GameStates::mainPhase() {
+    sf::Event event;
+    event.type = sf::Event::KeyPressed;
+    event.key.code = sf::Keyboard::A;
+
+    cout << "Appuyer A : Poser une carte" << endl;
+    cout << "Appuyer B : Activer une carte Magie" << endl;
+    cout << "Appuyer C : Changer position d'une carte" << endl;
+    cout << "Appuyer R : Passer à la phase suivante" << endl;
+    cout << "Appuyer P : Passer son tour" << endl;
+
+    switch (event.key.code)
+    {
+        case sf::Keyboard::A:
+            cout << "Poser une carte " << endl;
+            break;
+        case sf::Keyboard::B:
+            cout << "Activer une carte Magie" << endl;
+            break;
+        case sf::Keyboard::C:
+            cout << "Changer position d'une carte" << endl;
+            break;
+        case sf::Keyboard::R:
+            cout << "Phase suivante";
+            break;
+        case sf::Keyboard::P:
+            cout << "Passer son tour";
+            currentPhase = SecondMainPhase;
+            break;
+        default:
+            break;
+    }
+}
+
+void GameStates::battlePhase() {
+    sf::Event event;
+    event.type = sf::Event::KeyPressed;
+    event.key.code = sf::Keyboard::R;
+
+    switch (event.key.code)
+    {
+        case sf::Keyboard::A:
+            cout << "Attaquer une carte" << endl;
+            break;
+        case sf::Keyboard::B:
+            cout << "Attaquer joueur" << endl;
+            break;
+        case sf::Keyboard::R:
+            cout << "Phase suivante";
+        default:
+            break;
+    }
+}
 
 // Setters and Getters
 bool GameStates::getTurn() const {

@@ -227,6 +227,8 @@ namespace state {
     GameStatus getCurrentPlayerStatus ();
     int getCurrentPlayerID ();
     std::string getPhaseName (Phases phase);
+    void battlePhase ();
+    void mainPhase ();
   };
 
   enum spellEffect {

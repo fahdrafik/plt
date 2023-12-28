@@ -73,7 +73,6 @@ int main(int argc,char* argv[])
             while (window.pollEvent(event))
             {
                 // évènement "fermeture demandée" : on ferme la fenêtre
-                /*I think this should be in the game engine */
                 if (event.type == sf::Event::Closed) {
                     window.close();
                 }
