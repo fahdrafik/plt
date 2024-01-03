@@ -64,6 +64,10 @@ namespace render {
     std::vector<sf::Texture> Title_Screen_Texture;
     std::vector<sf::Sprite> Consult_Cards_SP;
     std::vector<sf::Texture> Consult_Cards_Texture;
+    std::vector<sf::Sprite> Choice_1_Deck_SP;
+    std::vector<sf::Texture> Choice_1_Deck_Texture;
+    std::vector<sf::Sprite> Choice_2_Deck_SP;
+    std::vector<sf::Texture> Choice_2_Deck_Texture;
     /// Here we put the name of the player, along with the lifepoints
     sf::RectangleShape info_box;
     // Operations
