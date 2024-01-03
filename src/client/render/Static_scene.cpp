@@ -162,7 +162,7 @@ void Static_scene::setInGameScene()
     In_Game_SP.back().setScale(0.5f,0.5f);
     In_Game_SP.back().setPosition(850,650);
 
-    /*Placer les cinq cartes monstres Joueur 2 */
+    /*Placer les cinq cartes magie Joueur 2 */
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
     In_Game_SP.back().setScale(0.5f,0.5f);
@@ -183,6 +183,11 @@ void Static_scene::setInGameScene()
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
     In_Game_SP.back().setScale(0.5f,0.5f);
     In_Game_SP.back().setPosition(850,0);
+
+    /*Barres noires à droite et à gauche */
+    sf::RectangleShape menuRectangle(sf::Vector2f(100.f,100.f));
+    menuRectangle.setFillColor(sf::Color::Black);
+    menuRectangle.setPosition(0.f, 0.f);
 
 }
 void Static_scene::setMenuScene()
