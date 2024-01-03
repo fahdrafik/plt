@@ -21,6 +21,7 @@ void testSFML() {
 
 #include <state.h>
 #include <render.h>
+#include <engine.h>
 
 using namespace std;
 using namespace state;
@@ -136,12 +137,12 @@ int main(int argc,char* argv[])
         player1.display();
         player2.display();
 
-        while(game.getCurrentPlayerStatus()==PLAYING){
+        /*while(game.getCurrentPlayerStatus()==PLAYING){
             cout << "Phase actuelle : " << game.getPhaseName(game.getCurrentPhase()) << endl;
             cout << "Current Player is : Player " << game.getCurrentPlayerID() << endl;
             game.playPhase();
             game.changePhase();
-        }
+        }*/
     }
     return 0;
 }
