@@ -21,6 +21,7 @@ void testSFML() {
 
 #include <state.h>
 #include <render.h>
+#include <engine.h>
 
 using namespace std;
 using namespace state;
@@ -31,11 +32,11 @@ int main(int argc,char* argv[])
 
     if (argc == 1)
     {
-        cout << "Bienvenue sur notre jeu !" << endl;
-        cout << "Pour afficher un Hello World : ./bin/client hello" << endl;
-        cout << "Pour réaliser des tests : ./bin/client test" << endl;
-        cout << "Pour afficher les images du jeu : ./bin/client render" << endl;
-        cout << "Pour lancer une partie : ./bin/client engine" << endl;
+        cout << "Welcome in our game !" << endl;
+        cout << "To display Hello World : ./bin/client hello" << endl;
+        cout << "To test our functions : ./bin/client test" << endl;
+        cout << "To display our render : ./bin/client render" << endl;
+        cout << "To play the game : ./bin/client engine" << endl;
     }
     else if (strcmp(argv[1], "hello") == 0)
     {
@@ -64,6 +65,16 @@ int main(int argc,char* argv[])
         scene.setMenuScene();
         scene.setInGameScene();
         scene.setConsultScene();
+        scene.setPlayerTwoChoiceScene();
+        scene.setPlayerOneChoiceScene();
+
+        cout << "Welcome in the render !" << endl;
+        cout << "To display the title screen : E" << endl;
+        cout << "To display the main menu : A" << endl;
+        cout << "To display the game phase for player 1 : B" << endl;
+        cout << "To display the game phase for player 2 : C" << endl;
+        cout << "To display the deck choice for player 1 : F" << endl;
+        cout << "To display the deck choice for player 2 : G" << endl;
 
         while (window.isOpen())
         {
@@ -80,24 +91,32 @@ int main(int argc,char* argv[])
                 if (event.type == sf::Event::KeyPressed)
                 {
                         if (event.key.code == sf::Keyboard::A) {
-                            std::cout << "Menu principal" << std::endl;
+                            std::cout << "Main menu" << std::endl;
                             scene.changeWindow(MAIN_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::B) {
-                            std::cout << "Phase de jeu : J1" << std::endl;
+                            std::cout << "Game phase : J1" << std::endl;
                             scene.changeWindow(MENU_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::C) {
-                            std::cout << "Phase de jeu : J2" << std::endl;
+                            std::cout << "Game phase: J2" << std::endl;
                             scene.changeWindow(IN_PLAY_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::D) {
-                            std::cout << "Consultation des cartes" << std::endl;
+                            std::cout << "Consult Cards" << std::endl;
                             scene.changeWindow(VIEW_CARDS_WINDOW);
                         }
                         else if (event.key.code == sf::Keyboard::E){
-                            std::cout << "Ecran titre"  << std::endl;
+                            std::cout << "Title Screen"  << std::endl;
                             scene.changeWindow(TITLE_SCREEN_WINDOW);
+                        }
+                        else if (event.key.code == sf::Keyboard::F){
+                            std::cout << "Player 1 Deck Choice"  << std::endl;
+                            scene.changeWindow(PLAYER_1_CHOICE);
+                        }
+                        else if (event.key.code == sf::Keyboard::G){
+                            std::cout << "Player 2 Deck Choice"  << std::endl;
+                            scene.changeWindow(PLAYER_2_CHOICE);
                         }
                 }
                 scene.drawSprite(scene.getWindow(),window);
@@ -118,12 +137,12 @@ int main(int argc,char* argv[])
         player1.display();
         player2.display();
 
-        while(game.getCurrentPlayerStatus()==PLAYING){
+        /*while(game.getCurrentPlayerStatus()==PLAYING){
             cout << "Phase actuelle : " << game.getPhaseName(game.getCurrentPhase()) << endl;
             cout << "Current Player is : Player " << game.getCurrentPlayerID() << endl;
             game.playPhase();
             game.changePhase();
-        }
+        }*/
     }
     return 0;
 }

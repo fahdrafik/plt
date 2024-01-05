@@ -65,6 +65,12 @@ void Static_scene::setInGameScene()
     In_Game_Texture.back().loadFromFile("./Images/Spells.png");
     In_Game_Texture.push_back(sf::Texture());
     In_Game_Texture.back().loadFromFile("./Images/Monsters.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Menu_J1.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Menu_J2.png");
+    In_Game_Texture.push_back(sf::Texture());
+    In_Game_Texture.back().loadFromFile("./Images/Menu_Droit.png");
 
     /*Dessiner le plateau*/
     /*Placer le Deck des deux joueurs*/
@@ -162,7 +168,7 @@ void Static_scene::setInGameScene()
     In_Game_SP.back().setScale(0.5f,0.5f);
     In_Game_SP.back().setPosition(850,650);
 
-    /*Placer les cinq cartes monstres Joueur 2 */
+    /*Placer les cinq cartes magie Joueur 2 */
 
     In_Game_SP.push_back(sf::Sprite(In_Game_Texture[3]));
     In_Game_SP.back().setScale(0.5f,0.5f);
@@ -184,6 +190,14 @@ void Static_scene::setInGameScene()
     In_Game_SP.back().setScale(0.5f,0.5f);
     In_Game_SP.back().setPosition(850,0);
 
+    /*Menu à droite et à gauche */
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[5]));
+    In_Game_SP.back().setScale(1.f,1.f);
+    In_Game_SP.back().setPosition(0,0);
+
+    In_Game_SP.push_back(sf::Sprite(In_Game_Texture[7]));
+    In_Game_SP.back().setScale(1.f,1.f);
+    In_Game_SP.back().setPosition(925,0);
 }
 void Static_scene::setMenuScene()
 {
@@ -270,6 +284,65 @@ void Static_scene::setConsultScene()
     Consult_Cards_SP.back().setPosition(490,600);
 }
 
+void Static_scene::setPlayerOneChoiceScene (){
+    Choice_1_Deck_Texture.push_back(sf::Texture());
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Titre_Choix_J1.png");
+
+    Choice_1_Deck_Texture.push_back(sf::Texture());
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckDragon.png");
+
+    Choice_1_Deck_Texture.push_back(sf::Texture());
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSoldier.png");
+
+    Choice_1_Deck_Texture.push_back(sf::Texture());
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSynchro.png");
+
+    Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[0]));
+    Choice_1_Deck_SP.back().setScale(0.4f,0.4f);
+    Choice_1_Deck_SP.back().setPosition(375,75);
+
+    Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[1]));
+    Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_1_Deck_SP.back().setPosition(475,300);
+
+    Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[2]));
+    Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_1_Deck_SP.back().setPosition(475,425);
+
+    Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[3]));
+    Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_1_Deck_SP.back().setPosition(475,550);
+}
+void Static_scene::setPlayerTwoChoiceScene (){
+    Choice_2_Deck_Texture.push_back(sf::Texture());
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Titre_Choix_J2.png");
+
+    Choice_2_Deck_Texture.push_back(sf::Texture());
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckDragon.png");
+
+    Choice_2_Deck_Texture.push_back(sf::Texture());
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSoldier.png");
+
+    Choice_2_Deck_Texture.push_back(sf::Texture());
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSynchro.png");
+
+    Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[0]));
+    Choice_2_Deck_SP.back().setScale(0.4f,0.4f);
+    Choice_2_Deck_SP.back().setPosition(375,75);
+
+    Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[1]));
+    Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_2_Deck_SP.back().setPosition(475,300);
+
+    Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[2]));
+    Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_2_Deck_SP.back().setPosition(475,425);
+
+    Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[3]));
+    Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_2_Deck_SP.back().setPosition(475,550);
+}
+
 void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)
 {
     switch(choix)
@@ -313,6 +386,23 @@ void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)
                 window.draw(sprite);
             }
             window.display();
+            break;
+        case PLAYER_1_CHOICE:
+            window.clear();
+            window.draw(background);
+            for (const auto& sprite : Choice_1_Deck_SP) {
+                window.draw(sprite);
+            }
+            window.display();
+            break;
+        case PLAYER_2_CHOICE:
+            window.clear();
+            window.draw(background);
+            for (const auto& sprite : Choice_2_Deck_SP) {
+                window.draw(sprite);
+            }
+            window.display();
+            break;
         default:
             break;
     }
