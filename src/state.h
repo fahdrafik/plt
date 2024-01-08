@@ -14,5 +14,9 @@ namespace state {
   class Players {
   };
 
+  /// class Boards - 
+  class Boards {
+  };
+
 };
 

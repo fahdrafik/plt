@@ -37,6 +37,8 @@ namespace engine {
   /// class Engine - to manage the user commands
   class Engine {
     // Attributes
+  public:
+    state::Players player;
   private:
     std::vector<Command> commands;
     state::GameStates state;
@@ -59,10 +61,10 @@ namespace engine {
     // Attributes
   protected:
     state::Players player;
-    state::GameStates state;
+    state::GameStates phase;
     // Operations
   public:
-    Command ();
+    Command (state::Players player, state::GameStates state);
     ~Command ();
     void execute (state::Players player, state::GameStates status);
     void writeJSON (Command* command);
@@ -98,6 +100,8 @@ namespace engine {
   /// class ModifyHand - this class will manage the internal changes
   class ModifyHand {
     // Attributes
+  private:
+    int RandomIndex;
   protected:
     state::Decks deck;
     // Operations

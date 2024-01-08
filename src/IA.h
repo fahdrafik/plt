@@ -1,5 +1,5 @@
-#include "State.h"
 #include "engine.h"
+#include "State.h"
 
 namespace IA {
 
@@ -11,8 +11,8 @@ namespace IA {
     int turn;
     // Operations
   public:
-    void run (Engine::Engine& engine);
-    void GetCard (Decks NewCard);
+    void run (Engine::Engine& Engine);
+    void GetCard ( ModifyBoard);
     ia ();
     ~ia ();
   };
@@ -24,7 +24,7 @@ namespace IA {
     int turn;
     // Operations
   public:
-    void run (Engine engine);
+    void run (Engine Engine);
     void attackPlayer (state Decks);
     random_attack ();
     ~random_attack ();
