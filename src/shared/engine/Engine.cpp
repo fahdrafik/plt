@@ -23,7 +23,7 @@ namespace engine {
 
     }
 
-    void Engine::setPlayer (Players player){
+    void Engine::setPlayer (Players player){ //need to change the arrow so Attack Modidy.... are a specification of Command
         //modifyBoard.setPlayer(player);
         //attack.setPlayer(player);
         //modifyHand.setPlayer(player);
