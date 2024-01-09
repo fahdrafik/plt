@@ -121,7 +121,11 @@ int main(int argc,char* argv[])
     else if (strcmp(argv[1], "engine") == 0){
         GameStates game;
         Static_scene scene;
-        ChoiceMenu choix(&scene);
+        ChoiceMenu choice(&scene);
+
+        DeckChoice choiceDeck1;
+        DeckChoice choiceDeck2;
+
         scene.init();
 
         sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
@@ -131,17 +135,19 @@ int main(int argc,char* argv[])
         );
         window.setPosition(windowPosition);
 
-        Decks deckPlayer1(DeckSynchro);
         Boards boardplayer1;
-        Decks deckPlayer2(DeckSoldier);
         Boards boardplayer2;
+
+        /*
+        Decks deckPlayer1(DeckSynchro);
+        Decks deckPlayer2(DeckSoldier);
 
         Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
         Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
 
         game.init(player1,player2);
         player1.display();
-        player2.display();
+        player2.display();*/
 
         while (window.isOpen())
         {
@@ -159,11 +165,17 @@ int main(int argc,char* argv[])
                     sf::Vector2f mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
                     switch(scene.getWindow()){
                         case TITLE_SCREEN_WINDOW:
-                        choix.handleTitleScreen(mousePosition);
-                        break;
+                            choice.handleTitleScreen(mousePosition);
+                            break;
                         case MENU_WINDOW:
-                        choix.handleMenuScene(mousePosition);
-                        break;
+                            choice.handleMenuScene(mousePosition);
+                            break;
+                        case PLAYER_1_CHOICE:
+                            choiceDeck1 = choice.handleDeckChoice1(mousePosition);
+                            break;
+                        case PLAYER_2_CHOICE:
+                            choiceDeck2 = choice.handleDeckChoice1(mousePosition);
+                            break;
                         default:
                         break;
                     }

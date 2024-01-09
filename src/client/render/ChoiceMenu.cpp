@@ -26,6 +26,9 @@ void ChoiceMenu::handleMenuScene(sf::Vector2f mousePosition) {
     else if(Menu_SP[3].getGlobalBounds().contains(mousePosition)){
         scene->changeWindow(VIEW_CARDS_WINDOW);
     }
+    else if(Menu_SP[4].getGlobalBounds().contains(mousePosition)){
+        scene->changeWindow(TITLE_SCREEN_WINDOW);
+    }
 }
 
 void ChoiceMenu::handleTitleScreen(sf::Vector2f mousePosition) {
@@ -50,7 +53,13 @@ DeckChoice ChoiceMenu::handleDeckChoice1(sf::Vector2f mousePosition) {
         cout << "Choix Player 1 : Deck Synchro ! " << endl;
         scene->changeWindow(PLAYER_2_CHOICE);
         return DeckSynchro;
-    } else {
+    }
+    else if(Choice_1_Deck_SP[4].getGlobalBounds().contains(mousePosition)){
+        cout << "Retour"
+        scene->changeWindow(MENU_WINDOW);
+        return NoChoice;
+    }
+    else {
         cout << "Choix Player 1 : Pas de Deck choisi ! " << endl;
         return NoChoice;
     }
@@ -74,6 +83,11 @@ DeckChoice ChoiceMenu::handleDeckChoice2(sf::Vector2f mousePosition) {
         cout << "Choix Player 2 : Deck Synchro ! " << endl;
         scene->changeWindow(IN_PLAY_WINDOW);
         return DeckSynchro;
+    }
+    else if(Choice_2_Deck_SP[4].getGlobalBounds().contains(mousePosition)){
+        cout << "Retour"
+        scene->changeWindow(MENU_WINDOW);
+        return NoChoice;
     }
     else
     {

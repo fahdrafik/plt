@@ -43,7 +43,7 @@ void Static_scene::setTitleScene()
     Title_Screen_Texture.back().loadFromFile("./Images/yugioh.png");
 
     Title_Screen_Texture.push_back(sf::Texture());
-    Title_Screen_Texture.back().loadFromFile("./Images/Bouton_TitleScreen.png");
+    Title_Screen_Texture.back().loadFromFile("./Images/Button_StartGame.png");
 
     Title_Screen_SP.push_back(sf::Sprite(Title_Screen_Texture[0]));
     Title_Screen_SP.back().setScale(0.4f,0.4f);
@@ -205,16 +205,16 @@ void Static_scene::setMenuScene()
     Menu_Texture.back().loadFromFile("./Images/yugioh.png");
 
     Menu_Texture.push_back(sf::Texture());
-    Menu_Texture.back().loadFromFile("./Images/Bouton_J1VSJ2.png");
+    Menu_Texture.back().loadFromFile("./Images/Button_J1VSJ2.png");
 
     Menu_Texture.push_back(sf::Texture());
-    Menu_Texture.back().loadFromFile("./Images/Bouton_J1VSAI.png");
+    Menu_Texture.back().loadFromFile("./Images/Button_J1VSAI.png");
 
     Menu_Texture.push_back(sf::Texture());
-    Menu_Texture.back().loadFromFile("./Images/Bouton_ConsultCards.png");
+    Menu_Texture.back().loadFromFile("./Images/Button_ConsultCards.png");
 
     Menu_Texture.push_back(sf::Texture());
-    Menu_Texture.back().loadFromFile("./Images/Bouton_JeuQuitter.png");
+    Menu_Texture.back().loadFromFile("./Images/Button_QuitGame.png");
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[0]));
     Menu_SP.back().setScale(0.4f,0.4f);
@@ -254,7 +254,7 @@ void Static_scene::setConsultScene()
     Consult_Cards_Texture.back().loadFromFile("./Images/Mirror Force.jpg");
 
     Consult_Cards_Texture.push_back(sf::Texture());
-    Consult_Cards_Texture.back().loadFromFile("./Images/Bouton_JeuRetour.png");
+    Consult_Cards_Texture.back().loadFromFile("./Images/Button_ReturnMainMenu.png");
 
     /* Flèches pour changer les cartes*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[0]));
@@ -289,13 +289,16 @@ void Static_scene::setPlayerOneChoiceScene (){
     Choice_1_Deck_Texture.back().loadFromFile("./Images/Titre_Choix_J1.png");
 
     Choice_1_Deck_Texture.push_back(sf::Texture());
-    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckDragon.png");
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Button_DeckDragon.png");
 
     Choice_1_Deck_Texture.push_back(sf::Texture());
-    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSoldier.png");
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Button_DeckSoldier.png");
 
     Choice_1_Deck_Texture.push_back(sf::Texture());
-    Choice_1_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSynchro.png");
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Button_DeckSynchro.png");
+
+    Choice_1_Deck_Texture.push_back(sf::Texture());
+    Choice_1_Deck_Texture.back().loadFromFile("./Images/Button_ReturnMainMenu.png");
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[0]));
     Choice_1_Deck_SP.back().setScale(0.4f,0.4f);
@@ -318,13 +321,13 @@ void Static_scene::setPlayerTwoChoiceScene (){
     Choice_2_Deck_Texture.back().loadFromFile("./Images/Titre_Choix_J2.png");
 
     Choice_2_Deck_Texture.push_back(sf::Texture());
-    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckDragon.png");
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Button_DeckDragon.png");
 
     Choice_2_Deck_Texture.push_back(sf::Texture());
-    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSoldier.png");
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Button_DeckSoldier.png");
 
     Choice_2_Deck_Texture.push_back(sf::Texture());
-    Choice_2_Deck_Texture.back().loadFromFile("./Images/Bouton_DeckSynchro.png");
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Button_DeckSynchro.png");
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[0]));
     Choice_2_Deck_SP.back().setScale(0.4f,0.4f);
