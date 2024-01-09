@@ -67,7 +67,4 @@ void Cards::setIdCard(int idCard)
 {
     this->idCard = idCard;
 }
-int Cards::getID(){
-    return this->idCard;
-}
 
