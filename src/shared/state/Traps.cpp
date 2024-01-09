@@ -21,15 +21,13 @@ Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCart
 
 }
 
-
-Traps::Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect,int trapParameter)
-: Cards(name,path,typeCarte),effect(effect),trapParameter(trapParameter){
-
-
-
+//Traps (std::string name, std::string path, CardTypes typeCarte, int trapParameter, bool set);
+Traps::Traps(std::string name, std::string path, CardTypes typeCarte, int trapParameter, bool set)
+        : state::Cards(name, path, typeCarte) {
+    set = false;
 }
 
-void Traps::setEffect(trapEffect effect){
+void Traps::setEffect(trapEffect effect) {
     this->effect = effect;
 }
 
@@ -37,54 +35,19 @@ trapEffect Traps::getEffect() const {
     return effect;
 }
 
-void Traps::activate (){ //player, card,
-
-    // On a un retour de cardType
-    /*
-    if (typeCarte != TypeTrap) {
-        cout<< " error Wrong CardType";
-        exit(0);
-    }
-    Cards test()
-
-        switch (trapEffect)
-        {
-
-            case NormalTrap:
-
-                break;
-            case ContinuousTrap:
-
-                break;
-            case Counter:
-
-                break;
-            case DeleteCard:
-                // accéder à cardlist de la board du playerTaking
-                // choix du l'index de la card to delete
-
-
-
-                break;
-            case DeleteCardWithTreshold:
-
-                break;
-            case DeleteCardLoosingLP:
-
-                break;
-            case ReturnAttackToSender:
-
-                break;
-            case RevivalBeforeAttack:
-
-                break;
-        }*/
-
-    cout<< "keep is simple";
-
-    //swtitch case en fonction de l'enum !!
+void Traps::setSet(bool Set) {
+    this ->Set = Set;
 }
-bool isOn () {
-    return true;
+
+bool Traps::getSet() const {
+    return Set;
+}
+
+void Traps::setTrapParameter(int trapParameter) {
+    this ->trapParameter = trapParameter;
+}
+
+int Traps::getTrapParameter() const {
+    return trapParameter;
 }
 
