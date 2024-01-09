@@ -10,10 +10,7 @@ using namespace state;
 using namespace std;
 
 namespace engine {
-    ModifyBoard::ModifyBoard(Cards card, Boards board) {
-
-
-    }
-    ModifyBoard::ModifyBoard() {    }
+    ModifyBoard::ModifyBoard(Cards card, Boards board) {}
+    ModifyBoard::ModifyBoard() {}
 
 }
