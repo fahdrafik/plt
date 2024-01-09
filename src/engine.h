@@ -48,13 +48,19 @@ namespace engine {
     // Attributes
   public:
     state::Boards board;
-    it IdCardModify;
+    int IdCardModify;
     // Operations
   public:
     ModifyBoard ();
     ModifyBoard (state::Cards card, state::Boards board);
     void change_monster_state (state::Monsters monster, state::Boards board);
-    void triggerTrapSpell (state::Cards card, state::Boards board);
+    void triggerSpell (state::Spells* spell, state::Boards* attackingBoard, state::Boards* defendingBoard, int index);
+    /// I assume that board_1 is for the usser and Board_2 is for the rival
+    /// @param trap		(???) 
+    /// @param attackingBoards		(???) 
+    /// @param defendingBoard		(???) 
+    /// @param index		(???) 
+    void triggerTrap ();
     void SendCardZone (state::Cards card, state::Boards board);
     void execute ();
   };
