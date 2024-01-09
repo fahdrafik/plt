@@ -48,15 +48,15 @@ namespace engine {
     // Attributes
   public:
     state::Boards board;
-    it IdCardModify;
     // Operations
   public:
     ModifyBoard ();
     ModifyBoard (state::Cards card, state::Boards board);
-    void change_monster_state (state::Monsters monster, state::Boards board);
-    void triggerTrapSpell (state::Cards card, state::Boards board);
-    void SendCardZone (state::Cards card, state::Boards board);
+    void change_monster_state (state::Monsters monster);
+    void send_graveyard (state::Monsters monster);
+    void triggerTrapSpell (state::Cards card);
     void execute ();
+    void change_monster_state (state::Monsters monster, state::Boards board);
   };
 
   /// class Command - this class will manage the internal changes
