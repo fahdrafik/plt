@@ -4,9 +4,6 @@
 #include "engine.h"
 #include <iostream>
 
-
-
-
 #define PLACE_CARD 0
 #define ATTACK_W_MONSTER_ON_PLAYER 1
 #define ATTACK_W_MONSTER_ON_MONSTER 2
