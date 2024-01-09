@@ -6,6 +6,10 @@
 using namespace engine;
 using namespace std;
 
+
+Command::Command() {
+
+}
 Command::Command (state::Players player, state::GameStates state){
     this->player = player;//do we take an existing player or we create one that will stay as the player in run.
     //we take an existing one, like when it will be its turn the command will apply only on him and not on the advesary

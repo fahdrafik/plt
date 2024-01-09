@@ -11,6 +11,7 @@ using namespace state;
 using namespace std;
 
 namespace engine {
+
     Attack::Attack(Monsters monster, int attacktype) { //not need for the Monster monster i think
         if (attacktype == 0) {
             //attack on a monster
