@@ -344,30 +344,13 @@ void Static_scene::setPlayerTwoChoiceScene (){
 }
 
 void Static_scene::init(){
-    /*Mise en place des différentes scènes titre*/
+    /*Mise en place des différentes scènes*/
     this->setTitleScene();
     this->setMenuScene();
     this->setInGameScene();
     this->setConsultScene();
     this->setPlayerTwoChoiceScene();
     this->setPlayerOneChoiceScene();
-}
-
-void Static_scene::handleMenuScene(sf::Vector2f mousePosition) {
-    if(Menu_SP[1].getGlobalBounds().contains(mousePosition) || Menu_SP[2].getGlobalBounds().contains(mousePosition))
-    {
-        this->changeWindow(PLAYER_1_CHOICE);
-    }
-    else if(Menu_SP[3].getGlobalBounds().contains(mousePosition)){
-        this->changeWindow(VIEW_CARDS_WINDOW);
-    }
-}
-
-void Static_scene::handleTitleScreen(sf::Vector2f mousePosition) {
-    if(Title_Screen_SP[1].getGlobalBounds().contains(mousePosition))
-    {
-        this->changeWindow(MENU_WINDOW);
-    }
 }
 
 void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)

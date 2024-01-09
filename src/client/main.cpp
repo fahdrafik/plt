@@ -129,6 +129,7 @@ int main(int argc,char* argv[])
         );
         window.setPosition(windowPosition);
 
+
         Decks deckPlayer1(DeckSynchro);
         Boards boardplayer1;
         Decks deckPlayer2(DeckSoldier);
@@ -140,8 +141,9 @@ int main(int argc,char* argv[])
         game.init(player1,player2);
         player1.display();
         player2.display();
+        /*
 
-        /*while(game.getCurrentPlayerStatus()==PLAYING){
+        while(game.getCurrentPlayerStatus()==PLAYING){
             cout << "Phase actuelle : " << game.getPhaseName(game.getCurrentPhase()) << endl;
             cout << "Current Player is : Player " << game.getCurrentPlayerID() << endl;
             game.playPhase();

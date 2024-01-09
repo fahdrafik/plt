@@ -81,10 +81,8 @@ namespace render {
     void changeWindow (Window new_window);
     Window getWindow ();
     void setTitleScene ();
-    void handleTitleScreen (sf::Vector2f mousePosition);
     void setInGameScene ();
     void setMenuScene ();
-    void handleMenuScene (sf::Vector2f mousePosition);
     void setConsultScene ();
     void setPlayerOneChoiceScene ();
     void setPlayerTwoChoiceScene ();
@@ -102,8 +100,10 @@ namespace render {
     // Operations
   public:
     ChoiceMenu ();
+    ChoiceMenu (Static_scene* scene);
     ~ChoiceMenu ();
-    state::DeckChoice handleDeckChoice (sf::Vector2f mousePosition);
+    state::DeckChoice handleDeckChoice1 (sf::Vector2f mousePosition);
+    state::DeckChoice handleDeckChoice2 (sf::Vector2f mousePosition);
     void handleTitleScreen (sf::Vector2f mousePosition);
     void handleMenuScene (sf::Vector2f mousePosition);
   };
