@@ -51,7 +51,7 @@ void Monsters::setPosition(bool position)
 {
     this->position=position;
 }
-bool Monsters::getPosition() const
+bool Monsters::getPosition()
 {
     return position;
 }

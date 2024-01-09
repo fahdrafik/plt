@@ -117,9 +117,11 @@ int main(int argc,char* argv[])
             }
         }
     }
+
     else if (strcmp(argv[1], "engine") == 0){
         GameStates game;
         Static_scene scene;
+        ChoiceMenu choix(&scene);
         scene.init();
 
         sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
@@ -128,7 +130,6 @@ int main(int argc,char* argv[])
                 sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
         );
         window.setPosition(windowPosition);
-
 
         Decks deckPlayer1(DeckSynchro);
         Boards boardplayer1;
@@ -141,14 +142,35 @@ int main(int argc,char* argv[])
         game.init(player1,player2);
         player1.display();
         player2.display();
-        /*
 
-        while(game.getCurrentPlayerStatus()==PLAYING){
-            cout << "Phase actuelle : " << game.getPhaseName(game.getCurrentPhase()) << endl;
-            cout << "Current Player is : Player " << game.getCurrentPlayerID() << endl;
-            game.playPhase();
-            game.changePhase();
-        }*/
+        while (window.isOpen())
+        {
+            // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
+            sf::Event event;
+
+            while (window.pollEvent(event))
+            {
+                // évènement "fermeture demandée" : on ferme la fenêtre
+                if (event.type == sf::Event::Closed) {
+                    window.close();
+                }
+
+                else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left){
+                    sf::Vector2f mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+                    switch(scene.getWindow()){
+                        case TITLE_SCREEN_WINDOW:
+                        choix.handleTitleScreen(mousePosition);
+                        break;
+                        case MENU_WINDOW:
+                        choix.handleMenuScene(mousePosition);
+                        break;
+                        default:
+                        break;
+                    }
+                }
+                scene.drawSprite(scene.getWindow(),window);
+            }
+        }
     }
     return 0;
 }
