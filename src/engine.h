@@ -92,9 +92,10 @@ namespace engine {
     // Operations
   public:
     ModifyBoard (state::Cards card, state::Boards board);
-    void change_monster_state (state::Monsters monster);
-    void send_graveyard (state::Monsters monster);
-    void triggerTrapSpell (state::Cards card);
+    void change_monster_state (state::Monsters monster, state::Boards board);
+    void send_graveyard (state::Monsters monster, state::Boards board);
+    void triggerTrapSpell (state::Cards card, state::Boards board );
+    void SendCardZone (state::Cards card, state::Boards board);
   };
 
   /// class ModifyHand - this class will manage the internal changes
@@ -106,9 +107,9 @@ namespace engine {
     state::Decks deck;
     // Operations
   public:
-    ModifyHand (state::Decks deck);
+    ModifyHand (state::Decks deck, state::Boards board );
     void drawCard (int attacktype);
-    void placeCard (state::Cards card);
+    void placeCard (state::Cards card, state::Boards board);
   };
 
   /// class ChooseDeck - this class will manage the internal changes
