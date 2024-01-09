@@ -9,6 +9,23 @@ namespace state {
     EndPhase
   };
 
+  enum GameStatus {
+    PLAYING,
+    WON,
+    LOOSE
+  };
+
+  /// class Observable - 
+  class Observable {
+    // Attributes
+  protected:
+    std::vector<Observer*> observers;
+    // Operations
+  public:
+    void addObserver (Observer* observer);
+    void notifyObservers (StateEvent& event, GameStates& state);
+  };
+
   enum DeckChoice {
     NoChoice,
     DeckDragon,
@@ -73,8 +90,8 @@ namespace state {
     Cards getCardInDeck (int index);
     CardTypes getCardInHandType (int index);
     std::string getCardInHandName (int index);
-    void display ();
     void initCardsInHands ();
+    void display ();
   };
 
   /// class Calculation - 
@@ -91,6 +108,24 @@ namespace state {
   public:
     Calculation (int lifePointsPlayer1, int lifePointsPlayer2, int attackPointsPlayer1, int attackPointsPlayer2, int defensePointsPlayer1, int defensePointsPlayer2);
     ~Calculation ();
+  };
+
+  /// class Monsters - 
+  class Monsters {
+    // Attributes
+  protected:
+    int level;
+    int attack;
+    int defense;
+    bool position;
+    int effet ;
+    // Operations
+  public:
+    Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
+    Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
+    ~Monsters ();
+    Monsters ();
+    void setSpell (int effect);
   };
 
   /// class Boards - 
@@ -117,20 +152,21 @@ namespace state {
     void removeSpell (int index);
     void addTrap (state::Traps trap);
     void removeTrap (int index);
+    void getAndRemoveMonsterFromGraveyard (int index);
+    void addGraveyard (Cards card);
     int getMonsterAttack (int index);
+    void setMonsterAttack (int attack);
     int getMonsterDefense (int index);
+    void setMonsterDefense (int attack);
+    Monsters getMonster (int index);
     bool getMonsterPosition (int index);
+    int getMonsterSize ();
+    void display ();
   };
 
   enum TypePlayer {
     HUMAN,
     BOT
-  };
-
-  enum GameStatus {
-    PLAYING,
-    WON,
-    LOOSE
   };
 
   /// class Players - 
@@ -155,10 +191,13 @@ namespace state {
     void looseLifePoints (int degat );
     void attackCard (Players* defendingPlayer, int attackingCardIndex, int defendingCardIndex);
     void attackPlayer (int attackingCardIndex, Players* defendingPlayer);
+    void display ();
+    void initCardInHands ();
+    void shuffle ();
   };
 
   /// class GameStates - 
-  class GameStates {
+  class GameStates : public Observable {
     // Associations
     state::Decks* unnamed;
     state::Decks* unnamed;
@@ -179,6 +218,7 @@ namespace state {
     Players* currentPlayer;
     Phases currentPhase;
     bool end;
+    char summoning;
     // Operations
   public:
     GameStates ();
@@ -194,6 +234,10 @@ namespace state {
     void deleteBot ();
     void chooseDeck (Decks& obj);
     void changePhase ();
+    void playPhase ();
+    GameStatus getCurrentPlayerStatus ();
+    int getCurrentPlayerID ();
+    std::string getPhaseName (Phases phase);
   };
 
   enum spellEffect {
@@ -205,7 +249,6 @@ namespace state {
     Quickplay,
     Equipement,
     Revival,
-    Retrieve,
     Control,
     Sacrifice
   };
@@ -223,26 +266,8 @@ namespace state {
     ~Spells ();
     Spells (int idCard, std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
     Spells (std::string name, std::string path, CardTypes typeCarte, spellEffect effect, int spellParameter);
-    void activate ();
-    void desactivate ();
-  };
-
-  /// class Monsters - 
-  class Monsters : public Cards {
-    // Attributes
-  protected:
-    int level;
-    int attack;
-    int defense;
-    bool position;
-    int effet ;
-    // Operations
-  public:
-    Monsters (int idCard, std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position);
-    Monsters (std::string name, std::string path, CardTypes typeCarte, int  effet, int level, int attack, int defense, bool position);
-    ~Monsters ();
-    Monsters ();
-    void setSpell (int effect);
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
   };
 
   enum trapEffect {
@@ -262,6 +287,7 @@ namespace state {
   protected:
     trapEffect effect;
     int trapParameter;
+    bool Set ;
     // Operations
   public:
     void activate ();
@@ -270,28 +296,15 @@ namespace state {
     Traps ();
     ~Traps ();
     Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
-    Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter);
-  };
-
-  /// class Observable - 
-  class Observable : public GameStates {
-    // Attributes
-  protected:
-    std::vector<IObserver*> observers;
-    // Operations
-  public:
-    void registerObserver (IObserver* observer);
-    void notifyObservers (const StateEvent& event, GameStates& state);
+    Traps (std::string name, std::string path, CardTypes typeCarte, int trapParameter, bool set);
   };
 
   // interface
-  /// class IObserver - 
-  class IObserver {
-    // Associations
-    state::Observable* unnamed;
+  /// class Observer - 
+  class Observer {
     // Operations
   public:
-    virtual void stateChanged (const StateEvent& event, GameStates& state) = 0;
+    virtual void stateUpdate (const StateEvent& event, GameStates& state) = 0;
   };
 
   enum StateEventID {
@@ -318,6 +331,70 @@ namespace state {
   public:
     StateEvent (StateEventID Sevent);
     void setStateEventID (StateEventID newID);
+  };
+
+  /// class SpellEquipement - 
+  class SpellEquipement : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellRevival - 
+  class SpellRevival : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellControl - 
+  class SpellControl : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class SpellSacrifice - 
+  class SpellSacrifice : public Spells {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class TrapNormal - 
+  class TrapNormal : public Traps {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class TrapCounter - 
+  class TrapCounter : public Traps {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class TrapReverse - 
+  class TrapReverse : public Traps {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
+  };
+
+  /// class TrapDelete - 
+  class TrapDelete : public Traps {
+    // Operations
+  public:
+    void activate (Boards* attackingBoard, Boards* defendingBoard, int index);
+    void desactivate (Boards* attackingBoard, Boards* defendingBoard, int index);
   };
 
 };

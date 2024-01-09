@@ -1,90 +1,53 @@
 //
 // Created by cornic on 14/11/23.
 //
+
 #include "Traps.h"
-#include "Cards.h"
-#include "GameStates.h"
-#include "trapEffect.h"
 
 
-#include <iostream>
-#include <vector>
+//#include <iostream>
+//#include <vector>
 
 using namespace std;
-using namespace state;
+namespace state {
 
-Traps::Traps ():Cards(){
-}
-Traps::~Traps () {}
-Traps::Traps (int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect,int trapParameter)
-: Cards(idCard,name,path,typeCarte),effect(effect),trapParameter(trapParameter){
-
-}
-
-
-Traps::Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect,int trapParameter)
-: Cards(name,path,typeCarte),effect(effect),trapParameter(trapParameter){
-
-
-
-}
-
-void Traps::setEffect(trapEffect effect){
-    this->effect = effect;
-}
-
-trapEffect Traps::getEffect() const {
-    return effect;
-}
-
-void Traps::activate (){ //player, card,
-
-    // On a un retour de cardType
-    /*
-    if (typeCarte != TypeTrap) {
-        cout<< " error Wrong CardType";
-        exit(0);
+    Traps::Traps() : Cards() {
     }
-    Cards test()
 
-        switch (trapEffect)
-        {
+    Traps::~Traps() {}
 
-            case NormalTrap:
+    Traps::Traps(int idCard, std::string name, std::string path, CardTypes typeCarte, trapEffect effect,
+                 int trapParameter)
+            : Cards(idCard, name, path, typeCarte) {
 
-                break;
-            case ContinuousTrap:
+    }
+    //Traps (std::string name, std::string path, CardTypes typeCarte, trapEffect effect, int trapParameter, bool set);
+    Traps::Traps(std::string name, std::string path, CardTypes typeCarte, int trapParameter, bool set)
+            : state::Cards(name, path, typeCarte) {
+        set = false;
+    }
 
-                break;
-            case Counter:
+    void Traps::setEffect(trapEffect effect) {
+        this->effect = effect;
+    }
 
-                break;
-            case DeleteCard:
-                // accéder à cardlist de la board du playerTaking
-                // choix du l'index de la card to delete
+    trapEffect Traps::getEffect() const {
+        return effect;
+    }
 
+    void Traps::setSet(bool Set) {
+        this ->Set = Set;
+    }
 
+    bool Traps::getSet() const {
+        return Set;
+    }
 
-                break;
-            case DeleteCardWithTreshold:
+    void Traps::setTrapParameter(int trapParameter) {
+        this ->trapParameter = trapParameter;
+    }
 
-                break;
-            case DeleteCardLoosingLP:
-
-                break;
-            case ReturnAttackToSender:
-
-                break;
-            case RevivalBeforeAttack:
-
-                break;
-        }*/
-
-    cout<< "keep is simple";
-
-    //swtitch case en fonction de l'enum !!
+    int Traps::getTrapParameter() const {
+        return trapParameter;
+    }
 }
-bool isOn () {
-    return true;
-}
-
