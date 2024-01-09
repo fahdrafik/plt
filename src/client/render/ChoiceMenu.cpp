@@ -55,7 +55,7 @@ DeckChoice ChoiceMenu::handleDeckChoice1(sf::Vector2f mousePosition) {
         return DeckSynchro;
     }
     else if(Choice_1_Deck_SP[4].getGlobalBounds().contains(mousePosition)){
-        cout << "Retour"
+        cout << "Retour";
         scene->changeWindow(MENU_WINDOW);
         return NoChoice;
     }
@@ -85,7 +85,7 @@ DeckChoice ChoiceMenu::handleDeckChoice2(sf::Vector2f mousePosition) {
         return DeckSynchro;
     }
     else if(Choice_2_Deck_SP[4].getGlobalBounds().contains(mousePosition)){
-        cout << "Retour"
+        cout << "Retour";
         scene->changeWindow(MENU_WINDOW);
         return NoChoice;
     }
