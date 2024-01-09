@@ -3,14 +3,14 @@
 //
 #include "ModifyHand.h"
 
-using namespace engine;
+#include <iostream>
+#include <algorithm>
+
+
+using namespace state;
 using namespace std;
 
-ModifyHand::ModifyHand (state::Decks deck, state::Boards board ){
+namespace engine {
+    ModifyHand::ModifyHand() {}
 
 }
-void ModifyHand::drawCard (int attacktype){}
-void ModifyHand::placeCard (state::Cards card, state::Boards board){}
-// Setters and Getters
-const state::Decks& ModifyHand::getDeck() const{}
-void ModifyHand::setDeck(const state::Decks& deck){}

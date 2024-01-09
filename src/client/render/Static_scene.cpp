@@ -343,6 +343,33 @@ void Static_scene::setPlayerTwoChoiceScene (){
     Choice_2_Deck_SP.back().setPosition(475,550);
 }
 
+void Static_scene::init(){
+    /*Mise en place des différentes scènes titre*/
+    this->setTitleScene();
+    this->setMenuScene();
+    this->setInGameScene();
+    this->setConsultScene();
+    this->setPlayerTwoChoiceScene();
+    this->setPlayerOneChoiceScene();
+}
+
+void Static_scene::handleMenuScene(sf::Vector2f mousePosition) {
+    if(Menu_SP[1].getGlobalBounds().contains(mousePosition) || Menu_SP[2].getGlobalBounds().contains(mousePosition))
+    {
+        this->changeWindow(PLAYER_1_CHOICE);
+    }
+    else if(Menu_SP[3].getGlobalBounds().contains(mousePosition)){
+        this->changeWindow(VIEW_CARDS_WINDOW);
+    }
+}
+
+void Static_scene::handleTitleScreen(sf::Vector2f mousePosition) {
+    if(Title_Screen_SP[1].getGlobalBounds().contains(mousePosition))
+    {
+        this->changeWindow(MENU_WINDOW);
+    }
+}
+
 void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)
 {
     switch(choix)
@@ -406,4 +433,90 @@ void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)
         default:
             break;
     }
+}
+
+// Getters and Setters
+const std::vector<sf::Sprite>& Static_scene::getCards_SP() const{
+    return Cards_SP;
+}
+void Static_scene::setCards_SP(const std::vector<sf::Sprite>& Cards_SP){
+    this->Cards_SP=Cards_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getCards_Texture() const{
+    return Cards_Texture;
+}
+void Static_scene::setCards_Texture(const std::vector<sf::Texture>& Cards_Texture){
+    this->Cards_Texture=Cards_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getMenu_SP() const{
+    return Menu_SP;
+}
+void Static_scene::setMenu_SP(const std::vector<sf::Sprite>& Menu_SP){
+    this->Menu_SP=Menu_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getMenu_Texture() const{
+    return Menu_Texture;
+}
+void Static_scene::setMenu_Texture(const std::vector<sf::Texture>& Menu_Texture){
+    this->Menu_Texture=Menu_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getIn_Game_SP() const{
+    return In_Game_SP;
+}
+void Static_scene::setIn_Game_SP(const std::vector<sf::Sprite>& In_Game_SP){
+    this->In_Game_SP=In_Game_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getIn_Game_Texture() const{
+    return In_Game_Texture;
+}
+void Static_scene::setIn_Game_Texture(const std::vector<sf::Texture>& In_Game_Texture){
+    this->In_Game_Texture=In_Game_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getTitle_Screen_SP() const{
+    return Title_Screen_SP;
+}
+void Static_scene::setTitle_Screen_SP(const std::vector<sf::Sprite>& Title_Screen_SP){
+    this->Title_Screen_SP=Title_Screen_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getTitle_Screen_Texture() const{
+    return Title_Screen_Texture;
+}
+void Static_scene::setTitle_Screen_Texture(const std::vector<sf::Texture>& Title_Screen_Texture){
+    this->Title_Screen_Texture=Title_Screen_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getConsult_Cards_SP() const{
+    return Consult_Cards_SP;
+}
+void Static_scene::setConsult_Cards_SP(const std::vector<sf::Sprite>& Consult_Cards_SP){
+    this->Consult_Cards_SP=Consult_Cards_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getConsult_Cards_Texture() const{
+    return Consult_Cards_Texture;
+}
+void Static_scene::setConsult_Cards_Texture(const std::vector<sf::Texture>& Consult_Cards_Texture){
+    this->Consult_Cards_Texture=Consult_Cards_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getChoice_1_Deck_SP() const{
+    return Choice_1_Deck_SP;
+}
+void Static_scene::setChoice_1_Deck_SP(const std::vector<sf::Sprite>& Choice_1_Deck_SP){
+    this->Choice_1_Deck_SP=Choice_1_Deck_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getChoice_1_Deck_Texture() const{
+    return Choice_1_Deck_Texture;
+}
+void Static_scene::setChoice_1_Deck_Texture(const std::vector<sf::Texture>& Choice_1_Deck_Texture){
+    this->Choice_1_Deck_Texture=Choice_1_Deck_Texture;
+}
+const std::vector<sf::Sprite>& Static_scene::getChoice_2_Deck_SP() const{
+    return Choice_2_Deck_SP;
+}
+void Static_scene::setChoice_2_Deck_SP(const std::vector<sf::Sprite>& Choice_2_Deck_SP){
+    this->Choice_2_Deck_SP=Choice_2_Deck_SP;
+}
+const std::vector<sf::Texture>& Static_scene::getChoice_2_Deck_Texture() const{
+    return Choice_2_Deck_Texture;
+}
+void Static_scene::setChoice_2_Deck_Texture(const std::vector<sf::Texture>& Choice_2_Deck_Texture){
+    this->Choice_2_Deck_Texture=Choice_2_Deck_Texture;
 }

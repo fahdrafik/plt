@@ -1,3 +1,4 @@
+#include "state.h"
 
 namespace render {
 
@@ -74,18 +75,37 @@ namespace render {
   public:
     Static_scene ();
     ~Static_scene ();
+    void init ();
     sf::Sprite getBackground ();
     Dynamic_scene getDynamic_scene (int index);
     void changeWindow (Window new_window);
     Window getWindow ();
     void setTitleScene ();
+    void handleTitleScreen (sf::Vector2f mousePosition);
     void setInGameScene ();
     void setMenuScene ();
+    void handleMenuScene (sf::Vector2f mousePosition);
     void setConsultScene ();
-    void setPlayerOneChoice ();
-    void setPlayerTwoChoice ();
+    void setPlayerOneChoiceScene ();
+    void setPlayerTwoChoiceScene ();
     void addSprite (render::Window window, int x, int y, float factorX, float factorY);
     void drawSprite (render::Window choix, sf::RenderWindow& window);
+  };
+
+  /// class ChoiceMenu - 
+  class ChoiceMenu {
+    // Associations
+    render::Static_scene* unnamed;
+    // Attributes
+  public:
+    Static_scene* scene;
+    // Operations
+  public:
+    ChoiceMenu ();
+    ~ChoiceMenu ();
+    state::DeckChoice handleDeckChoice (sf::Vector2f mousePosition);
+    void handleTitleScreen (sf::Vector2f mousePosition);
+    void handleMenuScene (sf::Vector2f mousePosition);
   };
 
 };

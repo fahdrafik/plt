@@ -60,13 +60,7 @@ int main(int argc,char* argv[])
                 sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
         );
         window.setPosition(windowPosition);
-        /*Mise en place des différentes scènes titre*/
-        scene.setTitleScene();
-        scene.setMenuScene();
-        scene.setInGameScene();
-        scene.setConsultScene();
-        scene.setPlayerTwoChoiceScene();
-        scene.setPlayerOneChoiceScene();
+        scene.init();
 
         cout << "Welcome in the render !" << endl;
         cout << "To display the title screen : E" << endl;
@@ -125,6 +119,16 @@ int main(int argc,char* argv[])
     }
     else if (strcmp(argv[1], "engine") == 0){
         GameStates game;
+        Static_scene scene;
+        scene.init();
+
+        sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
+        sf::Vector2i windowPosition(
+                sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
+                sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
+        );
+        window.setPosition(windowPosition);
+
         Decks deckPlayer1(DeckSynchro);
         Boards boardplayer1;
         Decks deckPlayer2(DeckSoldier);
