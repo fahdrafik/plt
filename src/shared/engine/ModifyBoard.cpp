@@ -25,7 +25,7 @@ void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards b
         }
     }
 }
-//void ModifyBoard::send_graveyard (state::Monsters monster, state::Boards board){}
+
 void ModifyBoard::triggerTrapSpell (state::Cards card, state::Boards board ){}
 void ModifyBoard::SendCardZone (state::Cards card, state::Boards board){
     if (card.isMonster()){
