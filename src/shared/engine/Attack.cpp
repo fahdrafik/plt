@@ -11,25 +11,15 @@ using namespace state;
 using namespace std;
 
 namespace engine {
+    Attack::Attack() {}
 
-    Attack::Attack(Monsters monster, int attacktype) { //not need for the Monster monster i think
-        if (attacktype == 0) {
-            //attack on a monster
-            if (attackMonster.getDefense() < attackingMonster.getAttack()) {
-                printf("attack succesfull");
-                //make the monster die
-            } else {
-                printf("attack not possible");
-            }
+    void Attack::execute() {
+        if (attacktype==0){
+            //player.attackCard(*getOpponent(),attackingMonster.getID(),defendingMonster.getID());
         }
-        if (attacktype == 1) {
-            //attack on a player
-            //We verify if it's possible in the engine not here, we don't have access to the board
-            attackPlayer.looseLifePoints(attackMonster.getAttack());
+        else {
+            //player.attackPlayer(attackingMonster.getID(),*getOpponent());
         }
+
     }
-    Attack::Attack(){}
-
-
-
 }

@@ -10,6 +10,8 @@ using namespace std;
 ModifyBoard::ModifyBoard (state::Cards card, state::Boards board){
     // int IdCardToModify;
 }
+//ModifyBoard::ModifyBoard (){}
+
 void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards board){
     int IdCardToModify = monster.getIdCard();
     std::vector<state::Monsters> monsterArray = board.getMonsters();
