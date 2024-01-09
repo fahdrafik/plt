@@ -66,6 +66,7 @@ DeckChoice ChoiceMenu::handleDeckChoice1(sf::Vector2f mousePosition) {
 }
 
 DeckChoice ChoiceMenu::handleDeckChoice2(sf::Vector2f mousePosition) {
+
     auto Choice_2_Deck_SP = scene->getChoice_2_Deck_SP();
     if (Choice_2_Deck_SP[1].getGlobalBounds().contains(mousePosition)) {
         cout << "Choix Player 2 : Deck Dragon ! " << endl;
@@ -94,4 +95,8 @@ DeckChoice ChoiceMenu::handleDeckChoice2(sf::Vector2f mousePosition) {
         cout << "Choix Player 2 : Pas de Deck choisi ! " << endl;
         return NoChoice;
     }
+}
+
+void ChoiceMenu::handleViewCards(sf::Vector2f mousePosition){
+
 }

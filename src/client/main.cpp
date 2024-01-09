@@ -174,8 +174,10 @@ int main(int argc,char* argv[])
                             choiceDeck1 = choice.handleDeckChoice1(mousePosition);
                             break;
                         case PLAYER_2_CHOICE:
-                            choiceDeck2 = choice.handleDeckChoice1(mousePosition);
+                            choiceDeck2 = choice.handleDeckChoice2(mousePosition);
                             break;
+                        case VIEW_CARDS_WINDOW:
+                            choice.handleViewCards(mousePosition);
                         default:
                         break;
                     }

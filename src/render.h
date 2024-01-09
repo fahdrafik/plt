@@ -97,15 +97,18 @@ namespace render {
     // Attributes
   public:
     Static_scene* scene;
+    sf::RenderWindow* window;
     // Operations
   public:
     ChoiceMenu ();
     ChoiceMenu (Static_scene* scene);
+    ChoiceMenu (Static_scene* scene, sf::RenderWindow* window);
     ~ChoiceMenu ();
     state::DeckChoice handleDeckChoice1 (sf::Vector2f mousePosition);
     state::DeckChoice handleDeckChoice2 (sf::Vector2f mousePosition);
     void handleTitleScreen (sf::Vector2f mousePosition);
     void handleMenuScene (sf::Vector2f mousePosition);
+    void handleViewCards (sf::Vector2f mousePosition);
   };
 
 };

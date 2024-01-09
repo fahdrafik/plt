@@ -315,6 +315,10 @@ void Static_scene::setPlayerOneChoiceScene (){
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[3]));
     Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
     Choice_1_Deck_SP.back().setPosition(475,550);
+
+    Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[4]));
+    Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_1_Deck_SP.back().setPosition(475,675);
 }
 void Static_scene::setPlayerTwoChoiceScene (){
     Choice_2_Deck_Texture.push_back(sf::Texture());
@@ -328,6 +332,9 @@ void Static_scene::setPlayerTwoChoiceScene (){
 
     Choice_2_Deck_Texture.push_back(sf::Texture());
     Choice_2_Deck_Texture.back().loadFromFile("./Images/Button_DeckSynchro.png");
+
+    Choice_2_Deck_Texture.push_back(sf::Texture());
+    Choice_2_Deck_Texture.back().loadFromFile("./Images/Button_ReturnMainMenu.png");
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[0]));
     Choice_2_Deck_SP.back().setScale(0.4f,0.4f);
@@ -344,6 +351,10 @@ void Static_scene::setPlayerTwoChoiceScene (){
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[3]));
     Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
     Choice_2_Deck_SP.back().setPosition(475,550);
+
+    Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[4]));
+    Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
+    Choice_2_Deck_SP.back().setPosition(475,675);
 }
 
 void Static_scene::init(){

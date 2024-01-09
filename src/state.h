@@ -1,10 +1,6 @@
-#include "engine.h"
+#include "render.h"
 
 namespace state {
-
-  /// class Decks - 
-  class Decks {
-  };
 
   /// class GameStates - 
   class GameStates {
@@ -14,8 +10,7 @@ namespace state {
   class Players {
   };
 
-  /// class Boards - 
-  class Boards {
+  enum DeckChoice {
   };
 
 };
