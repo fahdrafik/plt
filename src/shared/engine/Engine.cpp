@@ -14,7 +14,7 @@
 #define TRIGGER_TRAP_SPELL 7
 
 
-#define UNSELECT_MONSTERS 100
+#define UNSELECT 100
 
 #define SELECT_MONSTER_POS_1 101
 #define SELECT_MONSTER_POS_2 102
@@ -27,6 +27,17 @@
 #define SELECT_MONSTER_POS_8 108
 #define SELECT_MONSTER_POS_9 109
 #define SELECT_MONSTER_POS_10 110
+
+#define SELECT_CARD_HAND_1 201
+#define SELECT_CARD_HAND_2 202
+#define SELECT_CARD_HAND_3 203
+#define SELECT_CARD_HAND_4 204
+#define SELECT_CARD_HAND_5 205
+#define SELECT_CARD_HAND_6 206
+#define SELECT_CARD_HAND_7 207
+#define SELECT_CARD_HAND_8 208
+#define SELECT_CARD_HAND_9 209
+#define SELECT_CARD_HAND_10 210
 
 
 #define CHOOSE_DECK 8 9 10 11 12
@@ -94,7 +105,12 @@ namespace engine {
 
     }
     void Engine::execute_Place_Card(){
-
+        if (modifyHand.getID_card_InHand_selected()!=10){
+            modifyHand.placeCard();
+        }
+        else{
+            cout<<"pas de carte selectionnée a placer"<<endl;
+        }
     }
     void Engine::execute_changeTurn(){
         Players temp = current_player;
@@ -174,11 +190,41 @@ namespace engine {
             case SELECT_MONSTER_POS_10 :
                 attack.setDefendingMonsterID_onBoard(4);
                 break;
-            case UNSELECT_MONSTERS:
+            case UNSELECT:
                 attack.setDefendingMonsterID_onBoard(5);
                 attack.setAttackingMonsterID_onBoard(5);
+                modifyHand.setID_card_InHand_selected(10);
                 break;
-
+            case SELECT_CARD_HAND_1 :
+                modifyHand.setID_card_InHand_selected(0);
+                break;
+            case SELECT_CARD_HAND_2 :
+                modifyHand.setID_card_InHand_selected(1);
+                break;
+            case SELECT_CARD_HAND_3 :
+                modifyHand.setID_card_InHand_selected(2);
+                break;
+            case SELECT_CARD_HAND_4 :
+                modifyHand.setID_card_InHand_selected(3);
+                break;
+            case SELECT_CARD_HAND_5 :
+                modifyHand.setID_card_InHand_selected(4);
+                break;
+            case SELECT_CARD_HAND_6 :
+                modifyHand.setID_card_InHand_selected(5);
+                break;
+            case SELECT_CARD_HAND_7 :
+                modifyHand.setID_card_InHand_selected(6);
+                break;
+            case SELECT_CARD_HAND_8 :
+                modifyHand.setID_card_InHand_selected(7);
+                break;
+            case SELECT_CARD_HAND_9 :
+                modifyHand.setID_card_InHand_selected(8);
+                break;
+            case SELECT_CARD_HAND_10 :
+                modifyHand.setID_card_InHand_selected(9);
+                break;
             default:
                 break;
         }
