@@ -2,6 +2,10 @@
 
 namespace state {
 
+  /// class PlayerAI - 
+  class PlayerAI {
+  };
+
   /// class Decks - 
   class Decks {
   };
@@ -12,6 +16,11 @@ namespace state {
 
   /// class GameStates - 
   class GameStates {
+  };
+
+  // enum
+  /// class DeckChoice - 
+  class DeckChoice {
   };
 
 };

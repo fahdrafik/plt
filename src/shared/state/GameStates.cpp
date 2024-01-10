@@ -198,7 +198,13 @@ void GameStates::addPlayer (){
                     break;
             }
         }
-        else{}
+        else{
+            /*With the AI class I am suposed to generate the events
+             * that the player sent, but the action is already built
+             * in other method classes.
+             * */
+
+        }
     }
 
     // Setters and Getters
