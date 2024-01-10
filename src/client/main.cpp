@@ -119,71 +119,31 @@ int main(int argc,char* argv[])
     }
 
     else if (strcmp(argv[1], "engine") == 0){
+        sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
         GameStates game;
         Static_scene scene;
         ChoiceMenu choice(&scene);
+        Menu menu(&choice,&window,&scene);
 
+        /*bool GameInit = 0;
         DeckChoice choiceDeck1;
-        DeckChoice choiceDeck2;
+        DeckChoice choiceDeck2;*/
 
         scene.init();
-
-        sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
         sf::Vector2i windowPosition(
                 sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
                 sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
         );
         window.setPosition(windowPosition);
-
         Boards boardplayer1;
         Boards boardplayer2;
 
-        /*
-        Decks deckPlayer1(DeckSynchro);
-        Decks deckPlayer2(DeckSoldier);
-
-        Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
-        Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
-
-        game.init(player1,player2);
-        player1.display();
-        player2.display();*/
-
-        while (window.isOpen())
-        {
-            // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
-            sf::Event event;
-
-            while (window.pollEvent(event))
-            {
-                // évènement "fermeture demandée" : on ferme la fenêtre
-                if (event.type == sf::Event::Closed) {
-                    window.close();
-                }
-
-                else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left){
-                    sf::Vector2f mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    switch(scene.getWindow()){
-                        case TITLE_SCREEN_WINDOW:
-                            choice.handleTitleScreen(mousePosition);
-                            break;
-                        case MENU_WINDOW:
-                            choice.handleMenuScene(mousePosition);
-                            break;
-                        case PLAYER_1_CHOICE:
-                            choiceDeck1 = choice.handleDeckChoice1(mousePosition);
-                            break;
-                        case PLAYER_2_CHOICE:
-                            choiceDeck2 = choice.handleDeckChoice2(mousePosition);
-                            break;
-                        case VIEW_CARDS_WINDOW:
-                            choice.handleViewCards(mousePosition);
-                        default:
-                        break;
-                    }
-                }
-                scene.drawSprite(scene.getWindow(),window);
-            }
+        menu.run();
+        if(menu.getGameInit()){
+            menu.play();
+        }
+        else{
+            window.close();
         }
     }
     return 0;
