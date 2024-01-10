@@ -18,7 +18,6 @@ add_library(${lib_shared_target} STATIC ${shared_sources}
         state/Traps.cpp
         state/GameStates.cpp
         engine/Attack.cpp
-        engine/ChooseDeck.cpp
         engine/Engine.cpp
         engine/ModifyBoard.cpp)
 add_dependencies(${lib_shared_target} generate-headers)

@@ -14,8 +14,24 @@
 #define TRIGGER_TRAP_SPELL 7
 
 
+#define UNSELECT_MONSTERS 100
+
+#define SELECT_MONSTER_POS_1 101
+#define SELECT_MONSTER_POS_2 102
+#define SELECT_MONSTER_POS_3 103
+#define SELECT_MONSTER_POS_4 104
+#define SELECT_MONSTER_POS_5 105
+
+#define SELECT_MONSTER_POS_6 106
+#define SELECT_MONSTER_POS_7 107
+#define SELECT_MONSTER_POS_8 108
+#define SELECT_MONSTER_POS_9 109
+#define SELECT_MONSTER_POS_10 110
+
+
 #define CHOOSE_DECK 8 9 10 11 12
 using namespace state;
+using namespace std;
 namespace engine {
 
 
@@ -31,7 +47,6 @@ namespace engine {
         opponent_player= state.getPlayerList()[1];
 
         attack.setState(state);
-        chooseDeck.setState(state);
         modifyBoard.setState(state);
         modifyHand.setState(state);
 
@@ -56,18 +71,27 @@ namespace engine {
         attack.setAttacktype(0);
         attack.setPlayer(current_player);
         attack.setOpponent(opponent_player);
-        //attack.setAttackingMonster();
-        //attack.setDefendingMonster();
+        if (attack.getAttackingMonsterID_onBoard()!=5 && attack.getDefendingMonsterID_onBoard()!=5){
+            attack.execute();
+        }
+        else{
+            cout <<"Les monstres de défense et d'attaque ne sont pas selectionnés"<< endl;
+        }
 
-        attack.execute();
+
     }
 
     void Engine::execute_attackPlayerWmonster() {
         attack.setAttacktype(1);
         attack.setPlayer(current_player);
         attack.setOpponent(opponent_player);
-        //attack.setAttackingMonster();
-        attack.execute();
+        if (attack.getAttackingMonsterID_onBoard()!=5){
+            attack.execute();
+        }
+        else{
+            cout <<"Le monstre d'attaque n'est pas selectionné"<< endl;
+        }
+
     }
     void Engine::execute_Place_Card(){
 
@@ -119,6 +143,41 @@ namespace engine {
                 execute_trigger_trap_spell();
                 break;
 
+            case SELECT_MONSTER_POS_1  :
+                attack.setAttackingMonsterID_onBoard(0);
+                break;
+            case SELECT_MONSTER_POS_2  :
+                attack.setAttackingMonsterID_onBoard(1);
+                break;
+            case SELECT_MONSTER_POS_3  :
+                attack.setAttackingMonsterID_onBoard(2);
+                break;
+            case SELECT_MONSTER_POS_4  :
+                attack.setAttackingMonsterID_onBoard(3);
+                break;
+            case SELECT_MONSTER_POS_5  :
+                attack.setAttackingMonsterID_onBoard(4);
+                break;
+
+            case SELECT_MONSTER_POS_6  :
+                attack.setDefendingMonsterID_onBoard(0);
+                break;
+            case SELECT_MONSTER_POS_7  :
+                attack.setDefendingMonsterID_onBoard(1);
+                break;
+            case SELECT_MONSTER_POS_8  :
+                attack.setDefendingMonsterID_onBoard(2);
+                break;
+            case SELECT_MONSTER_POS_9  :
+                attack.setDefendingMonsterID_onBoard(3);
+                break;
+            case SELECT_MONSTER_POS_10 :
+                attack.setDefendingMonsterID_onBoard(4);
+                break;
+            case UNSELECT_MONSTERS:
+                attack.setDefendingMonsterID_onBoard(5);
+                attack.setAttackingMonsterID_onBoard(5);
+                break;
 
             default:
                 break;
