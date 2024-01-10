@@ -95,7 +95,7 @@ namespace render {
     // Associations
     render::Static_scene* unnamed;
     // Attributes
-  public:
+  protected:
     Static_scene* scene;
     sf::RenderWindow* window;
     // Operations
@@ -109,6 +109,26 @@ namespace render {
     void handleTitleScreen (sf::Vector2f mousePosition);
     void handleMenuScene (sf::Vector2f mousePosition);
     void handleViewCards (sf::Vector2f mousePosition);
+  };
+
+  /// class Menu - 
+  class Menu {
+    // Associations
+    render::ChoiceMenu* unnamed;
+    // Attributes
+  protected:
+    ChoiceMenu* choice;
+    sf::RenderWindow* window;
+    Static_scene* scene;
+    bool GameInit;
+    state::DeckChoice deckChoice1;
+    state::DeckChoice deckChoice2;
+    // Operations
+  public:
+    Menu ();
+    Menu (ChoiceMenu* choice, sf::RenderWindow* window, Static_scene* scene);
+    ~Menu ();
+    void run ();
   };
 
 };
