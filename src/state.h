@@ -1,16 +1,17 @@
-#include "render.h"
+#include "ai.h"
 
 namespace state {
 
+  /// class Decks - 
+  class Decks {
+  };
+
+  /// class calculator - 
+  class calculator {
+  };
+
   /// class GameStates - 
   class GameStates {
-  };
-
-  /// class Players - 
-  class Players {
-  };
-
-  enum DeckChoice {
   };
 
 };

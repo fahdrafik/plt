@@ -84,152 +84,164 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::changePhase() {
-        switch(currentPhase)
-        {
-            case(DrawPhase):
-                currentPhase = FirstMainPhase;
-                break;
-            case(FirstMainPhase):
-                currentPhase = BattlePhase;
-                break;
-            case(BattlePhase):
-                currentPhase = SecondMainPhase;
-                break;
-            case(SecondMainPhase):
-                currentPhase = EndPhase;
-                break;
-            case(EndPhase):
-                currentPhase = DrawPhase;
-                break;
+        if(this->currentPlayer->isHuman()) {
+            switch (currentPhase) {
+                case (DrawPhase):
+                    currentPhase = FirstMainPhase;
+                    break;
+                case (FirstMainPhase):
+                    currentPhase = BattlePhase;
+                    break;
+                case (BattlePhase):
+                    currentPhase = SecondMainPhase;
+                    break;
+                case (SecondMainPhase):
+                    currentPhase = EndPhase;
+                    break;
+                case (EndPhase):
+                    currentPhase = DrawPhase;
+                    break;
+            }
         }
     }
 
     void GameStates::playPhase() {
+        if(this->currentPlayer->isHuman()) {
+            cout << "Appuyer A : Poser une carte" << endl;
+            cout << "Appuyer B : Activer une carte Magie" << endl;
+            cout << "Appuyer C : Changer position d'une carte" << endl;
+            cout << "Appuyer R : Passer à la phase suivante" << endl;
+            cout << "Appuyer P : Passer son tour" << endl;
 
-    cout << "Appuyer A : Poser une carte" << endl;
-    cout << "Appuyer B : Activer une carte Magie" << endl;
-    cout << "Appuyer C : Changer position d'une carte" << endl;
-    cout << "Appuyer R : Passer à la phase suivante" << endl;
-    cout << "Appuyer P : Passer son tour" << endl;
+            switch(currentPhase)
+                {
+                    case(DrawPhase):
+                        cout << "Beginning of Turn " << nbTurns << endl;
+                        currentPlayer->drawCard();
+                        cout << "Player " << this->getCurrentPlayerID() << " has drawn a card !" << endl;
+                        break;
+                    case(FirstMainPhase):
+                        this->mainPhase();
+                        break;
+                    case(BattlePhase):
+                        this->battlePhase();
+                        break;
+                    case(SecondMainPhase):
+                        this->mainPhase();
+                        break;
+                    case(EndPhase):
+                        this->changeTurn();
+                        cout << "Player " << this->getCurrentPlayerID() << " has ended his tour !"<< endl;
+                        break;
+                }
+        }
+        else{
 
-    switch(currentPhase)
-        {
-            case(DrawPhase):
-                cout << "Beginning of Turn " << nbTurns << endl;
-                currentPlayer->drawCard();
-                cout << "Player " << this->getCurrentPlayerID() << " has drawn a card !" << endl;
-                break;
-            case(FirstMainPhase):
-                this->mainPhase();
-                break;
-            case(BattlePhase):
-                this->battlePhase();
-                break;
-            case(SecondMainPhase):
-                this->mainPhase();
-                break;
-            case(EndPhase):
-                this->changeTurn();
-                cout << "Player " << this->getCurrentPlayerID() << " has ended his tour !"<< endl;
-                break;
         }
     }
 
-void GameStates::mainPhase() {
-    sf::Event event;
-    event.type = sf::Event::KeyPressed;
-    event.key.code = sf::Keyboard::A;
+    void GameStates::mainPhase() {
+        if(this->currentPlayer->isHuman()) {
+            sf::Event event;
+            event.type = sf::Event::KeyPressed;
+            event.key.code = sf::Keyboard::A;
 
-    cout << "Appuyer A : Poser une carte" << endl;
-    cout << "Appuyer B : Activer une carte Magie" << endl;
-    cout << "Appuyer C : Changer position d'une carte" << endl;
-    cout << "Appuyer R : Passer à la phase suivante" << endl;
-    cout << "Appuyer P : Passer son tour" << endl;
+            cout << "Appuyer A : Poser une carte" << endl;
+            cout << "Appuyer B : Activer une carte Magie" << endl;
+            cout << "Appuyer C : Changer position d'une carte" << endl;
+            cout << "Appuyer R : Passer à la phase suivante" << endl;
+            cout << "Appuyer P : Passer son tour" << endl;
 
-    switch (event.key.code)
-    {
-        case sf::Keyboard::A:
-            cout << "Poser une carte " << endl;
-            break;
-        case sf::Keyboard::B:
-            cout << "Activer une carte Magie" << endl;
-            break;
-        case sf::Keyboard::C:
-            cout << "Changer position d'une carte" << endl;
-            break;
-        case sf::Keyboard::R:
-            cout << "Phase suivante";
-            break;
-        case sf::Keyboard::P:
-            cout << "Passer son tour";
-            currentPhase = SecondMainPhase;
-            break;
-        default:
-            break;
+            switch (event.key.code) {
+                case sf::Keyboard::A:
+                    cout << "Poser une carte " << endl;
+                    break;
+                case sf::Keyboard::B:
+                    cout << "Activer une carte Magie" << endl;
+                    break;
+                case sf::Keyboard::C:
+                    cout << "Changer position d'une carte" << endl;
+                    break;
+                case sf::Keyboard::R:
+                    cout << "Phase suivante";
+                    break;
+                case sf::Keyboard::P:
+                    cout << "Passer son tour";
+                    currentPhase = SecondMainPhase;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else{
+
+        }
     }
-}
 
-void GameStates::battlePhase() {
-    sf::Event event;
-    event.type = sf::Event::KeyPressed;
-    event.key.code = sf::Keyboard::R;
+    void GameStates::battlePhase() {
+        if(this->currentPlayer->isHuman()) {
+            sf::Event event;
+            event.type = sf::Event::KeyPressed;
+            event.key.code = sf::Keyboard::R;
 
-    switch (event.key.code)
-    {
-        case sf::Keyboard::A:
-            cout << "Attaquer une carte" << endl;
-            break;
-        case sf::Keyboard::B:
-            cout << "Attaquer joueur" << endl;
-            break;
-        case sf::Keyboard::R:
-            cout << "Phase suivante";
-        default:
-            break;
+            switch (event.key.code)
+            {
+                case sf::Keyboard::A:
+                    cout << "Attaquer une carte" << endl;
+                    break;
+                case sf::Keyboard::B:
+                    cout << "Attaquer joueur" << endl;
+                    break;
+                case sf::Keyboard::R:
+                    cout << "Phase suivante";
+                default:
+                    break;
+            }
+        }
+        else{}
     }
-}
 
-// Setters and Getters
-bool GameStates::getTurn() const {
-    return turn;
-}
+    // Setters and Getters
+    bool GameStates::getTurn() const {
+        return turn;
+    }
 
-Phases GameStates::getCurrentPhase() const{
-    return currentPhase;
-}
-void GameStates::setCurrentPhase(Phases currentPhase){
-    this->currentPhase=currentPhase;
-}
+    Phases GameStates::getCurrentPhase() const{
+        return currentPhase;
+    }
+    void GameStates::setCurrentPhase(Phases currentPhase){
+        this->currentPhase=currentPhase;
+    }
 
-std::string GameStates::getPhaseName(state::Phases phase) {
-    return phasesNames[phase];
-}
+    std::string GameStates::getPhaseName(state::Phases phase) {
+        return phasesNames[phase];
+    }
 
-GameStatus GameStates::getCurrentPlayerStatus() {
-    return currentPlayer->getStatus();
-}
+    GameStatus GameStates::getCurrentPlayerStatus() {
+        return currentPlayer->getStatus();
+    }
 
-int GameStates::getCurrentPlayerID() {
-    return currentPlayer->getId();
-}
-void GameStates::setTurn(bool turn) {
-    this->turn = turn;
-}
+    int GameStates::getCurrentPlayerID() {
+        return currentPlayer->getId();
+    }
+    void GameStates::setTurn(bool turn) {
+        this->turn = turn;
+    }
 
-const std::vector<Cards*> &GameStates::getCardList() const {
-    return cardList;
-}
+    const std::vector<Cards*> &GameStates::getCardList() const {
+        return cardList;
+    }
 
-void GameStates::setCardList(const std::vector<Cards*> &cardList) {
-    this->cardList = cardList;
-}
+    void GameStates::setCardList(const std::vector<Cards*> &cardList) {
+        this->cardList = cardList;
+    }
 
-const std::vector<Players>& GameStates::getPlayerList() const {
-    return playerList;
-}
+    const std::vector<Players>& GameStates::getPlayerList() const {
+        return playerList;
+    }
 
-void GameStates::setPlayerList(const std::vector<Players>& playerList) {
-    this->playerList = playerList;
-}
+    void GameStates::setPlayerList(const std::vector<Players>& playerList) {
+        this->playerList = playerList;
+    }
 
 }
