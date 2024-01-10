@@ -135,12 +135,25 @@ namespace engine {
         {
             case PLACE_CARD:
                 execute_Place_Card();
+
+                attack.setDefendingMonsterID_onBoard(5);
+                attack.setAttackingMonsterID_onBoard(5);
+                modifyHand.setID_card_InHand_selected(10);
                 break;
             case ATTACK_W_MONSTER_ON_PLAYER:
                 execute_attackPlayerWmonster();
+
+
+                attack.setDefendingMonsterID_onBoard(5);
+                attack.setAttackingMonsterID_onBoard(5);
+                modifyHand.setID_card_InHand_selected(10);
                 break;
             case ATTACK_W_MONSTER_ON_MONSTER:
                 execute_attackMonsterWmonster();
+
+                attack.setDefendingMonsterID_onBoard(5);
+                attack.setAttackingMonsterID_onBoard(5);
+                modifyHand.setID_card_InHand_selected(10);
                 break;
 
             case CHANGE_TURN:
@@ -151,6 +164,10 @@ namespace engine {
                 break;
             case CHANGE_MONSTER_STATE:
                 execute_Monster_state();
+
+                attack.setDefendingMonsterID_onBoard(5);
+                attack.setAttackingMonsterID_onBoard(5);
+                modifyHand.setID_card_InHand_selected(10);
                 break;
             case SEND_GRAVEYARD:
                 execute_send_graveyard();
