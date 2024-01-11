@@ -21,8 +21,16 @@ namespace ai {
     }
     ai::~ai(){}
     // Setters and Getters
-    const state::GameStates& ai::getState() const{}
-    void ai::setState(const state::GameStates& state){}
-    const state::Players& ai::getBot() const{}
-    void ai::setBot(const state::Players& bot){}
+    const state::GameStates& ai::getState() const{
+        return state;
+    }
+    void ai::setState(const state::GameStates& state){
+        this->state=state;
+    }
+    const state::Players& ai::getBot() const{
+        return bot;
+    }
+    void ai::setBot(const state::Players& bot){
+        this->bot=bot;
+    }
 }

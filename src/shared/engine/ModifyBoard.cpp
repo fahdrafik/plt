@@ -8,9 +8,9 @@ using namespace engine;
 using namespace std;
 
 ModifyBoard::ModifyBoard (state::Cards card, state::Boards board){
-    // int IdCardToModify;
+
 }
-//ModifyBoard::ModifyBoard (){}
+ModifyBoard::ModifyBoard (){}
 
 void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards board){
     int IdCardToModify = monster.getIdCard();
@@ -37,11 +37,9 @@ void ModifyBoard::triggerSpell (state::Spells* spell, state::Boards* attackingBo
 void ModifyBoard::SendCardZone (state::Cards card, state::Boards board){
     if (card.isMonster()){
         board.addMonster(dynamic_cast<state::Monsters&>(card));
-
     }
     if (card.isSpell()){
         board.addSpell(dynamic_cast<state::Spells&>(card));
-
     }
     if (card.isTrap()){
         board.addTrap(dynamic_cast<state::Traps&>(card));
