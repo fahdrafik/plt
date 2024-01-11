@@ -84,34 +84,34 @@ int main(int argc,char* argv[])
 
                 if (event.type == sf::Event::KeyPressed)
                 {
-                        if (event.key.code == sf::Keyboard::A) {
-                            std::cout << "Main menu" << std::endl;
-                            scene.changeWindow(MAIN_WINDOW);
-                        }
-                        else if (event.key.code == sf::Keyboard::B) {
-                            std::cout << "Game phase : J1" << std::endl;
-                            scene.changeWindow(MENU_WINDOW);
-                        }
-                        else if (event.key.code == sf::Keyboard::C) {
-                            std::cout << "Game phase: J2" << std::endl;
-                            scene.changeWindow(IN_PLAY_WINDOW);
-                        }
-                        else if (event.key.code == sf::Keyboard::D) {
-                            std::cout << "Consult Cards" << std::endl;
-                            scene.changeWindow(VIEW_CARDS_WINDOW);
-                        }
-                        else if (event.key.code == sf::Keyboard::E){
-                            std::cout << "Title Screen"  << std::endl;
-                            scene.changeWindow(TITLE_SCREEN_WINDOW);
-                        }
-                        else if (event.key.code == sf::Keyboard::F){
-                            std::cout << "Player 1 Deck Choice"  << std::endl;
-                            scene.changeWindow(PLAYER_1_CHOICE);
-                        }
-                        else if (event.key.code == sf::Keyboard::G){
-                            std::cout << "Player 2 Deck Choice"  << std::endl;
-                            scene.changeWindow(PLAYER_2_CHOICE);
-                        }
+                    if (event.key.code == sf::Keyboard::A) {
+                        std::cout << "Main menu" << std::endl;
+                        scene.changeWindow(MAIN_WINDOW);
+                    }
+                    else if (event.key.code == sf::Keyboard::B) {
+                        std::cout << "Game phase : J1" << std::endl;
+                        scene.changeWindow(MENU_WINDOW);
+                    }
+                    else if (event.key.code == sf::Keyboard::C) {
+                        std::cout << "Game phase: J2" << std::endl;
+                        scene.changeWindow(IN_PLAY_WINDOW);
+                    }
+                    else if (event.key.code == sf::Keyboard::D) {
+                        std::cout << "Consult Cards" << std::endl;
+                        scene.changeWindow(VIEW_CARDS_WINDOW);
+                    }
+                    else if (event.key.code == sf::Keyboard::E){
+                        std::cout << "Title Screen"  << std::endl;
+                        scene.changeWindow(TITLE_SCREEN_WINDOW);
+                    }
+                    else if (event.key.code == sf::Keyboard::F){
+                        std::cout << "Player 1 Deck Choice"  << std::endl;
+                        scene.changeWindow(PLAYER_1_CHOICE);
+                    }
+                    else if (event.key.code == sf::Keyboard::G){
+                        std::cout << "Player 2 Deck Choice"  << std::endl;
+                        scene.changeWindow(PLAYER_2_CHOICE);
+                    }
                 }
                 scene.drawSprite(scene.getWindow(),window);
             }
@@ -119,15 +119,6 @@ int main(int argc,char* argv[])
     }
 
     else if (strcmp(argv[1], "engine") == 0){
-        GameStates game;
-        Static_scene scene;
-        ChoiceMenu choice(&scene);
-
-        DeckChoice choiceDeck1;
-        DeckChoice choiceDeck2;
-
-        scene.init();
-
         sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
         sf::Vector2i windowPosition(
                 sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
@@ -135,12 +126,27 @@ int main(int argc,char* argv[])
         );
         window.setPosition(windowPosition);
 
-        Boards boardplayer1;
-        Boards boardplayer2;
+        GameStates game;
+        Static_scene scene;
+        ChoiceMenu choice(&scene);
+        Menu menu(&choice,&window,&scene);
 
+        scene.init();
+        menu.run();
+        if(menu.getGameInit())
+        {
+            Boards boardplayer1;
+            Boards boardplayer2;
+            Decks deckPlayer1(menu.getDeckChoice1());
+            Decks deckPlayer2(menu.getDeckChoice2());
+            Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
+            Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
+            game.init(player1,player2);
+            player1.display();
+            player2.display();
+            menu.play();
+        }
         /*
-        Decks deckPlayer1(DeckSynchro);
-        Decks deckPlayer2(DeckSoldier);
 
         Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
         Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
@@ -149,42 +155,6 @@ int main(int argc,char* argv[])
         player1.display();
         player2.display();*/
 
-        while (window.isOpen())
-        {
-            // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
-            sf::Event event;
-
-            while (window.pollEvent(event))
-            {
-                // évènement "fermeture demandée" : on ferme la fenêtre
-                if (event.type == sf::Event::Closed) {
-                    window.close();
-                }
-
-                else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left){
-                    sf::Vector2f mousePosition = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    switch(scene.getWindow()){
-                        case TITLE_SCREEN_WINDOW:
-                            choice.handleTitleScreen(mousePosition);
-                            break;
-                        case MENU_WINDOW:
-                            choice.handleMenuScene(mousePosition);
-                            break;
-                        case PLAYER_1_CHOICE:
-                            choiceDeck1 = choice.handleDeckChoice1(mousePosition);
-                            break;
-                        case PLAYER_2_CHOICE:
-                            choiceDeck2 = choice.handleDeckChoice2(mousePosition);
-                            break;
-                        case VIEW_CARDS_WINDOW:
-                            choice.handleViewCards(mousePosition);
-                        default:
-                        break;
-                    }
-                }
-                scene.drawSprite(scene.getWindow(),window);
-            }
-        }
     }
     return 0;
 }

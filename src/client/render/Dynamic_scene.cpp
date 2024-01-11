@@ -13,8 +13,10 @@ Dynamic_scene::Dynamic_scene() {
 
 }
 
-Dynamic_scene::Dynamic_scene(sf::Transform transform, render::Window affected_window) {
-    this->affected_window = affected_window;
+Dynamic_scene::Dynamic_scene (state::Players* player, sf::RenderWindow* window) {
+    this->window = window;
+    this->player = player;
+    font.loadFromFile("Images/Font/04B_19__.TTF");
 }
 Dynamic_scene::~Dynamic_scene()
 {

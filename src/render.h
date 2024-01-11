@@ -17,30 +17,24 @@ namespace render {
   /// class Dynamic_scene - 
   class Dynamic_scene {
     // Attributes
-  private:
+  protected:
     state::Players* player;
     sf::Font font;
     Window affected_window;
-    sf::Texture Infos_Texture;
-    sf::Texture Cards_Texture;
-    sf::Texture CementeryCards_Texture;
-    sf::Texture ZoneCards_texture;
-  protected:
+    sf::RenderWindow* window;
     sf::Sprite Infos_SP;
-    sf::Sprite Cards_SP;
-    sf::Sprite CementeryCards_Sp;
-    sf::Sprite ZoneCards_sp;
+    sf::Texture Infos_Texture;
+    sf::Sprite CardsInHands_SP;
+    sf::Texture CardsInHands_Texture;
     // Operations
   public:
     Dynamic_scene ();
-    Dynamic_scene (sf::Transform transform, Window affected_window);
+    Dynamic_scene (state::Players* player, sf::RenderWindow* window);
     ~Dynamic_scene ();
-    sf::Sprite* getSprite (int index);
-    sf::Transform getSpriteTransform (int index);
-    int getNumberSprite ();
-    sf::Text* getText (int index);
-    sf::Transform getTextTransform (int index);
-    int getNumberText ();
+    void displayCardInHands ();
+    void displayCardsInDeck ();
+    void displayLifePoints ();
+    void displayMonsterParameter ();
   };
 
   /// class Static_scene - 
@@ -95,7 +89,7 @@ namespace render {
     // Associations
     render::Static_scene* unnamed;
     // Attributes
-  public:
+  protected:
     Static_scene* scene;
     sf::RenderWindow* window;
     // Operations
@@ -109,6 +103,27 @@ namespace render {
     void handleTitleScreen (sf::Vector2f mousePosition);
     void handleMenuScene (sf::Vector2f mousePosition);
     void handleViewCards (sf::Vector2f mousePosition);
+  };
+
+  /// class Menu - 
+  class Menu {
+    // Associations
+    render::ChoiceMenu* unnamed;
+    // Attributes
+  protected:
+    ChoiceMenu* choice;
+    sf::RenderWindow* window;
+    Static_scene* scene;
+    bool GameInit;
+    state::DeckChoice deckChoice1;
+    state::DeckChoice deckChoice2;
+    // Operations
+  public:
+    Menu ();
+    Menu (ChoiceMenu* choice, sf::RenderWindow* window, Static_scene* scene);
+    ~Menu ();
+    void run ();
+    void play ();
   };
 
 };
