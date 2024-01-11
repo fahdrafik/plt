@@ -9,28 +9,21 @@ using namespace state;
 using namespace std;
 
 namespace ai {
-    void mainPhase(Players Bot){
-    }
     ai::ai(){
         srand(time(NULL));
         DeckChoice randomChoice = static_cast<DeckChoice>(rand() % 4);
         TypePlayer type = BOT;
         deck = Decks(randomChoice);
-        board= Boards();
+        hand = deck.getCardsInHand();
+        board= Boards();//
         bot= Players(&board, &deck,8000, type);
     }
     ai::~ai(){}
+    void mainPhase(){
+    }
     // Setters and Getters
-    const state::GameStates& ai::getState() const{
-        return state;
-    }
-    void ai::setState(const state::GameStates& state){
-        this->state=state;
-    }
-    const state::Players& ai::getBot() const{
-        return bot;
-    }
-    void ai::setBot(const state::Players& bot){
-        this->bot=bot;
-    }
+    const state::GameStates& ai::getState() const{}
+    void ai::setState(const state::GameStates& state){}
+    const state::Players& ai::getBot() const{}
+    void ai::setBot(const state::Players& bot){}
 }

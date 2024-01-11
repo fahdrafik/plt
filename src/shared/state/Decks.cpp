@@ -303,6 +303,9 @@ void Decks::display(){
         cout << "None" << endl;
     }
 }
+std::vector<Cards> Decks::getCardsInHand (){
+    return this->cardsInHand;
+}
 void Decks::initCardsInHands(){
     std::cout << "Initialise cards in Hands :\n";
     for (int i=0 ; i<5 ; i++) {
