@@ -26,15 +26,22 @@ namespace render {
     sf::Texture Infos_Texture;
     sf::Sprite CardsInHands_SP;
     sf::Texture CardsInHands_Texture;
+    sf::Sprite CardsInBoard_SP;
+    sf::Texture CardsInBoard_Texture;
+    sf::Text LifepointsText;
+    std::vector<sf::Text> MonsterAttackText;
+    std::vector<sf::Text> MonsterDefenseText;
     // Operations
   public:
     Dynamic_scene ();
     Dynamic_scene (state::Players* player, sf::RenderWindow* window);
     ~Dynamic_scene ();
     void displayCardInHands ();
-    void displayCardsInDeck ();
+    void displayCardsInBoard ();
     void displayLifePoints ();
     void displayMonsterParameter ();
+    void initialiseCardsInHands ();
+    void initialiseLifePoints ();
   };
 
   /// class Static_scene - 

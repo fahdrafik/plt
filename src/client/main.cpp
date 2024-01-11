@@ -137,24 +137,20 @@ int main(int argc,char* argv[])
         {
             Boards boardplayer1;
             Boards boardplayer2;
+
             Decks deckPlayer1(menu.getDeckChoice1());
             Decks deckPlayer2(menu.getDeckChoice2());
+
             Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
             Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
+
             game.init(player1,player2);
+
             player1.display();
             player2.display();
+
             menu.play();
         }
-        /*
-
-        Players player1(&boardplayer1,&deckPlayer1,8000,HUMAN);
-        Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
-
-        game.init(player1,player2);
-        player1.display();
-        player2.display();*/
-
     }
     return 0;
 }
