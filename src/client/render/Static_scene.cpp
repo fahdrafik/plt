@@ -9,11 +9,53 @@ using namespace state;
 using namespace render;
 using namespace sf;
 
+const int cardsPathSize = 33;
+const char *cardsPath[] = {
+        "./Images/Deck/Dragon/DragonBlancAuxYeuxBleus.jpg",
+        "./Images/Deck/Dragon/GriffonDelta.jpg",
+        "./Images/Deck/Dragon/GolemDragon.jpg",
+        "./Images/Deck/Dragon/DragonAppât.jpg",
+        "./Images/Deck/Dragon/DragonEtoileBrillante.jpg",
+        "./Images/Deck/Dragon/KaiserHippocampe.jpg",
+        "./Images/Deck/Dragon/ForceDeMiroir.jpg",
+        "./Images/Deck/Dragon/AppelDeLEtreHante.jpg",
+        "./Images/Deck/Dragon/CylindreMagique.jpg",
+        "./Images/Deck/Dragon/HurlementDargent.jpg",
+        "./Images/Deck/Dragon/EpeeDesProfondeurs.jpg",
+        "./Images/Deck/Dragon/SacrificeInutile.jpg",
+
+        "./Images/Deck/Soldats/ChevalierDuCommencement.jpg",
+        "./Images/Deck/Soldats/ChevalierDuCrépuscule.jpg",
+        "./Images/Deck/Soldats/ChevalierDuRoi.jpg",
+        "./Images/Deck/Soldats/EmissaireDuChaos.jpg",
+        "./Images/Deck/Soldats/FloraisonDeCendres.jpg",
+        "./Images/Deck/Soldats/SoldatDuLustreNoir.jpg",
+        "./Images/Deck/Soldats/SeptOutilDuBandit.jpg",
+        "./Images/Deck/Soldats/PotDeVinDuTempleMaudit.jpg",
+        "./Images/Deck/Soldats/MonsterReborn.jpg",
+        "./Images/Deck/Soldats/BouletsDesTénèbres.jpg",
+        "./Images/Deck/Soldats/RenfortDeLarmee.jpg",
+
+        "./Images/Deck/Synchro/AccelSynchronique.jpg",
+        "./Images/Deck/Synchro/GuerrierDeLaRoute.jpg",
+        "./Images/Deck/Synchro/RobotBriseur.jpg",
+        "./Images/Deck/Synchro/ServiteurRobot.jpg",
+        "./Images/Deck/Synchro/RouteSynchronique.jpg",
+        "./Images/Deck/Synchro/AvionAReaction.jpg",
+        "./Images/Deck/Synchro/AvertissementDivin.jpg",
+        "./Images/Deck/Synchro/TrappeSansFond.jpg",
+
+        "./Images/Deck/Synchro/HacheDeFerPorteBohneur.jpg",
+        "./Images/Deck/Synchro/ChangementDeCoeur.jpg"
+};
+
+
 Static_scene::Static_scene() {
     this->background_texture =sf::Texture();
     (this->background_texture).loadFromFile("./Images/background.jpg");
     this->background=sf::Sprite();
     (this->background).setTexture(this->background_texture);
+    background.setScale(1.2f,1.2f);
     this->changeWindow(TITLE_SCREEN_WINDOW);
     this->indexConsultCards=0;
 }
@@ -52,11 +94,11 @@ void Static_scene::setTitleScene()
 
     Title_Screen_SP.push_back(sf::Sprite(Title_Screen_Texture[0]));
     Title_Screen_SP.back().setScale(0.4f,0.4f);
-    Title_Screen_SP.back().setPosition(400,200);
+    Title_Screen_SP.back().setPosition(680,200);
 
     Title_Screen_SP.push_back(sf::Sprite(Title_Screen_Texture[1]));
     Title_Screen_SP.back().setScale(1.0f,1.0f);
-    Title_Screen_SP.back().setPosition(475,500);
+    Title_Screen_SP.back().setPosition(760,650);
 }
 void Static_scene::setInGameScene()
 {
@@ -223,25 +265,25 @@ void Static_scene::setMenuScene()
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[0]));
     Menu_SP.back().setScale(0.4f,0.4f);
-    Menu_SP.back().setPosition(375,75);
+    Menu_SP.back().setPosition(680,75); //680,200
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[1]));
     Menu_SP.back().setScale(1.0f,1.0f);
-    Menu_SP.back().setPosition(475,300);
+    Menu_SP.back().setPosition(760,300);
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[2]));
     Menu_SP.back().setScale(1.0f,1.0f);
-    Menu_SP.back().setPosition(475,425);
+    Menu_SP.back().setPosition(760,425);
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[3]));
     Menu_SP.back().setScale(1.0f,1.0f);
-    Menu_SP.back().setPosition(475,550);
+    Menu_SP.back().setPosition(760,550);
 
     Menu_SP.push_back(sf::Sprite(Menu_Texture[4]));
     Menu_SP.back().setScale(1.0f,1.0f);
-    Menu_SP.back().setPosition(475,675);
+    Menu_SP.back().setPosition(760,675);
 }
-void Static_scene::setConsultScene()
+void Static_scene::setConsultScene() //ICI
 {
     Consult_Cards_Texture.push_back(sf::Texture());
     Consult_Cards_Texture.back().loadFromFile("./Images/Right_Arrow.png");
@@ -250,43 +292,56 @@ void Static_scene::setConsultScene()
     Consult_Cards_Texture.back().loadFromFile("./Images/Left_Arrow.png");
 
     Consult_Cards_Texture.push_back(sf::Texture());
-    Consult_Cards_Texture.back().loadFromFile("./Images/Red Eyes Black Dragon.jpg");
+    Consult_Cards_Texture.back().loadFromFile("Images/Deck/Dragon/GriffonDelta.jpg");
 
     Consult_Cards_Texture.push_back(sf::Texture());
-    Consult_Cards_Texture.back().loadFromFile("./Images/Monster Reborn.jpg");
+    Consult_Cards_Texture.back().loadFromFile("Images/Deck/Dragon/GolemDragon.jpg");
 
     Consult_Cards_Texture.push_back(sf::Texture());
-    Consult_Cards_Texture.back().loadFromFile("./Images/Mirror Force.jpg");
+    Consult_Cards_Texture.back().loadFromFile("Images/Deck/Dragon/DragonAppât.jpg");
 
     Consult_Cards_Texture.push_back(sf::Texture());
     Consult_Cards_Texture.back().loadFromFile("./Images/Button_ReturnMainMenu.png");
 
-    /* Flèches pour changer les cartes*/
+    /* Flèches pour changer les cartes*/ // henaa !!
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[0]));
     Consult_Cards_SP.back().setScale(0.6f,0.6f);
-    Consult_Cards_SP.back().setPosition(1100,300);
+    Consult_Cards_SP.back().setPosition(1360,500);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[1]));
     Consult_Cards_SP.back().setScale(0.6f,0.6f);
-    Consult_Cards_SP.back().setPosition(0,300);
+    Consult_Cards_SP.back().setPosition(260,500);
 
     /*Choix des cartes*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[2]));
+<<<<<<< HEAD
     Consult_Cards_SP.back().setScale(0.5f,0.5f);
-    Consult_Cards_SP.back().setPosition(270,210);
+    Consult_Cards_SP.back().setPosition(530,210);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[3]));
     Consult_Cards_SP.back().setScale(0.7f,0.7f);
-    Consult_Cards_SP.back().setPosition(500,160);
+    Consult_Cards_SP.back().setPosition(775,160);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
     Consult_Cards_SP.back().setScale(0.5f,0.5f);
+    Consult_Cards_SP.back().setPosition(1100,210);
+=======
+    Consult_Cards_SP.back().setScale(1.5f,1.5f);
+    Consult_Cards_SP.back().setPosition(270,210);
+
+    Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[3]));
+    Consult_Cards_SP.back().setScale(2.1f,2.1f);
+    Consult_Cards_SP.back().setPosition(500,160);
+
+    Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
+    Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(830,210);
+>>>>>>> c9825d4 (Code du mode Consult Cards)
 
     /* Retour vers le menu principal*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[5]));
     Consult_Cards_SP.back().setScale(1.0f,1.0f);
-    Consult_Cards_SP.back().setPosition(490,600);
+    Consult_Cards_SP.back().setPosition(760,650);
 }
 
 void Static_scene::setPlayerOneChoiceScene (){
@@ -307,23 +362,23 @@ void Static_scene::setPlayerOneChoiceScene (){
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[0]));
     Choice_1_Deck_SP.back().setScale(0.4f,0.4f);
-    Choice_1_Deck_SP.back().setPosition(375,75);
+    Choice_1_Deck_SP.back().setPosition(640,120);
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[1]));
     Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_1_Deck_SP.back().setPosition(475,300);
+    Choice_1_Deck_SP.back().setPosition(760,300);
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[2]));
     Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_1_Deck_SP.back().setPosition(475,425);
+    Choice_1_Deck_SP.back().setPosition(760,425);
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[3]));
     Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_1_Deck_SP.back().setPosition(475,550);
+    Choice_1_Deck_SP.back().setPosition(760,550);
 
     Choice_1_Deck_SP.push_back(sf::Sprite(Choice_1_Deck_Texture[4]));
     Choice_1_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_1_Deck_SP.back().setPosition(475,675);
+    Choice_1_Deck_SP.back().setPosition(760,675);
 }
 void Static_scene::setPlayerTwoChoiceScene (){
     Choice_2_Deck_Texture.push_back(sf::Texture());
@@ -343,23 +398,23 @@ void Static_scene::setPlayerTwoChoiceScene (){
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[0]));
     Choice_2_Deck_SP.back().setScale(0.4f,0.4f);
-    Choice_2_Deck_SP.back().setPosition(375,75);
+    Choice_2_Deck_SP.back().setPosition(640,120);
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[1]));
     Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_2_Deck_SP.back().setPosition(475,300);
+    Choice_2_Deck_SP.back().setPosition(760,300);
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[2]));
     Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_2_Deck_SP.back().setPosition(475,425);
+    Choice_2_Deck_SP.back().setPosition(760,425);
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[3]));
     Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_2_Deck_SP.back().setPosition(475,550);
+    Choice_2_Deck_SP.back().setPosition(760,550);
 
     Choice_2_Deck_SP.push_back(sf::Sprite(Choice_2_Deck_Texture[4]));
     Choice_2_Deck_SP.back().setScale(1.0f,1.0f);
-    Choice_2_Deck_SP.back().setPosition(475,675);
+    Choice_2_Deck_SP.back().setPosition(760,675);
 }
 
 void Static_scene::init(){
@@ -545,4 +600,17 @@ int Static_scene::getIndexConsultCards() const{
 }
 void Static_scene::setIndexConsultCards(int indexConsultCards){
     this->indexConsultCards=indexConsultCards;
+}
+
+void Static_scene::updateConsultCards (int index){
+    if (index>=0 && index<(cardsPathSize-2))
+    {
+        newTextureConsultCards[0].loadFromFile(cardsPath[index]);
+        newTextureConsultCards[1].loadFromFile(cardsPath[index+1]);
+        newTextureConsultCards[2].loadFromFile(cardsPath[index+2]);
+
+        Consult_Cards_SP[2].setTexture(newTextureConsultCards[0]);
+        Consult_Cards_SP[3].setTexture(newTextureConsultCards[1]);
+        Consult_Cards_SP[4].setTexture(newTextureConsultCards[2]);
+    }
 }
