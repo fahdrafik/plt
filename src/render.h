@@ -14,6 +14,59 @@ namespace render {
     DECK_CHOICE
   };
 
+  /// class Static_scene - 
+  class Static_scene {
+    // Attributes
+  private:
+    Window current_window;
+    /// It's the image displayed at the background
+    sf::Sprite background;
+    sf::Texture background_texture;
+  protected:
+    state::GameStates* Game;
+    /// This is a list with two players, because its a 2 players game.
+    std::vector<render::Dynamic_scene*> playerDynamicScene;
+    std::vector<sf::Sprite> Cards_SP;
+    std::vector<sf::Texture> Cards_Texture;
+    std::vector<sf::Sprite> Menu_SP;
+    std::vector<sf::Texture> Menu_Texture;
+    std::vector<sf::Sprite> In_Game_SP;
+    std::vector<sf::Texture> In_Game_Texture;
+    std::vector<sf::Sprite> Title_Screen_SP;
+    std::vector<sf::Texture> Title_Screen_Texture;
+    std::vector<sf::Sprite> Consult_Cards_SP;
+    std::vector<sf::Texture> Consult_Cards_Texture;
+    std::vector<sf::Sprite> Choice_1_Deck_SP;
+    std::vector<sf::Texture> Choice_1_Deck_Texture;
+    std::vector<sf::Sprite> Choice_2_Deck_SP;
+    std::vector<sf::Texture> Choice_2_Deck_Texture;
+    /// Here we put the name of the player, along with the lifepoints
+    sf::RectangleShape info_box;
+    int indexConsultCards;
+    // Operations
+  public:
+    Static_scene ();
+    ~Static_scene ();
+    void init ();
+    sf::Sprite getBackground ();
+    Dynamic_scene* getDynamic_scene (int index);
+    void changeWindow (Window new_window);
+    Window getWindow ();
+    void setTitleScene ();
+    void setInGameScene ();
+    void setMenuScene ();
+    void setConsultScene ();
+    void setPlayerOneChoiceScene ();
+    void setPlayerTwoChoiceScene ();
+    void addSprite (render::Window window, int x, int y, float factorX, float factorY);
+    void drawSprite (render::Window choix, sf::RenderWindow& window);
+    void drawDynamicScene (sf::RenderWindow& window);
+    void setGame (state::GameStates* Game);
+    void initPlayerDynamicScene (Dynamic_scene* player1ds, Dynamic_scene* player2ds);
+    void displayConsultCards ();
+    void initConsultCards ();
+  };
+
   /// class Dynamic_scene - 
   class Dynamic_scene {
     // Attributes
@@ -43,55 +96,6 @@ namespace render {
     void displayMonsterParameter ();
     void initialiseCardsInHands ();
     void initialiseLifePoints ();
-  };
-
-  /// class Static_scene - 
-  class Static_scene {
-    // Attributes
-  private:
-    Window current_window;
-    /// It's the image displayed at the background
-    sf::Sprite background;
-    sf::Texture background_texture;
-  protected:
-    state::GameStates* Game;
-    /// This is a list with two players, because its a 2 players game.
-    std::vector<render::Dynamic_scene*> playerDynamicScene;
-    std::vector<sf::Sprite> Cards_SP;
-    std::vector<sf::Texture> Cards_Texture;
-    std::vector<sf::Sprite> Menu_SP;
-    std::vector<sf::Texture> Menu_Texture;
-    std::vector<sf::Sprite> In_Game_SP;
-    std::vector<sf::Texture> In_Game_Texture;
-    std::vector<sf::Sprite> Title_Screen_SP;
-    std::vector<sf::Texture> Title_Screen_Texture;
-    std::vector<sf::Sprite> Consult_Cards_SP;
-    std::vector<sf::Texture> Consult_Cards_Texture;
-    std::vector<sf::Sprite> Choice_1_Deck_SP;
-    std::vector<sf::Texture> Choice_1_Deck_Texture;
-    std::vector<sf::Sprite> Choice_2_Deck_SP;
-    std::vector<sf::Texture> Choice_2_Deck_Texture;
-    /// Here we put the name of the player, along with the lifepoints
-    sf::RectangleShape info_box;
-    // Operations
-  public:
-    Static_scene ();
-    ~Static_scene ();
-    void init ();
-    sf::Sprite getBackground ();
-    Dynamic_scene getDynamic_scene (int index);
-    void changeWindow (Window new_window);
-    Window getWindow ();
-    void setTitleScene ();
-    void setInGameScene ();
-    void setMenuScene ();
-    void setConsultScene ();
-    void setPlayerOneChoiceScene ();
-    void setPlayerTwoChoiceScene ();
-    void addSprite (render::Window window, int x, int y, float factorX, float factorY);
-    void drawSprite (render::Window choix, sf::RenderWindow& window);
-    void setGame (state::GameStates* Game);
-    void voidInitPlayerDynamicScene (Dynamic_scene* player1ds, Dynamic_scene* player2ds);
   };
 
   /// class ChoiceMenu - 

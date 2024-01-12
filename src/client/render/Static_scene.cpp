@@ -26,7 +26,11 @@ sf::Sprite Static_scene::getBackground ()
 
 Dynamic_scene* Static_scene::getDynamic_scene(int index)
 {
-    return playerDynamicScene[index];
+    if (index >= 0 && index < (int)playerDynamicScene.size()) {
+        return playerDynamicScene[index];
+    } else {
+        return nullptr;
+    }
 }
 void Static_scene::changeWindow (Window new_window)
 {
@@ -429,6 +433,14 @@ void Static_scene::drawSprite (render::Window choix, sf::RenderWindow& window)
             break;
         default:
             break;
+    }
+}
+
+void Static_scene::drawDynamicScene(sf::RenderWindow& window) {
+    if(this->getDynamic_scene(Game->getTurn())!=nullptr)
+    {
+        cout << Game->getTurn() << endl;
+        this->getDynamic_scene(Game->getTurn())->displayCardsInHands();
     }
 }
 

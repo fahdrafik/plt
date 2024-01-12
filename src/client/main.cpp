@@ -134,6 +134,7 @@ int main(int argc,char* argv[])
 
         scene.init();
         menu.run();
+
         if(menu.getGameInit())
         {
             Boards boardplayer1;
@@ -149,8 +150,12 @@ int main(int argc,char* argv[])
             Dynamic_scene player2scene(&player2,&window);
 
             game.init(player1,player2);
+            player1scene.init();
+            player2scene.init();
             scene.initPlayerDynamicScene(&player1scene,&player2scene);
+
             scene.setGame(&game);
+            cout << "ici" << endl;
             menu.play();
         }
     }
