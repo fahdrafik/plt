@@ -351,29 +351,6 @@
         </dia:composite>
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#playerDynamic_scene[2]#</dia:string>
-          </dia:attribute>
-          <dia:attribute name="type">
-            <dia:string>#Dynamic_scene#</dia:string>
-          </dia:attribute>
-          <dia:attribute name="value">
-            <dia:string>##</dia:string>
-          </dia:attribute>
-          <dia:attribute name="comment">
-            <dia:string>#This is a list with two players, because its a 2 players game.#</dia:string>
-          </dia:attribute>
-          <dia:attribute name="visibility">
-            <dia:enum val="1"/>
-          </dia:attribute>
-          <dia:attribute name="abstract">
-            <dia:boolean val="false"/>
-          </dia:attribute>
-          <dia:attribute name="class_scope">
-            <dia:boolean val="false"/>
-          </dia:attribute>
-        </dia:composite>
-        <dia:composite type="umlattribute">
-          <dia:attribute name="name">
             <dia:string>#Game#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
@@ -386,7 +363,30 @@
             <dia:string>##</dia:string>
           </dia:attribute>
           <dia:attribute name="visibility">
-            <dia:enum val="1"/>
+            <dia:enum val="2"/>
+          </dia:attribute>
+          <dia:attribute name="abstract">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+          <dia:attribute name="class_scope">
+            <dia:boolean val="false"/>
+          </dia:attribute>
+        </dia:composite>
+        <dia:composite type="umlattribute">
+          <dia:attribute name="name">
+            <dia:string>#playerDynamicScene#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="type">
+            <dia:string>#std::vector&lt;render::Dynamic_scene&gt;#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="value">
+            <dia:string>##</dia:string>
+          </dia:attribute>
+          <dia:attribute name="comment">
+            <dia:string>#This is a list with two players, because its a 2 players game.#</dia:string>
+          </dia:attribute>
+          <dia:attribute name="visibility">
+            <dia:enum val="2"/>
           </dia:attribute>
           <dia:attribute name="abstract">
             <dia:boolean val="false"/>
@@ -1720,7 +1720,7 @@
             <dia:string>#CardsInHands_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#sf::Sprite#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -1743,7 +1743,7 @@
             <dia:string>#CardsInHands_Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#sf::Texture#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -1766,7 +1766,7 @@
             <dia:string>#CardsInBoard_SP#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#sf::Sprite#</dia:string>
+            <dia:string>#std::vector&lt;sf::Sprite&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -1789,7 +1789,7 @@
             <dia:string>#CardsInBoard_Texture#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
-            <dia:string>#sf::Texture#</dia:string>
+            <dia:string>#std::vector&lt;sf::Texture&gt;#</dia:string>
           </dia:attribute>
           <dia:attribute name="value">
             <dia:string>##</dia:string>
@@ -1809,7 +1809,7 @@
         </dia:composite>
         <dia:composite type="umlattribute">
           <dia:attribute name="name">
-            <dia:string>#LifepointsText#</dia:string>
+            <dia:string>#LifePointsText#</dia:string>
           </dia:attribute>
           <dia:attribute name="type">
             <dia:string>#sf::Text#</dia:string>
@@ -2035,7 +2035,7 @@
         </dia:composite>
         <dia:composite type="umloperation">
           <dia:attribute name="name">
-            <dia:string>#displayCardInHands#</dia:string>
+            <dia:string>#displayCardsInHands#</dia:string>
           </dia:attribute>
           <dia:attribute name="stereotype">
             <dia:string>##</dia:string>

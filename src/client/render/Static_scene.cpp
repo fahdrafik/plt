@@ -26,7 +26,7 @@ sf::Sprite Static_scene::getBackground ()
 
 Dynamic_scene Static_scene::getDynamic_scene(int index)
 {
-    return playerDynamic_scene[index];
+    return playerDynamicScene[index];
 }
 void Static_scene::changeWindow (Window new_window)
 {
@@ -517,3 +517,18 @@ const std::vector<sf::Texture>& Static_scene::getChoice_2_Deck_Texture() const{
 void Static_scene::setChoice_2_Deck_Texture(const std::vector<sf::Texture>& Choice_2_Deck_Texture){
     this->Choice_2_Deck_Texture=Choice_2_Deck_Texture;
 }
+
+/*const state::GameStates*& Static_scene::getGame() const{
+    return Game;
+}
+void Static_scene::setGame(const state::GameStates*& Game){
+    this->Game=Game;
+}*/
+const std::vector<render::Dynamic_scene>& Static_scene::getPlayerDynamicScene() const{
+    return playerDynamicScene;
+}
+void Static_scene::setPlayerDynamicScene(const std::vector<render::Dynamic_scene>& playerDynamicScene){
+    this->playerDynamicScene=playerDynamicScene;
+}
+
+

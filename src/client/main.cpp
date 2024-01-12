@@ -148,7 +148,6 @@ int main(int argc,char* argv[])
 
             player1.display();
             player2.display();
-
             menu.play();
         }
     }
