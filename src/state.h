@@ -164,6 +164,7 @@ namespace state {
     Monsters getMonster (int index);
     bool getMonsterPosition (int index);
     int getMonsterSize ();
+    std::string getCardsInBoardPath (int index);
     void display ();
   };
 

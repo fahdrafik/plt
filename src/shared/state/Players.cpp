@@ -32,7 +32,15 @@ namespace state {
     }
 
     std::string Players::getCardsInBoardPath(int index) {
-        deck->getCardInHandType(index);
+        return board->getCardsInBoardPath(index);
+    }
+
+    std::string Players::getCardsInHandPath(int index) {
+        return deck->getCardsInHandPath(index);
+    }
+
+    int Players::getCardsInHandSize(){
+        return deck->getCardsInHandSize();
     }
 
     void Players::initCardInHands() {
@@ -129,8 +137,6 @@ namespace state {
             }
         }
     }
-
-
 
     int Players::getId() const{
         return id;

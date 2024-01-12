@@ -140,6 +140,9 @@ namespace state {
         }
     }
 
+    std::string Boards::getCardsInBoardPath(int index) {
+        return monsters[index].getPath();
+    }
     int Boards::getId() const{
         return id;
     }
