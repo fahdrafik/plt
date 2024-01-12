@@ -24,11 +24,11 @@ namespace render {
     sf::RenderWindow* window;
     sf::Sprite Infos_SP;
     sf::Texture Infos_Texture;
-    sf::Sprite CardsInHands_SP;
-    sf::Texture CardsInHands_Texture;
-    sf::Sprite CardsInBoard_SP;
-    sf::Texture CardsInBoard_Texture;
-    sf::Text LifepointsText;
+    std::vector<sf::Sprite> CardsInHands_SP;
+    std::vector<sf::Texture> CardsInHands_Texture;
+    std::vector<sf::Sprite> CardsInBoard_SP;
+    std::vector<sf::Texture> CardsInBoard_Texture;
+    sf::Text LifePointsText;
     std::vector<sf::Text> MonsterAttackText;
     std::vector<sf::Text> MonsterDefenseText;
     // Operations
@@ -36,7 +36,8 @@ namespace render {
     Dynamic_scene ();
     Dynamic_scene (state::Players* player, sf::RenderWindow* window);
     ~Dynamic_scene ();
-    void displayCardInHands ();
+    void init ();
+    void displayCardsInHands ();
     void displayCardsInBoard ();
     void displayLifePoints ();
     void displayMonsterParameter ();
@@ -52,10 +53,10 @@ namespace render {
     /// It's the image displayed at the background
     sf::Sprite background;
     sf::Texture background_texture;
-    /// This is a list with two players, because its a 2 players game.
-    Dynamic_scene playerDynamic_scene[2];
-    state::GameStates* Game;
   protected:
+    state::GameStates* Game;
+    /// This is a list with two players, because its a 2 players game.
+    vector<render::Dynamic_scene> playerDynamicScene;
     std::vector<sf::Sprite> Cards_SP;
     std::vector<sf::Texture> Cards_Texture;
     std::vector<sf::Sprite> Menu_SP;

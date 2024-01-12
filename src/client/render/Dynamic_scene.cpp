@@ -23,16 +23,70 @@ Dynamic_scene::~Dynamic_scene()
 
 }
 
+void Dynamic_scene::init(){
+    this->initialiseCardsInHands();
+    this->initialiseLifePoints();
+}
+
 void Dynamic_scene::displayLifePoints (){
-    LifepointsText.setString(std::to_string(player->getLifepoints()));
-    window->draw(LifepointsText);
+    LifePointsText.setString(std::to_string(player->getLifepoints()));
+    window->draw(LifePointsText);
 }
 
 void Dynamic_scene::initialiseLifePoints (){
-    LifepointsText.setFont(font);
-    LifepointsText.setCharacterSize(24);
-    LifepointsText.setFillColor(sf::Color(255, 165, 0));
-    LifepointsText.setString(std::to_string(player->getLifepoints()));
+    LifePointsText.setFont(font);
+    LifePointsText.setCharacterSize(24);
+    LifePointsText.setFillColor(sf::Color(255, 165, 0));
+    LifePointsText.setString(std::to_string(player->getLifepoints()));
     //sf::FloatRect LifepointsPos = LifePointsText.getLocalBounds();
-    LifepointsText.setPosition(0,900);
+    LifePointsText.setPosition(0,900);
+}
+
+void Dynamic_scene::initialiseCardsInHands(){
+    CardsInHands_Texture.push_back(sf::Texture());
+    CardsInHands_Texture.back().loadFromFile("./Images/Monsters.png");
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+
+    CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
+    CardsInHands_SP.back().setScale(0.5f,0.5f);
+    CardsInHands_SP.back().setPosition(100,100);
+}
+
+void Dynamic_scene::displayCardsInHands(){
+
 }
