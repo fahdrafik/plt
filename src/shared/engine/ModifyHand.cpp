@@ -24,9 +24,8 @@ namespace engine {
     }
     void drawCard (int attacktype, state::Players player) {
         player.drawCard();
-
     }
-    // get the index card from render
+
     void placeCard (state::Players player) {
 
         int index = generateRandomInt();
