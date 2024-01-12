@@ -92,9 +92,9 @@ namespace state {
     std::string getCardInHandName (int index);
     void initCardsInHands ();
     void display ();
-    std::vector<Cards> getCardsInHand ();
-    int getCardsInHandSize ();
     std::string getCardsInHandPath (int index);
+    int getCardsInHandSize ();
+    std::vector<Cards> getCardsInHand ();
   };
 
   /// class Calculation - 
@@ -164,8 +164,8 @@ namespace state {
     Monsters getMonster (int index);
     bool getMonsterPosition (int index);
     int getMonsterSize ();
-    void display ();
     std::string getCardsInBoardPath (int index);
+    void display ();
   };
 
   enum TypePlayer {
@@ -176,15 +176,14 @@ namespace state {
   /// class Players - 
   class Players {
     // Attributes
-  public:
-    Decks* deck;
-    Boards* board;
   private:
     static int nbPlayers;
   protected:
     int id;
     TypePlayer type;
     GameStatus status;
+    Decks* deck;
+    Boards* board;
     int lifepoints;
     // Operations
   public:
@@ -199,10 +198,10 @@ namespace state {
     void display ();
     void initCardInHands ();
     void shuffle ();
-    std::vector<state::Cards> getCardsInHand ();
-    std::string getCardsInBoardPath (int index);
     std::string getCardsInHandPath (int index);
+    std::string getCardsInBoardPath (int index);
     int getCardsInHandSize ();
+    std::vector<Cards> getCardsInHand ();
   };
 
   /// class GameStates - 

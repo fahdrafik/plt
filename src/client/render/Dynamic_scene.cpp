@@ -48,45 +48,54 @@ void Dynamic_scene::initialiseCardsInHands(){
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(50,50);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(50,200);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(50,350);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(200,50);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(200,200);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(200,350);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(350,50);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(350,200);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(350,350);
 
     CardsInHands_SP.push_back(sf::Sprite(CardsInHands_Texture[0]));
     CardsInHands_SP.back().setScale(0.5f,0.5f);
-    CardsInHands_SP.back().setPosition(100,100);
+    CardsInHands_SP.back().setPosition(500,50);
 }
 
 void Dynamic_scene::displayCardsInHands(){
-
+    for(int i = 0 ; i<player->getCardsInHandSize() ; i++){
+        sf::Texture texture;
+        texture.loadFromFile(player->getCardsInHandPath(i));
+        cout << player->getCardsInHandPath(i) << endl;
+        CardsInHands_SP[i].setTexture(texture);
+        window->draw(CardsInHands_SP[i]);
+        cout << "ici 2" << endl;
+    }
+    cout << "ici 1" << endl;
+    window->display();
 }

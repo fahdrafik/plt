@@ -98,5 +98,17 @@ DeckChoice ChoiceMenu::handleDeckChoice2(sf::Vector2f mousePosition) {
 }
 
 void ChoiceMenu::handleViewCards(sf::Vector2f mousePosition){
-
+    auto Consult_Cards_SP = scene->getConsult_Cards_SP();
+    if (Consult_Cards_SP[5].getGlobalBounds().contains(mousePosition)) {
+        cout << "Retour au menu principal !" << endl;
+        scene->changeWindow(MENU_WINDOW);
+    }
+    else if(Consult_Cards_SP[1].getGlobalBounds().contains(mousePosition))
+    {
+        cout << "Next Cards ! " << endl;
+    }
+    else if(Consult_Cards_SP[0].getGlobalBounds().contains(mousePosition))
+    {
+        cout << "Previous Cards ! " << endl;
+    }
 }

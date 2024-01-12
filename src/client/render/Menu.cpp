@@ -78,6 +78,7 @@ void Menu::run() {
                         break;
                     case VIEW_CARDS_WINDOW:
                         choice->handleViewCards(mousePosition);
+                        break;
                     case IN_PLAY_WINDOW:
                         if((deckChoice1 != NoChoice)&&(deckChoice2 != NoChoice)){
                             this->setGameInit(true);
@@ -94,7 +95,20 @@ void Menu::run() {
 }
 
 void Menu::play() {
-    cout << "Jouons !!" << endl;
+    while (window->isOpen())
+    {
+        // on inspecte tous les évènements de la fenêtre qui ont été émis depuis la précédente itération
+        sf::Event event;
+
+        while (window->pollEvent(event)) {
+            // évènement "fermeture demandée" : on ferme la fenêtre
+            if (event.type == sf::Event::Closed) {
+                window->close();
+            }
+        }
+    scene->drawSprite(scene->getWindow(),*window);
+    scene->drawDynamicScene(*window);
+    }
 }
 
 
