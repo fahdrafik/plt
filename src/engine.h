@@ -1,17 +1,7 @@
-#include "ai.h"
-
 namespace engine {
 
-  /// class Attack - 
-  class Attack {
-  };
-
-  /// class ModifyHand - 
-  class ModifyHand {
-  };
-
-  /// class ModifyBoard - 
-  class ModifyBoard {
+  /// class Usser_Comands - 
+  class Usser_Comands {
   };
 
   /// class Engine - 

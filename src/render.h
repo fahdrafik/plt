@@ -56,7 +56,7 @@ namespace render {
   protected:
     state::GameStates* Game;
     /// This is a list with two players, because its a 2 players game.
-    vector<render::Dynamic_scene> playerDynamicScene;
+    std::vector<render::Dynamic_scene*> playerDynamicScene;
     std::vector<sf::Sprite> Cards_SP;
     std::vector<sf::Texture> Cards_Texture;
     std::vector<sf::Sprite> Menu_SP;
@@ -90,6 +90,8 @@ namespace render {
     void setPlayerTwoChoiceScene ();
     void addSprite (render::Window window, int x, int y, float factorX, float factorY);
     void drawSprite (render::Window choix, sf::RenderWindow& window);
+    void setGame (state::GameStates* Game);
+    void voidInitPlayerDynamicScene (Dynamic_scene* player1ds, Dynamic_scene* player2ds);
   };
 
   /// class ChoiceMenu - 

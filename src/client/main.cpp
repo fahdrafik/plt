@@ -145,9 +145,10 @@ int main(int argc,char* argv[])
             Players player2(&boardplayer2,&deckPlayer2,8000,HUMAN);
 
             game.init(player1,player2);
+            Dynamic_scene player1scene(&player1,&window);
+            Dynamic_scene player2scene(&player2,&window);
 
-            player1.display();
-            player2.display();
+            scene.setGame(&game);
             menu.play();
         }
     }
