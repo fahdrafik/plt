@@ -523,7 +523,8 @@ void Static_scene::setGame(state::GameStates* Game){
 }
 
 void Static_scene::initPlayerDynamicScene(Dynamic_scene* player1ds, Dynamic_scene* player2ds){
-
+    playerDynamicScene.push_back(player1ds);
+    playerDynamicScene.push_back(player2ds);
 }
 
 

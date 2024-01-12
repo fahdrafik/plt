@@ -318,3 +318,11 @@ void Decks::addCardToHand(Cards card) {
     std::cout << "Add Card to Hand\n";
     cardsInHand.push_back(card);
 }
+
+int Decks::getCardsInHandSize(){
+    return cardsInHand.size();
+}
+
+std::string Decks::getCardsInHandPath (int index){
+    cardsInHand[index].getPath();
+}

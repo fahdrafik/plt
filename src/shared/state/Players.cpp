@@ -31,6 +31,10 @@ namespace state {
         deck->drawCard();
     }
 
+    std::string Players::getCardsInBoardPath(int index) {
+        deck->getCardInHandType(index);
+    }
+
     void Players::initCardInHands() {
         deck->initCardsInHands();
     }
