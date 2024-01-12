@@ -314,7 +314,7 @@ void Static_scene::setConsultScene() //ICI
 
     /*Choix des cartes*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[2]));
-<<<<<<< HEAD
+
     Consult_Cards_SP.back().setScale(0.5f,0.5f);
     Consult_Cards_SP.back().setPosition(530,210);
 
@@ -325,7 +325,7 @@ void Static_scene::setConsultScene() //ICI
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
     Consult_Cards_SP.back().setScale(0.5f,0.5f);
     Consult_Cards_SP.back().setPosition(1100,210);
-=======
+
     Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(270,210);
 
@@ -336,7 +336,6 @@ void Static_scene::setConsultScene() //ICI
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
     Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(830,210);
->>>>>>> c9825d4 (Code du mode Consult Cards)
 
     /* Retour vers le menu principal*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[5]));
@@ -614,3 +613,4 @@ void Static_scene::updateConsultCards (int index){
         Consult_Cards_SP[4].setTexture(newTextureConsultCards[2]);
     }
 }
+

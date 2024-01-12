@@ -122,8 +122,8 @@ int main(int argc,char* argv[])
     else if (strcmp(argv[1], "engine") == 0){
         sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Yu-Gi-Oh!");
         sf::Vector2i windowPosition(
-                1000,//sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
-                1000//sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
+                sf::VideoMode::getDesktopMode().width / 2 - window.getSize().x / 2,
+                sf::VideoMode::getDesktopMode().height / 2 - window.getSize().y / 2
         );
         window.setPosition(windowPosition);
 
