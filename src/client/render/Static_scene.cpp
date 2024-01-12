@@ -314,19 +314,18 @@ void Static_scene::setConsultScene() //ICI
 
     /*Choix des cartes*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[2]));
-
-    Consult_Cards_SP.back().setScale(0.5f,0.5f);
+    Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(530,210);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[3]));
-    Consult_Cards_SP.back().setScale(0.7f,0.7f);
+    Consult_Cards_SP.back().setScale(2.1f,2.1f);
     Consult_Cards_SP.back().setPosition(775,160);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
-    Consult_Cards_SP.back().setScale(0.5f,0.5f);
+    Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(1100,210);
 
-    Consult_Cards_SP.back().setScale(1.5f,1.5f);
+    /*Consult_Cards_SP.back().setScale(1.5f,1.5f);
     Consult_Cards_SP.back().setPosition(270,210);
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[3]));
@@ -335,7 +334,7 @@ void Static_scene::setConsultScene() //ICI
 
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[4]));
     Consult_Cards_SP.back().setScale(1.5f,1.5f);
-    Consult_Cards_SP.back().setPosition(830,210);
+    Consult_Cards_SP.back().setPosition(830,210);*/
 
     /* Retour vers le menu principal*/
     Consult_Cards_SP.push_back(sf::Sprite(Consult_Cards_Texture[5]));
