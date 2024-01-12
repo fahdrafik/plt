@@ -41,7 +41,7 @@ Decks::Decks (DeckChoice DeckChoice) {
 
     //Création Cartes pour Deck Soldat
     Monsters ChevalierDuCommencent("Chevalier Du Commencent","Images/Deck/Soldats/ChevalierDuCommencent.jpg",TypeMonster,0,4,500,2000,0);
-    Monsters ChevalierDuCrepusule("Chevalier Du Commencent","Images/Deck/Soldats/ChevalierDuCrépusule.jpg",TypeMonster,0,4,500,2000,0);
+    Monsters ChevalierDuCrepusule("Chevalier Du Crépuscule","Images/Deck/Soldats/ChevalierDuCrépuscule.jpg",TypeMonster,0,4,500,2000,0);
     Monsters ChevalierDuRoi("Chevalier Du Roi","Images/Deck/Soldats/ChevalierDuRoi.jpg",TypeMonster,0,4,1600,1400,0);
     Monsters EmissaireDuChaos("Emissaire Du Chaos","Images/Deck/Soldats/EmissaireDuChaos.jpg",TypeMonster,0,4,1500,0,0);
     Monsters FloraisonDeCendres("Floraison De Cendres","Images/Deck/Soldats/FloraisonDeCendres.jpg",TypeMonster,0,3,0,1800,0);
@@ -171,87 +171,6 @@ Decks::Decks (DeckChoice DeckChoice) {
 }
 
 Decks::Decks (int id) {
-/*
-    if (id==1){
-       //deck dragon
-        // Open file with read only access
-        std::ifstream input;
-        input.open("DeckDragon.txt");
-        int temp;
-
-        // Check if file was opened, if not then close program
-        if (!input)
-        {
-            std::cout << "Failure to open file -- DeckDragon.txt" << std::endl;
-            exit(0);
-        }
-        else
-        {
-            std::string line; // Variable used to hold each line.
-
-            while (std::getline(input, line))
-            {
-                if (line == "monster") {
-                    Monsters m;
-
-                    // Lire les informations nécessaires du fichier ou d'où vous les obtenu
-                    getline(input, line); //ligne 2 nom
-                    m.setName(line);
-                    getline(input, line); //ligne 3 attack
-                    temp = stoi(line);
-                    m.setAttack(temp);
-                    getline(input, line); //ligne 4 defense
-                    temp = stoi(line);
-                    m.setDefense(temp);
-                    getline(input, line);
-
-                    m.setPath(line);
-
-                    cardsInDeck.push_back(m);
-                }
-                else if (line == "spell")
-                {
-
-                    Spells s;
-                    getline(input, line); //nom
-                    s.setName(line);
-                    getline(input, line);
-                    temp = stoi(line);
-                    //s.setEffect(temp);          //effet
-                    getline(input, line);
-                    temp = stoi(line);
-                    s.setSpellParameter(temp); //spellparameter
-                    getline(input, line);//path
-                    s.setPath(line);
-                    cardsInDeck.push_back(s);
-                }
-                else if (line == "trap")
-                {
-                    Traps t;
-                    getline(input, line);
-
-                    t.setName(line);
-                    getline(input, line);
-                    temp = stoi(line);
-                    //t.setEffect(temp);
-                    getline(input, line);
-                    temp = stoi(line);
-                    t.setTrapParameter(temp);
-                    getline(input, line);
-                    t.setPath(line);
-                    cardsInDeck.push_back(t);
-                }
-            }
-        }
-        input.close(); // closes file stream
-    }
-    if (id==2){
-        //deck soldier
-    }
-    if (id==3){
-        //deck synchro
-    }
-*/
 }
 
 void Decks::shuffle () {
@@ -324,5 +243,5 @@ int Decks::getCardsInHandSize(){
 }
 
 std::string Decks::getCardsInHandPath (int index){
-    cardsInHand[index].getPath();
+    return cardsInHand[index].getPath();
 }

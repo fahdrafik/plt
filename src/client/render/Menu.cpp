@@ -105,9 +105,9 @@ void Menu::play() {
             if (event.type == sf::Event::Closed) {
                 window->close();
             }
+        scene->drawSprite(scene->getWindow(),*window);
+        scene->drawDynamicScene(*window);
         }
-    scene->drawSprite(scene->getWindow(),*window);
-    scene->drawDynamicScene(*window);
     }
 }
 

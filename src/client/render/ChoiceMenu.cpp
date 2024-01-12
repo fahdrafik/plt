@@ -103,20 +103,22 @@ void ChoiceMenu::handleViewCards(sf::Vector2f mousePosition){
         cout << "Retour au menu principal !" << endl;
         scene->changeWindow(MENU_WINDOW);
     }
-    else if(Consult_Cards_SP[1].getGlobalBounds().contains(mousePosition))
+    else if(Consult_Cards_SP[0].getGlobalBounds().contains(mousePosition))
     {
         cout << "Next Cards ! " << endl;
         if(scene->getIndexConsultCards()!=39)
         {
             scene->setIndexConsultCards(scene->getIndexConsultCards() + 1 );
+            scene->updateConsultCards(scene->getIndexConsultCards());
         }
     }
-    else if(Consult_Cards_SP[0].getGlobalBounds().contains(mousePosition))
+    else if(Consult_Cards_SP[1].getGlobalBounds().contains(mousePosition))
     {
         cout << "Previous Cards ! " << endl;
         if(scene->getIndexConsultCards()!=0)
         {
             scene->setIndexConsultCards(scene->getIndexConsultCards() - 1 );
+            scene->updateConsultCards(scene->getIndexConsultCards());
         }
     }
 }

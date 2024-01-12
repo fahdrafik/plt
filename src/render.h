@@ -22,6 +22,7 @@ namespace render {
     /// It's the image displayed at the background
     sf::Sprite background;
     sf::Texture background_texture;
+    sf::Texture newTextureConsultCards[3];
   protected:
     state::GameStates* Game;
     /// This is a list with two players, because its a 2 players game.
@@ -65,6 +66,7 @@ namespace render {
     void initPlayerDynamicScene (Dynamic_scene* player1ds, Dynamic_scene* player2ds);
     void displayConsultCards ();
     void initConsultCards ();
+    void updateConsultCards (int index);
   };
 
   /// class Dynamic_scene - 
