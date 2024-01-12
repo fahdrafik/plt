@@ -126,14 +126,7 @@ namespace state {
         }
     }
 
-    bool Players::isHuman(){
-        if(this->type==HUMAN){
-            return true;
-       }
-        else {
-            return false;
-        }
-}
+
 
     int Players::getId() const{
         return id;

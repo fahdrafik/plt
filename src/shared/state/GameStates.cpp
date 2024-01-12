@@ -84,7 +84,7 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::changePhase() {
-        if(this->currentPlayer->isHuman()) {
+        if((this->currentPlayer->getType())==HUMAN) {
             switch (currentPhase) {
                 case (DrawPhase):
                     currentPhase = FirstMainPhase;
@@ -106,7 +106,7 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::playPhase() {
-        if(this->currentPlayer->isHuman()) {
+        if((this->currentPlayer->getType())==HUMAN) {
             cout << "Appuyer A : Poser une carte" << endl;
             cout << "Appuyer B : Activer une carte Magie" << endl;
             cout << "Appuyer C : Changer position d'une carte" << endl;
@@ -141,7 +141,7 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::mainPhase() {
-        if(this->currentPlayer->isHuman()) {
+        if((this->currentPlayer->getType())==HUMAN) {
             sf::Event event;
             event.type = sf::Event::KeyPressed;
             event.key.code = sf::Keyboard::A;
@@ -179,7 +179,7 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::battlePhase() {
-        if(this->currentPlayer->isHuman()) {
+        if((this->currentPlayer->getType())==HUMAN) {
             sf::Event event;
             event.type = sf::Event::KeyPressed;
             event.key.code = sf::Keyboard::R;
