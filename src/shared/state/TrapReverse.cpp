@@ -11,8 +11,7 @@ using namespace std;
 namespace state {
 
 
-    void
-    TrapReverse::activate(Boards *attackingBoard, Boards *defendingBoard, int index) // TODO ajout pointeur sur card ??
+    void TrapReverse::activate(Boards *attackingBoard, Boards *defendingBoard, int index) // TODO ajout pointeur sur card ??
     {
         if (getIdCard() != 95) {  //95 identifies as a Trap apparently
             std::cerr << "Wrong CardType";
