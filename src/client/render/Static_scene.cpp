@@ -15,6 +15,7 @@ Static_scene::Static_scene() {
     this->background=sf::Sprite();
     (this->background).setTexture(this->background_texture);
     this->changeWindow(TITLE_SCREEN_WINDOW);
+    this->indexConsultCards=0;
 }
 Static_scene::~Static_scene() {
 }
@@ -539,4 +540,9 @@ void Static_scene::initPlayerDynamicScene(Dynamic_scene* player1ds, Dynamic_scen
     playerDynamicScene.push_back(player2ds);
 }
 
-
+int Static_scene::getIndexConsultCards() const{
+    return indexConsultCards;
+}
+void Static_scene::setIndexConsultCards(int indexConsultCards){
+    this->indexConsultCards=indexConsultCards;
+}

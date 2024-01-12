@@ -131,6 +131,7 @@ int main(int argc,char* argv[])
         Static_scene scene;
         ChoiceMenu choice(&scene);
         Menu menu(&choice,&window,&scene);
+        Decks displayDeck(DeckSynchro);
 
         scene.init();
         menu.run();

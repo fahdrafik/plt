@@ -91,11 +91,9 @@ void Dynamic_scene::displayCardsInHands(){
     for(int i = 0 ; i<player->getCardsInHandSize() ; i++){
         sf::Texture texture;
         texture.loadFromFile(player->getCardsInHandPath(i));
-        cout << player->getCardsInHandPath(i) << endl;
         CardsInHands_SP[i].setTexture(texture);
         window->draw(CardsInHands_SP[i]);
-        cout << "ici 2" << endl;
     }
-    cout << "ici 1" << endl;
     window->display();
 }
+
