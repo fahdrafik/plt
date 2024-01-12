@@ -22,6 +22,7 @@ void testSFML() {
 #include <state.h>
 #include <render.h>
 #include <engine.h>
+#include <ai.h>
 
 using namespace std;
 using namespace state;

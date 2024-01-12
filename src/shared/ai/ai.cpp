@@ -19,11 +19,24 @@ namespace ai {
         bot= Players(&board, &deck,8000, type);
     }
     ai::~ai(){}
-    void mainPhase(){
+    void ai::mainPhase(){
+        this->bot.drawCard();
+        this->hand=this->bot.getCardsInHand();
+        int sizeHand=hand.size();
+
+        //placing cards in board either in attac or defense position
+        for (int i=0; i<sizeHand; i++){
+            if(hand[i].isMonster()){
+                state::Monsters monster = dynamic_cast<state::Monsters&>(hand[i]);
+                int attack = monster.getAttack();
+                int defense = monster.getDefense();
+
+                //set monser in attack or defense
+                if(attack<defense){monster.setPosition(true); }
+                else if(defense<attack){monster.setPosition(false);}
+                this->bot.board->addMonster(monster);
+            }
+        }
     }
     // Setters and Getters
-    const state::GameStates& ai::getState() const{}
-    void ai::setState(const state::GameStates& state){}
-    const state::Players& ai::getBot() const{}
-    void ai::setBot(const state::Players& bot){}
 }

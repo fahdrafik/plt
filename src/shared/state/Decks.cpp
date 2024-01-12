@@ -324,5 +324,5 @@ int Decks::getCardsInHandSize(){
 }
 
 std::string Decks::getCardsInHandPath (int index){
-    cardsInHand[index].getPath();
+    return cardsInHand[index].getPath();
 }

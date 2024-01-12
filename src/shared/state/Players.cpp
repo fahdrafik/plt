@@ -47,6 +47,10 @@ namespace state {
         deck->initCardsInHands();
     }
 
+    std::vector<Cards> Players::getCardsInHand(){
+        return deck->getCardsInHand();
+    }
+
     void Players::shuffle() {
         deck->shuffle();
     }

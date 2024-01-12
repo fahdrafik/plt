@@ -9,7 +9,6 @@
 #include "Decks.h"
 #include "Boards.h"
 #include "Phases.h"
-
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
@@ -199,10 +198,6 @@ void GameStates::addPlayer (){
             }
         }
         else{
-            /*With the AI class I am suposed to generate the events
-             * that the player sent, but the action is already built
-             * in other method classes.
-             * */
 
         }
     }
