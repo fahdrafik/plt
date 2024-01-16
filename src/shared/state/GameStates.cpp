@@ -83,7 +83,6 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::changePhase() {
-        if((this->currentPlayer->getType())==HUMAN) {
             switch (currentPhase) {
                 case (DrawPhase):
                     currentPhase = FirstMainPhase;
@@ -101,7 +100,7 @@ void GameStates::addPlayer (){
                     currentPhase = DrawPhase;
                     break;
             }
-        }
+
     }
 
     void GameStates::playPhase() {
