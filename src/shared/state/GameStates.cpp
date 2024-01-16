@@ -104,13 +104,11 @@ void GameStates::addPlayer (){
     }
 
     void GameStates::playPhase() {
-        if((this->currentPlayer->getType())==HUMAN) {
             cout << "Appuyer A : Poser une carte" << endl;
             cout << "Appuyer B : Activer une carte Magie" << endl;
             cout << "Appuyer C : Changer position d'une carte" << endl;
             cout << "Appuyer R : Passer à la phase suivante" << endl;
             cout << "Appuyer P : Passer son tour" << endl;
-
             switch(currentPhase)
                 {
                     case(DrawPhase):
@@ -132,10 +130,6 @@ void GameStates::addPlayer (){
                         cout << "Player " << this->getCurrentPlayerID() << " has ended his tour !"<< endl;
                         break;
                 }
-        }
-        else{
-
-        }
     }
 
     void GameStates::mainPhase() {
