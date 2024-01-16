@@ -28,8 +28,8 @@ void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards b
     }
 }
 void ModifyBoard::triggerTrap (state::Traps* trap, state::Boards* attackingBoard, state::Boards* defendingBoard, int index){
-    //trap->activate(attackingBoard,defendingBoard, index);
-    trap->activate();
+    trap->activate(attackingBoard,defendingBoard, index);
+    //trap->activate();
 }
 
 void ModifyBoard::triggerSpell (state::Spells* spell, state::Boards* attackingBoard, state::Boards* defendingBoard, int index) {
