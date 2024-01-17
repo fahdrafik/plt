@@ -22,8 +22,9 @@ namespace ai {
         int numbOpMonsters=oponent->deck->cardsM.size();//Number of oponent's monsters
 
         if (0<this->myMonsters.size()){
+            int loops =this->myMonsters.size();
             //
-            for (int i=0;i<this->myMonsters.size();i++){
+            for (int i=0;i<loops;i++){
                 srand(time(0));
                 int random_index = rand() % this->oponentsMonster.size();
 
@@ -46,7 +47,7 @@ namespace ai {
             for (int i=0;i<2;i++){
                 srand(time(0));
                 int random_index = rand() % this->mySpells.size();
-                bot.deck->cardsT[random_index].activate(&this->board,oponent->board,random_index);
+                bot.deck->cardsT[random_index].activate(this->board,oponent->board,random_index);
             }
         }
 

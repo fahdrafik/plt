@@ -1,33 +1,6 @@
 
 namespace engine {
 
-  /// class ChooseDeck - this class will manage the internal changes
-  class ChooseDeck {
-    // Attributes
-  protected:
-    state::Decks deck;
-    // Operations
-  public:
-    void chooseDeck (state::Decks deck);
-    void execute ();
-  };
-
-  /// class ModifyHand - this class will manage the internal changes
-  class ModifyHand {
-    // Attributes
-  private:
-    int RandomIndex;
-  protected:
-    state::Decks deck;
-    // Operations
-  public:
-    ModifyHand ();
-    ModifyHand (state::Decks deck);
-    void drawCard (int attacktype);
-    void placeCard (state::Cards card);
-    void execute ();
-  };
-
   /// class Attack - this class will manage the internal changes
   class Attack {
     // Attributes
@@ -52,7 +25,7 @@ namespace engine {
     // Operations
   public:
     ModifyBoard ();
-    ModifyBoard (state::Cards card, state::Boards board);
+    ModifyBoard (state::Players player, state::GameStates state, int IdCardModify);
     void change_monster_state (state::Monsters monster, state::Boards board);
     void triggerSpell (state::Spells* spell, state::Boards* attackingBoard, state::Boards* defendingBoard, int index);
     /// I assume that board_1 is for the usser and Board_2 is for the rival
@@ -62,6 +35,33 @@ namespace engine {
     /// @param index		(???) 
     void triggerTrap ();
     void SendCardZone (state::Cards card, state::Boards board);
+    void execute ();
+  };
+
+  /// class ModifyHand - this class will manage the internal changes
+  class ModifyHand {
+    // Attributes
+  private:
+    int RandomIndex;
+  protected:
+    state::Decks deck;
+    // Operations
+  public:
+    ModifyHand ();
+    ModifyHand (state::Decks deck);
+    void drawCard (int attacktype);
+    void placeCard (state::Cards card);
+    void execute ();
+  };
+
+  /// class ChooseDeck - this class will manage the internal changes
+  class ChooseDeck {
+    // Attributes
+  protected:
+    state::Decks deck;
+    // Operations
+  public:
+    void chooseDeck (state::Decks deck);
     void execute ();
   };
 
@@ -78,8 +78,6 @@ namespace engine {
     Command ();
     Command (state::Players player, state::GameStates state);
     ~Command ();
-    void writeJSON (Command* command);
-    void readJSON (std::vector<Command*> command);
   };
 
   /// class Engine - to manage the user commands

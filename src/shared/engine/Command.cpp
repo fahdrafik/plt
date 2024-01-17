@@ -25,9 +25,26 @@ void Command::execute (state::Players player, state::GameStates phase){
     void Command::setPlayer(const state::Players &player) {
         this->player = player;
     }
-
-    void Command::writeJSON(Command *command) {}
-
-    void Command::readJSON(std::vector<Command *> command) {}
+    state::Players& Command::getPlayer() const{
+        return this->player;
+    }
+    const state::Players& Command::getOpponent() const{
+        return this->opponent;
+    }
+    void Command::setOpponent(const state::Players& opponent){
+        this->oponent = opponent;
+    }
+    const state::GameStates& Command::getState() const{
+        return this->state;
+    }
+    void Command::setState(const state::GameStates& state){
+        this->state = state;
+    }
+    const state::Boards& Command::getBoard() const{
+        return this->board;
+    }
+    void Command::setBoard(const state::Boards& board){
+        this->board = board;
+    }
 // Setters and Getters
 }

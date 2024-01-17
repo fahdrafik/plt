@@ -7,8 +7,8 @@
 using namespace engine;
 using namespace std;
 
-ModifyBoard::ModifyBoard (state::Cards card, state::Boards board){
-   // int IdCardToModify;
+ModifyBoard::ModifyBoard (state::Players player, state::GameStates state, int IdCardModify) : Command (player, state){
+    this->IdCardModify = IdCardModify;
 }
 void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards board){
     int IdCardToModify = monster.getID();
