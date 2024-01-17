@@ -71,7 +71,7 @@ namespace engine {
   protected:
     state::Players player;
     state::Players opponent;
-    state::GameStates state;
+    state::GameStates *state;
     state::Boards board;
     // Operations
   public:
