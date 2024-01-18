@@ -4,8 +4,7 @@
 using namespace std;
 using namespace state;
 
-Monsters::Monsters(int idCard,std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position):
-Cards(idCard,name,path,typeCarte){
+Monsters::Monsters(int idCard,std::string name, std::string path, CardTypes typeCarte, int effet, int level, int attack, int defense, bool position): Cards(idCard,name,path,typeCarte) {
     this->effet = effet;
     this->level = level;
     this->attack = attack;
@@ -68,6 +67,8 @@ void Monsters::setSpell(int effet) {
     defense=defense+effet;
     cout << "Nouveaux points d'ATK " << attack << " et de DEF : " << defense << endl;
 }
-
+int Monsters::getID(){
+    return this->idCard;
+}
 
 

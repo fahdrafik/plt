@@ -11,7 +11,7 @@ using namespace std;
 namespace state {
 
 
-    void TrapCounter::activate(Boards *attackingBoard, Boards *defendingBoard, int index) // TODO ajout pointeur sur card ?? Ou avoir un indes qui facilite l'accés
+    void TrapCounter::activate(state::Boards attackingBoard, state::Boards defendingBoard, int index) // TODO ajout pointeur sur card ?? Ou avoir un indes qui facilite l'accés
     {
         if (getIdCard() != 95) {  //95 identifies as a Trap apparently
             std::cerr << "Wrong CardType";
@@ -21,7 +21,7 @@ namespace state {
             //Let's find which of the defendingBoard Traps is set to know which one to disable
 
             //get the list of Traps activated
-            std::vector<Traps> ActiveTraps= defendingBoard->getTraps();
+            std::vector<Traps> ActiveTraps= defendingBoard.getTraps();
 
             for( auto it = ActiveTraps.begin() ; it !=ActiveTraps.end();it++) {
                 if (!it->getSet()) {
@@ -37,11 +37,11 @@ namespace state {
         }
     }
 
-    void state::TrapCounter::desactivate (Boards* attackingBoard, Boards* defendingBoard, int index) { // Do we add
+    void state::TrapCounter::desactivate (state::Boards attackingBoard, state::Boards* defendingBoard, int index) { // Do we add
 
         //deactivating means putting back the set tu false
         Boards* DeacativTrap = new Boards;
-        std::vector<Traps> DeactivationVector= attackingBoard->getTraps();
+        std::vector<Traps> DeactivationVector= attackingBoard.getTraps();
         DeactivationVector[index].setSet(false);
         cout << "Deactivation succeeded !" << endl;
         delete DeacativTrap;

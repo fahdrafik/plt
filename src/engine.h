@@ -25,7 +25,7 @@ namespace engine {
     // Operations
   public:
     ModifyBoard ();
-    ModifyBoard (state::Players player, state::GameStates state, int IdCardModify);
+    ModifyBoard (state::Players player, state::Players oponent, state::GameStates state, state::Boards board, int IdCardModify);
     void change_monster_state (state::Monsters monster, state::Boards board);
     void triggerSpell (state::Spells* spell, state::Boards* attackingBoard, state::Boards* defendingBoard, int index);
     /// I assume that board_1 is for the usser and Board_2 is for the rival
@@ -70,13 +70,13 @@ namespace engine {
     // Attributes
   protected:
     state::Players player;
-    state::Players opponent;
+    state::Players oponent;
     state::GameStates state;
     state::Boards board;
     // Operations
   public:
     Command ();
-    Command (state::Players player, state::GameStates state);
+    Command (state::Players player, state::Players oponent, state::GameStates state, state::Boards board);
     ~Command ();
   };
 
@@ -90,7 +90,7 @@ namespace engine {
     state::GameStates state;
     std::vector<Command> past_commands;
     state::Players current_player;
-    state::Players opponent_player;
+    state::Players oponent_player;
   protected:
     Attack attack;
     ModifyBoard modifyBoard;

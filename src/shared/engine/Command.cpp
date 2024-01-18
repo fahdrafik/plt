@@ -8,10 +8,19 @@ using namespace std;
 
 namespace engine {
 //Command::Command() {}
-    Command::Command(state::Players player, state::GameStates state) {
+    Command::Command(){
+        this->player = state::Players();//do we take an existing player or we create one that will stay as the player in run.
+        //we take an existing one, like when it will be its turn the command will apply only on him and not on the advesary
+        this->oponent = state::Players();
+        this->state = state::GameStates();//
+        this->board = state::Boards();
+    }
+    Command::Command(state::Players player, state::Players oponent, state::GameStates state, state::Boards board) {
         this->player = player;//do we take an existing player or we create one that will stay as the player in run.
         //we take an existing one, like when it will be its turn the command will apply only on him and not on the advesary
+        this->oponent = oponent;
         this->state = state;//
+        this->board = board;
     }
 
     Command::~Command() {}
@@ -25,14 +34,14 @@ void Command::execute (state::Players player, state::GameStates phase){
     void Command::setPlayer(const state::Players &player) {
         this->player = player;
     }
-    state::Players& Command::getPlayer() const{
+    const state::Players& Command::getPlayer() const{
         return this->player;
     }
-    const state::Players& Command::getOpponent() const{
-        return this->opponent;
+    const state::Players& Command::getOponent() const{
+        return this->oponent;
     }
-    void Command::setOpponent(const state::Players& opponent){
-        this->oponent = opponent;
+    void Command::setOponent(const state::Players &oponent) {
+        this->oponent = oponent;
     }
     const state::GameStates& Command::getState() const{
         return this->state;

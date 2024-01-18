@@ -7,7 +7,7 @@
 using namespace engine;
 using namespace std;
 
-ModifyBoard::ModifyBoard (state::Players player, state::GameStates state, int IdCardModify) : Command (player, state){
+ModifyBoard::ModifyBoard (state::Players player, state::Players oponent , state::GameStates state, state::Boards board, int IdCardModify) : Command (player, oponent,state,board){
     this->IdCardModify = IdCardModify;
 }
 void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards board){
@@ -26,7 +26,8 @@ void ModifyBoard::change_monster_state (state::Monsters monster, state::Boards b
     }
 }
 //void ModifyBoard::send_graveyard (state::Monsters monster, state::Boards board){}
-void ModifyBoard::triggerTrapSpell (state::Cards card, state::Boards board ){}
+void ModifyBoard::triggerSpell(state::Spells* spell, state::Boards* attackingBoard, state::Boards* defendingBoard, int index) {}
+void ModifyBoard::triggerTrap(state::Traps* trap, state::Boards* attackingBoards, state::Boards* defendingBoard, int index) {}
 void ModifyBoard::SendCardZone (state::Cards card, state::Boards board){
     if (card.isMonster()){
         board.addMonster(dynamic_cast<state::Monsters&>(card));

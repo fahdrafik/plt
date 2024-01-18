@@ -28,7 +28,7 @@ namespace engine {
 
     void Engine::init(state::GameStates state) {
         current_player= state.getPlayerList()[0];
-        opponent_player= state.getPlayerList()[1];
+        oponent_player= state.getPlayerList()[1];
 
         attack.setState(state);
         chooseDeck.setState(state);
@@ -45,19 +45,17 @@ namespace engine {
         modifyHand.setPlayer(player);
 
     }
-    void Engine::setOpponent (Players opponent){
-        modifyBoard.setOpponent(opponent);
-        attack.setOpponent(opponent);
-        modifyHand.setOpponent(opponent);
+    void Engine::setOponent (Players oponent){
+        modifyBoard.setOponent(oponent);
+        attack.setOponent(oponent);
+        modifyHand.setOponent(oponent);
 
     }
 
     void Engine::execute_attackMonsterWmonster() {
         attack.setAttacktype(0);
         attack.setPlayer(current_player);
-        attack.setOpponent(opponent_player);
-        //attack.setAttackingMonster();
-        //attack.setDefendingMonster();
+        attack.setOponent(oponent_player);
 
         attack.execute();
     }
@@ -65,7 +63,7 @@ namespace engine {
     void Engine::execute_attackPlayerWmonster() {
         attack.setAttacktype(1);
         attack.setPlayer(current_player);
-        attack.setOpponent(opponent_player);
+        attack.setOponent(oponent_player);
         //attack.setAttackingMonster();
         attack.execute();
     }
@@ -74,9 +72,9 @@ namespace engine {
     }
     void Engine::execute_changeTurn(){
         Players temp = current_player;
-        current_player= opponent_player;
-        opponent_player = temp;
-        this->setOpponent(opponent_player);
+        current_player= oponent_player;
+        oponent_player = temp;
+        this->setOponent(oponent_player);
         this->setPlayer(current_player);
         state.incrementTurn();
 

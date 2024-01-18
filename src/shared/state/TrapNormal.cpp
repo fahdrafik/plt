@@ -12,7 +12,7 @@ using namespace std;
 namespace state {
 
 
-void TrapNormal::activate(Boards *attackingBoard, Boards *defendingBoard, int index) // TODO ajout pointeur sur card ??
+void TrapNormal::activate(state::Boards attackingBoard, Boards* defendingBoard, int index) // TODO ajout pointeur sur card ??
 {
     //Is it really a Trap Card we're trying to activate ??
     if (getIdCard() != 95) {  //95 identifies as a Trap apparently
@@ -27,12 +27,12 @@ void TrapNormal::activate(Boards *attackingBoard, Boards *defendingBoard, int in
     }
 }
 
-void TrapNormal::desactivate(Boards *attackingBoard, Boards *defendingBoard, int index) { // Do we add
+void TrapNormal::desactivate(state::Boards attackingBoard, Boards* defendingBoard, int index) { // Do we add
 
     //desactivating means putting back the set tu false
 
     Boards* DeacativTrap = new Boards;
-    std::vector<Traps> DesactivationVector= attackingBoard->getTraps();
+    std::vector<Traps> DesactivationVector= attackingBoard.getTraps();
     DesactivationVector[index].setSet(false);
     cout << "Deactivation succeeded !" << endl;
     delete DeacativTrap;
