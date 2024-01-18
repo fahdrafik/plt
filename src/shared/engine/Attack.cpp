@@ -14,12 +14,12 @@ namespace engine {
     Attack::Attack() {}
 
     void Attack::execute() {
-        Players opponent = this->getOpponent();
+        Players oponent = this->getOponent();
         if (attacktype==0){
-            player.attackCard(&opponent,attackingMonster.getIdCard(),defendingMonster.getIdCard());
+            player.attackCard(&oponent,attackingMonster.getIdCard(),defendingMonster.getIdCard());
         }
         else {
-            player.attackPlayer(attackingMonster.getIdCard(),&opponent);
+            player.attackPlayer(attackingMonster.getIdCard(),&oponent);
         }
 
     }
