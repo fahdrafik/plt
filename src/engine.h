@@ -117,7 +117,7 @@ namespace engine {
     void execute_attackMonsterWmonster ();
     void setPlayer (state::Players player);
     void execute_changeTurn ();
-    void setOpponent (state::Players opponent);
+    void setOponent (state::Players oponent);
   };
 
 };
